@@ -2,19 +2,24 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewsController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\Auth\LoginController;
 Route::get('/', function () {
     return view('welcome');
 });
 
+//Login & Register of Users\\
 Route::get('/login' , [ViewsController::class, 'returnLoginView']);
+Route::controller(LoginController::class)->group(function(){
+    Route::post('/register','register')->name('user.register');
+    Route::post('/login', 'login')->name('user.login');
+    Route::post('/logout' , 'logout')->name('user.logout');
+});
+//Views for student or Admin Dashboard
+Route::get('/admin' , [ViewsController::class, 'returnAdminDashboardView']);
+Route::get('/student' , [ViewsController::class, 'returnStudentDashboardView']);
+
+//EventController
+Route::controller(EventController::class)->group(function(){
+    Route::post('/addevent', 'addEvent')->name('add.event');
+});
