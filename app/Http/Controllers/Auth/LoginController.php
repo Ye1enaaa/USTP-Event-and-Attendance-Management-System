@@ -68,6 +68,10 @@ class LoginController extends Controller
         return redirect('/login')->with('Success','Registered Successfully');
     }
 
+
+
+
+
     public function logout(){
         Auth::logout();
         return redirect('/login');

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
 
-    <title>Login</title>
+    <title>Register</title>
 </head>
 
 <body class="bg-blue-100">
@@ -19,66 +19,7 @@
     <br><br>
 
 
-
     <div class="max-w-md mx-auto mt-4 p-4 bg-white rounded-lg shadow-lg">
-
-        <div class="flex justify-center items-center">
-            <h1 class="text-4xl font-bold text-black h-16">LOGIN</h1>
-        </div>
-
-         <div class="flex justify-center items-center">
-            <img src="{{ asset('assets/pictures/ustp-logo.png') }}" class="h-20 w-20 object-contain">
-        </div>
-        <br><br>
-
-
-        <div>
-            <form action="{{route('user.login')}}" method="post">
-                @csrf
-
-
-                <div>
-                    <label for="StudentID" class=" block mb-2 text-lg font-bold dark:text-white">StudentID:</label>
-                        <input 
-                            class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none focus:border-blue-500" 
-                            type="text" 
-                            name="studentId" required>
-                            <!-- id="Email" 
-                            placeholder="Email" -->
-                </div> <br>
-
-
-
-                <!-- <input type="text" name="studentId" class="mb-4"> -->
-
-
-                <div>
-                    <label for="Password" class=" block mb-2 text-lg font-bold dark:text-white">Password:</label>
-                        <input 
-                            class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none focus:border-blue-500" 
-                            type="password" 
-                            name="password" required>
-
-                </div>
-                <br><br>
-
-
-                <!-- <input type="password" name="password" class="mb-4"> -->
-                
-                <div class="flex justify-center">
-                    <button type="submit" class="flex justify-center items-center bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-10 rounded-lg">SIGN IN</button>
-                 </div>    
-                 
-                <p class="text-center mt-4 text-gray-500">Don't have an account yet? <a href="{{ route('user.register') }}" class="text-blue-500">Sign up</a></p>
-
-                <br><br>
-            </form>
-
-    </div>
-
-
-
-        <div class="max-w-md mx-auto mt-4 p-4 bg-white rounded-lg shadow-lg">
 
 
             <form action="{{route('user.register')}}" method="post" enctype="multipart/form-data">
@@ -149,11 +90,6 @@
 
 
         </div>
-        
-
-
-
-    
 
 
 
