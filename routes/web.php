@@ -10,6 +10,7 @@ Route::get('/', function () {
 
 // Login & Register of Users\\
 Route::get('/login' , [ViewsController::class, 'returnLoginView']);
+Route::get('/register' , [ViewsController::class,'returnRegisterView']);
 Route::controller(LoginController::class)->group(function(){
     Route::post('/register','register')->name('user.register');
     Route::post('/login', 'login')->name('user.login');

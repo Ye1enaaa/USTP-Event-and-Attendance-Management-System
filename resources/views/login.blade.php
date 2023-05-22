@@ -78,7 +78,7 @@
 
 
 
-        <div class="max-w-md mx-auto mt-4 p-4 bg-white rounded-lg shadow-lg">
+        <!--<div class="max-w-md mx-auto mt-4 p-4 bg-white rounded-lg shadow-lg">
 
 
             <form action="{{route('user.register')}}" method="post" enctype="multipart/form-data">
@@ -91,8 +91,8 @@
                             class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none focus:border-blue-500" 
                             type="text" 
                             name="name" required>
-                            <!-- id="Email" 
-                            placeholder="Email" -->
+                            id="Email" 
+                            placeholder="Email"
                 </div> <br>
 
                 <div>
@@ -148,14 +148,7 @@
             </form>
 
 
-        </div>
-        
-
-
-
-    
-
-
+        </div>-->
 
 </body>
 </html>

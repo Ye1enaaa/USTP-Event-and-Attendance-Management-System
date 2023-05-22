@@ -9,49 +9,61 @@ use App\Models\Attendee;
 class EventAttendeesController extends Controller
 {
     //
-    public function addAttendees(Request $request){
-        $event_id = "70b58896-b728-40b5-b00e-f7434d422f35";
-        $event = Event::find($event_id);
+    public function addAttendees(Request $request, $event_id){
+        //$event_ids = "ac6e0d3c-afd3-4411-80e6-f3f30cc0dc4b";
+        $event = Event::where('event_id',$event_id)->first();
 
+        //$event_id = $event->event_id;
+        $eventId = $event->id;
         if(!$event){
             return response([
                 'error' =>'error',
                 'id' => $event_id
             ], 404);
         }
+    
+        $validateField = $request->validate([
+            'studentId' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+        ]);
 
-        $attendeesData = $request->input('attendeesData');
-        if (!is_array($attendeesData)) {
-            return response([
-                'error' =>'Invalid attendees data'
-            ], 400);
-        }
-        
-        foreach($attendeesData as $attendeesData){
-            $attendee = new Attendee();
-            $attendee->name = $attendeesData['name'];
-            $attendee->user_id = $attendeesData['user_id'];
-            $attendee->studentId = $attendeesData['studentId'];
-            $attendee->email = $attendeesData['email'];
-            $attendee->event_id = $event_id;
-            $attendee->save();
-            
-        }
-
-        //$result= $event->attendees()->attach($attendee);
-        //$event->attendees()->attach($attendee);
+        $attendeeData = Attendee::create([
+            'studentId' => $validateField['studentId'],
+            'name' => $validateField['name'],
+            'email' => $validateField['email'],
+            'event_id' => $eventId //1
+        ]);
+    
         return response([
             'event' => $event,
-            'attendees' => $attendeesData
+            'attendees' => $attendeeData
         ]);
     }
+    
 
     public function getDatawithAttendee(){
-        $event_id = "70b58896-b728-40b5-b00e-f7434d422f35";
+        $event_id = "5056ed7c-9f3a-4503-ab65-e0bdd37c6cd9";
         $event= Event::with('attendees')->find($event_id);
         return response([
             'event' => $event,
             'attendees' => $event->attendees
+        ]);
+    }
+
+    public function fetchEventData($id){
+        $eventName = Event::with('attendees')->find($id);
+        return response([
+            'event' =>  $eventName,
+            'eventid' => $eventName->id
+        ]);
+    }
+
+    public function fetchEventDatabyID($id){
+        $eventName = Event::where('id',$id)->get();
+
+        return response([
+            'event' =>  $eventName
         ]);
     }
 }

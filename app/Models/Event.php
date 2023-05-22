@@ -12,13 +12,14 @@ class Event extends Model
     protected $fillable =[
         'event_id',
         'eventName', // what
+        'eventTime',
         'eventDate', //when
         'eventPlace', //where
         'eventPicture',
         'eventDesc'
     ];
 
-    protected $primaryKey = 'event_id';
+    //protected $primaryKey = 'event_id';
     
     public function attendees(){
         return $this->hasMany(Attendee::class);

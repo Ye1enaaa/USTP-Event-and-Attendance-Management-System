@@ -18,4 +18,8 @@ class ViewsController extends Controller
         $events = Event::all();
         return view('Users.admin', compact('events'));
     }
+
+    public function returnRegisterView(){
+        return view('register');
+    }
 }
