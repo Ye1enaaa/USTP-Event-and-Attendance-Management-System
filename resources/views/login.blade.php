@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
 
+     <script src="{{asset('js/login.js')}}"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
@@ -30,9 +31,9 @@
         </div>
 
          <div class="flex justify-center items-center">
-            <img src="{{ asset('assets/pictures/ustp-logo.png') }}" class="h-20 w-20 object-contain">
+            <img src="{{ asset('assets/pictures/ustp-logo.png') }}" class="h-40 w-60 object-contain">  
         </div>
-        <br><br> <br><br>
+        <br><br>
 
 
 
@@ -84,23 +85,9 @@
 
                 <br><br>
             </form>
+            
 
     </div>
 
 </body>
 </html>
-
-<script>
-function togglePasswordVisibility() {
-  var passwordInput = document.getElementById("password");
-  var passwordToggle = document.getElementById("passwordToggle");
-
-  if (passwordInput.type === "password") {
-    passwordInput.type = "text";
-    passwordToggle.classList.add("fa-eye-slash");
-  } else {
-    passwordInput.type = "password";
-    passwordToggle.classList.remove("fa-eye-slash");
-  }
-}
-</script>
