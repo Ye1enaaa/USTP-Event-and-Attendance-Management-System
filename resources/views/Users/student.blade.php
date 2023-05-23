@@ -8,5 +8,8 @@
 </head>
 <body>
     {{Auth::user()->email}}
+    @foreach($events as $event)
+        <h3>{{$event->eventName}}</h3>
+    @endforeach
 </body>
 </html>

@@ -25,6 +25,7 @@ Route::get('/student' , [ViewsController::class, 'returnStudentDashboardView']);
 //EventController
 Route::controller(EventController::class)->group(function(){
     Route::post('/addevent', 'addEvent')->name('add.event');
+    Route::delete('/delete/{id}', 'destroy')->name('delete.event');
 });
 
 
