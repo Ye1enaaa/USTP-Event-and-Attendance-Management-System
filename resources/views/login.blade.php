@@ -16,7 +16,7 @@
     <div class="bg-yellow-400 flex items-center">
         <div class="pl-4">
             <img src="{{ asset('assets/pictures/ustp-logo.png') }}" class="h-14 w-14 object-contain">
-        </div>        
+        </div>
         <h1 class="pl-6 text-4xl font-bold text-blue-900">USTP-CDO EVENT</h1>
     </div>
     <br><br>
@@ -46,8 +46,8 @@
                     <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                         <i class="fas fa-user text-gray-400"></i>
                     </span>
-                    <input class="border border-gray-400 block py-2 pl-10 pr-4 w-full rounded focus:outline-none focus:border-blue-500" 
-                        type="text" 
+                    <input class="border border-gray-400 block py-2 pl-10 pr-4 w-full rounded focus:outline-none focus:border-blue-500"
+                        type="text"
                         name="studentId" required
                         placeholder="Student ID">
                 </div>
@@ -60,10 +60,10 @@
                     <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                         <i class="fas fa-lock text-gray-400"></i>
                     </span>
-                    <input class="border border-gray-400 block py-2 pl-10 pr-4 w-full rounded focus:outline-none focus:border-blue-500" 
-                        type="password" 
-                        name="password" 
-                        id="password" 
+                    <input class="border border-gray-400 block py-2 pl-10 pr-4 w-full rounded focus:outline-none focus:border-blue-500"
+                        type="password"
+                        name="password"
+                        id="password"
                         required
                         placeholder="Password">
                     <button type="button" class="absolute inset-y-0 right-0 flex items-center pr-3 focus:outline-none" onclick="togglePasswordVisibility()">
@@ -75,11 +75,11 @@
 
                 <br><br>
 
-                
+
                 <div class="flex justify-center">
                     <button type="submit" class="flex justify-center items-center bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-10 rounded-lg">SIGN IN</button>
-                </div>    
-                 
+                </div>
+
                 <p class="text-center mt-4 text-gray-500">Don't have an account yet? <a href="{{ route('user.register') }}" class="text-blue-500">Sign up</a></p>
 
                 <br><br>
@@ -89,3 +89,18 @@
 
 </body>
 </html>
+
+<script>
+function togglePasswordVisibility() {
+  var passwordInput = document.getElementById("password");
+  var passwordToggle = document.getElementById("passwordToggle");
+
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    passwordToggle.classList.add("fa-eye-slash");
+  } else {
+    passwordInput.type = "password";
+    passwordToggle.classList.remove("fa-eye-slash");
+  }
+}
+</script>
