@@ -21,20 +21,34 @@
     </div>
         <br><br>
 
-    <div class="max-w-md mx-auto p-4 bg-white rounded-lg shadow-lg">
-        <h1 class="pl-6 mt-8 text-2xl font-bold text-black h-14">EVENT MANAGEMENT SYSTEM</h1> 
+    <div class="max-w-5xl mx-auto p-6 bg-white rounded-lg shadow-2xl w-full ">
+
+        <h1 class="flex items-center justify-center mt-8 text-2xl font-bold text-black text-center">EVENT MANAGEMENT SYSTEM</h1> 
+
+
 
         <div class="flex justify-center items-center">
             <img src="{{ asset('assets/pictures/picture-event.png') }}" class="h-40 w-60 object-contain">  
-    </div>
-        <br><br>
-        <div class="flex justify-center"> <!-- Added class "flex justify-center" -->
+        </div>
+
+        <br><br> <br><br>
+
+        <div class="flex justify-center"> 
+
                 <form>
+
                     <div class="flex justify-center">
                         <button type="submit"> <a href="{{ route('user.login') }}"class="bg-blue-900 hover:bg-blue-800 text-white mt-4 font-bold  py-2 px-8 rounded-lg">Sign In<a></button>
                     </div>
+
+                    <br>
+
                         <p class="text-center mt-0 p-4 text-gray-500">OR</p>
-                    <div class="flex justify-center">
+
+                     <br>
+                    
+                        <div class="flex justify-center">
+
                         <button type="submit"> <a href="{{ route('user.register') }}"class="bg-blue-900 hover:bg-blue-800 text-white mt-4 font-bold  py-2 px-8 rounded-lg">Sign Up<a></button>
                     </div> 
                     <br><br>    
