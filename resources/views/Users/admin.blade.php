@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-jqWO+TM9G3s6jSLM9vP8cMhiUm99DLlVAlxio51S9uYqEdOhxmMLjF18Ypvbqk8L9VfsN5kZKLJ0efoNu4gIhQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-Yq9K2oX/e1TrST5yJthLBmR2qzMNuy2OqPBBQzKCPNI1PbcRLacKQYUKa1vWJ8WhR+JiSjXvL8yvSTQ8R1yOWg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         /* CSS styles for the navigation bar, menu, and sidebar */
         .header {
@@ -28,7 +35,7 @@
         }
 
         .navbar {
-            background-color: #E5DE00;
+            background-color: #fdc718;
             overflow: hidden;
             display: flex;
             justify-content: space-between;
@@ -90,7 +97,6 @@
             display: block;
             margin-bottom: 30px;
             width: 300px;
-            border: 1px solid #ccc;
             padding: 8px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
         }
@@ -144,7 +150,7 @@
             z-index: 2; /* Update the z-index */
             
         }
-
+        
         .search-bar {
         display: flex;
         align-items: center;
@@ -168,16 +174,30 @@
             margin-left: 5px;
             font-size: 16px;
         }
+        .form-group input {
+            border: 2px solid #201a50; /* Replace #ff0000 with your desired border color */
+            border-radius: 5px; /* Adjust the border-radius value to your desired amount */
+        }
+        .submit-button {
+            background-color: #201a50; /* Replace #201a50 with your desired background color */
+            color: #ffffff; /* Replace #ffffff with your desired text color */
+    /* Add any additional styles such as padding, border, etc. */
+        }
+        .input-container {
+            position: relative;
+        }
+        .danger-button {
+            background-color: #ff0000;
+            color: #ffffff;
+        }
 
-
+        .danger-button:hover {
+            background-color: #cc0000;
+        }
 
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <body>
-    
-    </div>
-
     <div class="navigation">
         <a href="#">Home</a>
         <a href="#">Events</a>
@@ -190,8 +210,8 @@
             <i class="fas fa-bars"></i>
         </div>
         <div class="search-bar">
-        <input type="text" placeholder="Search">
-        <button type="submit"><i class="fas fa-search"></i></button>
+            <input type="text" placeholder="Search">
+            <button type="submit"><i class="fas fa-search"></i></button>
         </div>
         <div>
             {{ Auth::user()->email }}
@@ -202,8 +222,6 @@
             <!--This is for log out-->
         </form>
         <br><br>
-
-        
     </div>
 
     <div class="sidebar">
@@ -214,25 +232,45 @@
     </div>
 
     <div class="content">
-        <div class="menu">
-            <h2>CREATE EVENT</h2>
+    <div class="menu">
+    <h2 style="color: #201a50;"><i class="far fa-edit" style="color: #fdc718;"></i> CREATE EVENT</h2>
+        <!-- Form container -->
+        <div class="form-container">
             <!-- Form for adding an event -->
             <form action="{{route('add.event')}}" method="post" enctype="multipart/form-data">
                 @csrf
-                <input type="text" name="eventName" id="" placeholder="Event Name">
-                <input type="date" name="eventDate" id="" placeholder="Event Date">
-                <input type="time" name="eventTime" id="" placeholder="Event Time">
-                <input type="text" name="eventPlace" id="" placeholder="Event Place">
-                <input type="text" name="eventDesc" id="" placeholder="Event Description">
-                <div>
-                    <input type="file" name="eventPicture" id="" placeholder="Event Picture" onchange="readURL(this)">
+                
+                <div class="form-group">
+                    <label for="eventName" style="color: #201a50;">Event Name:</label>
+                    <input type="text" name="eventName" id="eventName" placeholder="Event Name">
+                </div>
+                <div class="form-group">
+                    <label for="eventDate" style="color: #201a50;">Event Date:</label>
+                    <input type="date" name="eventDate" id="eventDate" placeholder="Event Date">
+                </div>
+                <div class="form-group">
+                    <label for="eventTime" style="color: #201a50;">Event Time:</label>
+                    <input type="time" name="eventTime" id="eventTime" placeholder="Event Time">
+                </div>
+                <div class="form-group">
+                    <label for="eventPlace" style="color: #201a50;">Event Place:</label>
+                    <input type="text" name="eventPlace" id="eventPlace" placeholder="Event Place">
+                </div>
+                <div class="form-group">
+                    <label for="eventDesc" style="color: #201a50;">Event Description:</label>
+                    <input type="text" name="eventDesc" id="eventDesc" placeholder="Event Description">
+                </div>
+                <div class="form-group">
+                    <label for="eventPicture" style="color: #201a50;">Event Picture:</label>
+                    <input type="file" name="eventPicture" id="eventPicture" placeholder="Event Picture" onchange="readURL(this)">
                     <img id="preview" src="#" alt="Chosen Picture" style="display: none; width: 250px; margin-left: 10px;">
                 </div>
-                <button type="submit">SUBMIT</button>
-                <button type="cancel">CANCEL</button>
+                <div class="form-buttons">
+                    <button type="submit" class="flex justify-center items-center bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-10 rounded-lg">Submit</button>
+                    <button type="cancel" class="flex justify-center items-center danger-button font-bold py-2 px-10 rounded-lg">Cancel</button>
             </form>
         </div>
-        <div>
+    </div>
             <!-- Lists of events -->
             @foreach($events as $event)
                 <h1>{{$event->eventName}}</h1>
@@ -242,6 +280,7 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <script>
         function toggleSidebar() {
             var sidebar = document.querySelector('.sidebar');
