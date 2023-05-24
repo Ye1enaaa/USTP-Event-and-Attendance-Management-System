@@ -10,6 +10,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-jqWO+TM9G3s6jSLM9vP8cMhiUm99DLlVAlxio51S9uYqEdOhxmMLjF18Ypvbqk8L9VfsN5kZKLJ0efoNu4gIhQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-Yq9K2oX/e1TrST5yJthLBmR2qzMNuy2OqPBBQzKCPNI1PbcRLacKQYUKa1vWJ8WhR+JiSjXvL8yvSTQ8R1yOWg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         /* CSS styles for the navigation bar, menu, and sidebar */
         .header {
@@ -33,7 +40,8 @@
         }
 
         .navbar {
-            background-color: #FdC718;
+
+            background-color: #fdc718;
             overflow: hidden;
             display: flex;
             justify-content: space-between;
@@ -150,6 +158,7 @@
             
         }
 
+        
         .search-bar {
         display: flex;
         align-items: center;
@@ -192,6 +201,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <body>
+        .form-group input {
+            border: 2px solid #201a50; /* Replace #ff0000 with your desired border color */
+            border-radius: 5px; /* Adjust the border-radius value to your desired amount */
+        }
+        .submit-button {
+            background-color: #201a50; /* Replace #201a50 with your desired background color */
+            color: #ffffff; /* Replace #ffffff with your desired text color */
+    /* Add any additional styles such as padding, border, etc. */
+        }
+        .input-container {
+            position: relative;
+        }
+        .danger-button {
+            background-color: #ff0000;
+            color: #ffffff;
+        }
+
+        .danger-button:hover {
+            background-color: #cc0000;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navigation">
+        <a href="#">Home</a>
+        <a href="#">Events</a>
+        <a href="#">Users</a>
+        <a href="#">Settings</a>
+    </div>
+
     <div class="navbar">
         <div class="sidebar-button" onclick="toggleSidebar()">
             <i class="fas fa-bars"></i>
@@ -199,6 +239,7 @@
         <div class="search-bar">
         <input type="text" placeholder="Search">
         <button type="submit"><i class="fas fa-search"></i></button>
+           
         </div>
         <div>
             {{ Auth::user()->email }}
