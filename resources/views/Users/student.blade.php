@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,8 +8,12 @@
 </head>
 <body>
     {{Auth::user()->email}}
+    {{Auth::user()->picture}}
     @foreach($events as $event)
         <h3>{{$event->eventName}}</h3>
     @endforeach
 </body>
-</html>
+</html> --}}
+
+<!-- component -->
+@include('Extras.side-navbar')
