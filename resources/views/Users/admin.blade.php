@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<input type="file" onchange="readURL(this)">
+<div id="image-container">
+  <img id="preview" style="display: none;" />
+</div>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -35,6 +40,7 @@
         }
 
         .navbar {
+
             background-color: #fdc718;
             overflow: hidden;
             display: flex;
@@ -150,6 +156,7 @@
             z-index: 2; /* Update the z-index */
             
         }
+
         
         .search-bar {
         display: flex;
@@ -194,24 +201,63 @@
         .danger-button:hover {
             background-color: #cc0000;
         }
+        #preview {
+            display: none;
+            position: absolute;
+            top: 50%;
+            right:10%;
+            max-width: 1000%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 5px;
+            transform: translate(-50%, -50%);
+            height: 450px;
+            object-position: 100% 100%;
+       }
+
 
     </style>
 </head>
 <body>
-    <div class="navigation">
+        <!-- .form-group input {
+            border: 2px solid #201a50; /* Replace #ff0000 with your desired border color */
+            border-radius: 5px; /* Adjust the border-radius value to your desired amount */
+        }
+        .submit-button {
+            background-color: #201a50; /* Replace #201a50 with your desired background color */
+            color: #ffffff; /* Replace #ffffff with your desired text color */
+    /* Add any additional styles such as padding, border, etc. */
+        }
+        .input-container {
+            position: relative;
+        } -->
+        <!-- .danger-button {
+            background-color: #ff0000;
+            color: #ffffff;
+        }
+
+        .danger-button:hover {
+            background-color: #cc0000;
+        } -->
+
+    </style>
+</head>
+<body>
+    <!-- <div class="navigation">
         <a href="#">Home</a>
         <a href="#">Events</a>
         <a href="#">Users</a>
         <a href="#">Settings</a>
-    </div>
+    </div> -->
 
     <div class="navbar">
         <div class="sidebar-button" onclick="toggleSidebar()">
             <i class="fas fa-bars"></i>
         </div>
         <div class="search-bar">
-            <input type="text" placeholder="Search">
-            <button type="submit"><i class="fas fa-search"></i></button>
+        <input type="text" placeholder="Search">
+        <button type="submit"><i class="fas fa-search"></i></button>
+           
         </div>
         <div>
             {{ Auth::user()->email }}
@@ -287,6 +333,7 @@
             sidebar.classList.toggle('show');
         }
 
+        
         // Function to display the chosen picture
         function readURL(input) {
             if (input.files && input.files[0]) {
@@ -300,5 +347,7 @@
             }
         }
     </script>
+    <style>
+</style>
 </body>
 </html>
