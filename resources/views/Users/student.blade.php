@@ -56,10 +56,13 @@
     }
 
     .event-picture {
-        flex: 0 0 200px;
-        margin-right: 10px;
-        width: 100%;
-        height: auto;
+  flex: 0 0 200px;
+  margin-right: 10px;
+  width: 200px; 
+  height: 200px; 
+  object-fit: cover; 
+}
+
     }
 
     .event-info {
