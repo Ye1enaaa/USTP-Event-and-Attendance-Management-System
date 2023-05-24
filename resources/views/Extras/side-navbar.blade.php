@@ -440,7 +440,8 @@
       </div>
       
     </div>
-    <main class="home-section"> </main>
+    @yield('content') 
+    
   </div>
   
     
