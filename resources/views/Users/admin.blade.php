@@ -237,7 +237,7 @@
             @foreach($events as $event)
                 <h1>{{$event->eventName}}</h1>
                 <!-- UNCOMMENT IMAGE LINE PARA MAKITA NIMO IMONG HALAGA CHAR!!-->
-                <!-- <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt=""> -->
+                <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="">
             @endforeach
         </div>
     </div>
