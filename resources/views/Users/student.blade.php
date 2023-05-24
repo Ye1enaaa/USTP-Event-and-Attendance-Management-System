@@ -27,7 +27,9 @@
 @extends('Extras.side-navbar')
 
 @section('content')
-
+<head>
+    <link rel="stylesheet" href="{{ asset('css/student.css') }}">
+</head>
 <body>
     <h1>Upcoming Events</h1>
 
