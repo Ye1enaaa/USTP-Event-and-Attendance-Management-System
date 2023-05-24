@@ -1,10 +1,22 @@
 <!DOCTYPE html>
+<input type="file" onchange="readURL(this)">
+<div id="image-container">
+  <img id="preview" style="display: none;" />
+</div>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-jqWO+TM9G3s6jSLM9vP8cMhiUm99DLlVAlxio51S9uYqEdOhxmMLjF18Ypvbqk8L9VfsN5kZKLJ0efoNu4gIhQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-Yq9K2oX/e1TrST5yJthLBmR2qzMNuy2OqPBBQzKCPNI1PbcRLacKQYUKa1vWJ8WhR+JiSjXvL8yvSTQ8R1yOWg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         /* CSS styles for the navigation bar, menu, and sidebar */
         .header {
@@ -28,7 +40,8 @@
         }
 
         .navbar {
-            background-color: #E5DE00;
+
+            background-color: #fdc718;
             overflow: hidden;
             display: flex;
             justify-content: space-between;
@@ -145,6 +158,7 @@
             
         }
 
+        
         .search-bar {
         display: flex;
         align-items: center;
@@ -168,16 +182,49 @@
             margin-left: 5px;
             font-size: 16px;
         }
-
+        #preview {
+            display: none;
+            position: absolute;
+            top: 50%;
+            right:10%;
+            max-width: 1000%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 5px;
+            transform: translate(-50%, -50%);
+            height: 450px;
+            object-position: 100% 100%;
+       }
 
 
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <body>
-    
-    </div>
+        .form-group input {
+            border: 2px solid #201a50; /* Replace #ff0000 with your desired border color */
+            border-radius: 5px; /* Adjust the border-radius value to your desired amount */
+        }
+        .submit-button {
+            background-color: #201a50; /* Replace #201a50 with your desired background color */
+            color: #ffffff; /* Replace #ffffff with your desired text color */
+    /* Add any additional styles such as padding, border, etc. */
+        }
+        .input-container {
+            position: relative;
+        }
+        .danger-button {
+            background-color: #ff0000;
+            color: #ffffff;
+        }
 
+        .danger-button:hover {
+            background-color: #cc0000;
+        }
+
+    </style>
+</head>
+<body>
     <div class="navigation">
         <a href="#">Home</a>
         <a href="#">Events</a>
@@ -192,6 +239,7 @@
         <div class="search-bar">
         <input type="text" placeholder="Search">
         <button type="submit"><i class="fas fa-search"></i></button>
+           
         </div>
         <div>
             {{ Auth::user()->email }}
@@ -226,7 +274,7 @@
                 <input type="text" name="eventDesc" id="" placeholder="Event Description">
                 <div>
                     <input type="file" name="eventPicture" id="" placeholder="Event Picture" onchange="readURL(this)">
-                    <img id="preview" src="#" alt="Chosen Picture" style="display: none; width: 250px; margin-left: 10px;">
+                    <img id="preview" src="#" alt="Chosen Picture" style="display: none; width: 200px; margin-left: 10px;">
                 </div>
                 <button type="submit">SUBMIT</button>
                 <button type="cancel">CANCEL</button>
@@ -248,6 +296,7 @@
             sidebar.classList.toggle('show');
         }
 
+        
         // Function to display the chosen picture
         function readURL(input) {
             if (input.files && input.files[0]) {
@@ -261,5 +310,7 @@
             }
         }
     </script>
+    <style>
+</style>
 </body>
 </html>
