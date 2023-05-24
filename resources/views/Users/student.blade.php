@@ -4,14 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('css/student.css') }}">
+
     <title>Student</title>
 </head>
 <body>
-    {{Auth::user()->email}}
-    {{Auth::user()->picture}}
-    @foreach($events as $event)
-        <h3>{{$event->eventName}}</h3>
-    @endforeach
+    <div>
+        {{Auth::user()->email}}
+        {{Auth::user()->picture}}
+        @foreach($events as $event)
+            <h3>{{$event->eventName}}</h3>
+        @endforeach
+
+
+    </div>
+    
 </body>
 </html> --}}
 
@@ -20,69 +27,6 @@
 @extends('Extras.side-navbar')
 
 @section('content')
-<style>
-    html {
-        scroll-behavior: smooth;
-    }
-    body {
-        margin: 0;
-        padding: 0;
-    }
-
-    .container {
-        display: flex;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-
-    .child {
-        flex: 0 0 auto;
-        padding: 20px;
-        box-sizing: border-box;
-    }
-
-    .clickable-container {
-        display: block;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        text-decoration: none;
-        color: #333;
-    }
-
-    .event-details {
-        display: flex;
-        align-items: center;
-    }
-
-    .event-picture {
-        flex: 0 0 200px;
-        margin-right: 10px;
-        width: 100%;
-        height: auto;
-    }
-
-    .event-info {
-        flex: 1;
-    }
-
-    .event-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-        border: 1px solid #ccc;
-        margin-bottom: 10px;
-    }
-
-    .event-name {
-        margin-top: 10px;
-    }
-
-    .event-details {
-        margin-top: 5px;
-    }
-</style>
 
 <body>
     <h1>Upcoming Events</h1>
