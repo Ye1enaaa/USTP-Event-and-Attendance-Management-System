@@ -8,7 +8,7 @@ class UserController extends Controller
 {
     //
     public function getuser($studentId){
-        $user = User::where('studentId', $studentId)->get();
+        $user = User::where('studentId', $studentId)->first();
         return response([
             'user' => $user
         ]);

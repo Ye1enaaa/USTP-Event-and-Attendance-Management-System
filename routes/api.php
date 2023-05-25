@@ -12,7 +12,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/student/{studentId}' , [UserController::class, 'getuser']);
 Route::post('/attendance/{event_id}' , [EventAttendeesController::class, 'addAttendees']);
-Route::get('/getattendance' , [EventAttendeesController::class,'getDatawithAttendee']);
+Route::get('/getattendance' , [EventAttendeesController::class,'getDatawithAttendee']);//Experiment
 Route::get('/eventname/{id}' , [EventAttendeesController::class,'fetchEventData']); //Fetch By ID
 
 //---------------------------FOR STUDENT------------------------------\\
