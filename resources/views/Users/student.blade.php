@@ -5,13 +5,16 @@
     <link rel="stylesheet" href="{{ asset('css/student.css') }}">
 </head>
 <body>
+    @php
+    $user = Auth::user();
+    @endphp
     <h1>Upcoming Events</h1>
 
     <div class="container">
         @foreach($events as $event)
             @if(strtotime($event->eventDate) > strtotime(date('Y-m-d')))
             <div class="child">
-                <a href="{{ route('event.details', ['id' => $event->id]) }}" class="clickable-container">
+                <a href="{{ route('event.details', ['id' => $event->id,'studentId'=> $user->studentId]) }}" class="clickable-container">
                     <div class="event-container">
                         <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="" class="event-picture">
                         <h3 class="event-name">{{$event->eventName}}</h3>
@@ -31,7 +34,7 @@
         @foreach($events as $event)
             @if(strtotime($event->eventDate) === strtotime(date('Y-m-d')))
                 <div class="child">
-                    <a href="{{ route('event.details', ['id' => $event->id]) }}" class="clickable-container">
+                    <a href="{{ route('event.details', ['id' => $event->id, 'studentId' => $user->studentId]) }}" class="clickable-container">
                         <div class="event-container">
                             <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="" class="event-picture">
                             <h3 class="event-name">{{$event->eventName}}</h3>
@@ -51,7 +54,7 @@
         @foreach($events as $event)
                 @if(strtotime($event->eventDate) < strtotime(date('Y-m-d')))
                 <div class="child">
-                    <a href="{{ route('event.details', ['id' => $event->id]) }}" class="clickable-container">
+                    <a href="{{ route('event.details', ['id' => $event->id, 'studentId' => $user->studentId]) }}" class="clickable-container">
                         <div class="event-container">
                             <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="" class="event-picture">
                             <h3 class="event-name">{{$event->eventName}}</h3>

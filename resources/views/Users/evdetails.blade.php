@@ -9,6 +9,11 @@
     <p class="event-details">Time: {{ $event->eventTime }}</p>
     <p class="event-details">Date: {{ $event->eventDate }}</p>
 
+    @if($isAttending)
+    <p>Attended.</p>
+    @else
+    <p>Missed.</p>
+    @endif
 </body>
 
 
