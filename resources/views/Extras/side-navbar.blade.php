@@ -45,22 +45,20 @@
   </div>
   <div class="content">
     <div class="top-navbar">
-      
-      <div class="bx bx-menu" id="menu-icon"></div>
-      <div class="search-bar">
-        <input type="text" id="search-input" placeholder="Search..." oninput="performSearch()">
-        <button><i class="bx bx-search"></i></button>
-      </div>
-      
-      <div class="profile">
-        <img src="{{ asset('storage/' . Auth::user()->picture) }}" class="profile-picture">
-        <span class="name">{{ Auth::user()->name }}</span>
-      </div>
-      
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search..." oninput="performSearch()" 
+            {{ Request::is('users/event/details/*') ? 'disabled' : '' }}>
+            <button {{ Request::is('users/event/details/*') ? 'disabled' : '' }}><i class="bx bx-search"></i></button>
+        </div>
+
+        <div class="profile">
+            <img src="{{ asset('storage/' . Auth::user()->picture) }}" class="profile-picture">
+            <span class="name">{{ Auth::user()->name }}</span>
+        </div>
     </div>
-    @yield('content') 
-    
-  </div>
+    @yield('content')
+</div>
 
   <script>
     function performSearch() {
