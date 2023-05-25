@@ -48,9 +48,10 @@
       
       <div class="bx bx-menu" id="menu-icon"></div>
       <div class="search-bar">
-        <input type="text" placeholder="Search...">
+        <input type="text" id="search-input" placeholder="Search..." oninput="performSearch()">
         <button><i class="bx bx-search"></i></button>
       </div>
+      
       <div class="profile">
         <img src="{{ asset('storage/' . Auth::user()->picture) }}" class="profile-picture">
         <span class="name">{{ Auth::user()->name }}</span>
@@ -61,7 +62,25 @@
     
   </div>
 
-
+  <script>
+    function performSearch() {
+      var searchInput = document.getElementById('search-input');
+      var searchText = searchInput.value.toLowerCase();
+  
+      var eventNames = document.getElementsByClassName('event-name');
+  
+      for (var i = 0; i < eventNames.length; i++) {
+        var eventName = eventNames[i].innerText.toLowerCase();
+  
+        if (eventName.includes(searchText)) {
+          eventNames[i].parentNode.style.display = 'block';
+        } else {
+          eventNames[i].parentNode.style.display = 'none';
+        }
+      }
+    }
+  </script>
+  
   
   
     
