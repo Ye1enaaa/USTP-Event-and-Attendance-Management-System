@@ -191,15 +191,6 @@
     object-position: 100% 100%;
 }
 
-<<<<<<< HEAD
-.event-picture {
-
-    flex: 0 0 200px;
-    margin-right: 10px;
-    width: 200px; 
-    height: 200px; 
-    object-fit: cover; 
-=======
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 * {
     margin: 0;
@@ -584,5 +575,4 @@ h2 {
 
 .search-bar button i {
     font-size: 18px;
->>>>>>> 6a7f2837a4f2717adcb2d00c989b52a3165c4821
 }

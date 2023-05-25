@@ -8,7 +8,7 @@
 
 
   <title> ADMIN </title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
   <link rel="stylesheet"
   href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 

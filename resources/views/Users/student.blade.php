@@ -1,28 +1,3 @@
-
-@extends('Extras.side-navbar')
-
-
-@section('content')
-<head>
-    <link rel="stylesheet" href="{{ asset('css/student.css') }}">
-
-</head>
-<body>
-    <div>
-        {{Auth::user()->email}}
-        {{Auth::user()->picture}}
-        @foreach($events as $event)
-            <h3>{{$event->eventName}}</h3>
-        @endforeach
-
-
-    </div>
-    
-</body>
-</html> --}}
-
-<!-- component -->
-
 @extends('Extras.side-navbar')
 
 @section('content')
