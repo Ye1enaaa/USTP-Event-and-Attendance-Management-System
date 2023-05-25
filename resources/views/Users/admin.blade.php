@@ -25,51 +25,11 @@
 
 </head>
 
-<body>
+@extends('Extras.side-navbar')
 
-  <div class="content">
-    <div class="top-navbar">
-      
-      <div class="bx bx-menu" id="menu-icon"></div>
-      <div class="search-bar">
-        <input type="text" placeholder="Search...">
-        <button><i class="bx bx-search"></i></button>
-      </div>
-      <div class="profile">
-        <img src="{{ asset('storage/' . Auth::user()->picture) }}" class="profile-picture">
-        <span class="name">{{ Auth::user()->name }}</span>
-      </div>
-      
-    </div>
+@section('content')
 
-  </div>
 
-<div class="dashboard-container">
-    <aside class="side-navbar">
-      <ul class="nav-list">
-        <li>
-          <a>
-            <span class="icon"><ion-icon name="cube-outline"></ion-icon></i></span>
-            <span class="text"><h2> USTP-EVENT </h2></span>
-          </a>
-          <li>
-            <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "index.php") echo "active"; ?>" href="sample.php">
-              <span class="icon"> <ion-icon name="clipboard-outline"></ion-icon> </span>
-              <span class="text">UPCOMING EVENTS</span>
-            </a>
-              <span class="tooltip"> UPCOMING EVENTS </span>
-          </li>
-          <li>
-            <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "transaction_log.php") echo "active"; ?>" href="sample.php">
-              <span class="icon"> <ion-icon name="checkmark-done-outline"></ion-icon> </span>
-              <span class="text">EVENT DETAILS</span>
-            </a>
-              <span class="tooltip"> EVENT DETAILS </span>
-          </li>
-       
-      </ul>
-    </aside>
-  </div>
 
 <div class="content-admin">
     <div class="menu">
@@ -110,26 +70,57 @@
                     <button type="cancel" class="flex justify-center items-center danger-button font-bold py-2 px-10 rounded-lg">Cancel</button>
             </form>
         </div>
+        <div class="container">
+          @foreach($events as $event)
+              {{-- @if(strtotime($event->eventDate) > strtotime(date('Y-m-d'))) --}}
+              <div class="child">
+                  <a href="#{{$event->id}}" class="clickable-container">
+                      <div class="event-container">
+                          <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="" class="event-picture">
+                          <h3 class="event-name">{{$event->eventName}}</h3>
+                          <p class="event-details">Place: {{$event->eventPlace}}</p>
+                          <p class="event-details">Time: {{$event->eventTime}}</p>
+                          <p class="event-details">Date: {{$event->eventDate}}</p>
+                      </div>
+                  </a>
+              </div>
+              
+          @endforeach
+      </div>
     </div>
-            <!-- Lists of events -->
-            @foreach($events as $event)
-                <h1>{{$event->eventName}}</h1>
-                <!-- UNCOMMENT IMAGE LINE PARA MAKITA NIMO IMONG HALAGA CHAR!!-->
-                <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="">
-            @endforeach
-        </div>
-    </div>
-
+    <script>
+      function performSearch() {
+        var searchInput = document.getElementById('search-input');
+        var searchText = searchInput.value.toLowerCase();
+      
+        var eventNames = document.getElementsByClassName('event-name');
+      
+        for (var i = 0; i < eventNames.length; i++) {
+          var eventName = eventNames[i].innerText.toLowerCase();
+      
+          if (eventName.includes(searchText)) {
+            eventNames[i].parentNode.style.display = 'block';
+          } else {
+            eventNames[i].parentNode.style.display = 'none';
+          }
+        }
+      }
+      </script>
+      
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 
 <script src="{{ asset('js/admin.js') }}"></script>
+
   
 
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   
-  <script src="{{ asset('js/side-navbar.js') }}"></script>
+  <script src="{{ asset('js/side-navbar.js') }}">
+  </script>
 
-  
+
+  @endsection
 </body>
 </html>
+
