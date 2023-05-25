@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<input type="file" onchange="readURL(this)">
-<div id="image-container">
-  <img id="preview" style="display: none;" />
-</div>
-
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+  <title> ADMIN </title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-jqWO+TM9G3s6jSLM9vP8cMhiUm99DLlVAlxio51S9uYqEdOhxmMLjF18Ypvbqk8L9VfsN5kZKLJ0efoNu4gIhQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,40 +23,55 @@
 
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 
-
 </head>
+
 <body>
 
-
-    <div class="navbar">
-        <div class="sidebar-button" onclick="toggleSidebar()">
-            <i class="fas fa-bars"></i>
-        </div>
-        <div class="search-bar">
-        <input type="text" placeholder="Search">
-        <button type="submit"><i class="fas fa-search"></i></button>
-           
-        </div>
-        <div>
-            {{ Auth::user()->email }}
-        </div>
-        <br><br>
-        <form action="{{route('user.logout')}}" method="post">
-            @csrf
-            <!--This is for log out-->
-        </form>
-        <br><br>
-    </div>
-    <div>
-        <!--lists of events-->
-        @foreach($events as $event)
-            <h1>{{$event->eventName}}</h1>
-            <!--UNCOMMENT IMAGE LINE PARA MAKITA NIMO IMONG HALAGA CHAR!!-->
-            <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="">
-        @endforeach
+  <div class="content">
+    <div class="top-navbar">
+      
+      <div class="bx bx-menu" id="menu-icon"></div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button><i class="bx bx-search"></i></button>
+      </div>
+      <div class="profile">
+        <img src="{{ asset('storage/' . Auth::user()->picture) }}" class="profile-picture">
+        <span class="name">{{ Auth::user()->name }}</span>
+      </div>
+      
     </div>
 
-    <div class="content">
+  </div>
+
+<div class="dashboard-container">
+    <aside class="side-navbar">
+      <ul class="nav-list">
+        <li>
+          <a>
+            <span class="icon"><ion-icon name="cube-outline"></ion-icon></i></span>
+            <span class="text"><h2> USTP-EVENT </h2></span>
+          </a>
+          <li>
+            <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "index.php") echo "active"; ?>" href="sample.php">
+              <span class="icon"> <ion-icon name="clipboard-outline"></ion-icon> </span>
+              <span class="text">UPCOMING EVENTS</span>
+            </a>
+              <span class="tooltip"> UPCOMING EVENTS </span>
+          </li>
+          <li>
+            <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "transaction_log.php") echo "active"; ?>" href="sample.php">
+              <span class="icon"> <ion-icon name="checkmark-done-outline"></ion-icon> </span>
+              <span class="text">EVENT DETAILS</span>
+            </a>
+              <span class="tooltip"> EVENT DETAILS </span>
+          </li>
+       
+      </ul>
+    </aside>
+  </div>
+
+<div class="content-admin">
     <div class="menu">
     <h2 style="color: #201a50;"><i class="far fa-edit" style="color: #fdc718;"></i> CREATE EVENT</h2>
         <!-- Form container -->
@@ -105,6 +123,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 
 <script src="{{ asset('js/admin.js') }}"></script>
+  
 
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  
+  <script src="{{ asset('js/side-navbar.js') }}"></script>
+
+  
 </body>
 </html>
