@@ -1,0 +1,92 @@
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.child {
+    flex: 0 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.clickable-container {
+    display: block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+}
+
+.event-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 300px; 
+    white-space: initial;
+    border-radius: 5px;
+}
+
+.event-picture {
+    flex: 0 0 200px;
+    width: 250px; 
+    height: 200px; 
+    align-self: center;
+    object-fit: cover; 
+}
+
+.event-info {
+    flex: 1;
+}
+
+.event-name {
+    margin-top: 10px;
+}
+
+.event-details {
+    margin-top: 5px;
+}
+
+.event-details ion-icon {
+    margin-right: 5px;
+}
+  
+
+   /* On click event -->> evdetails.php */ 
+.details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    width: 300px; 
+    white-space: initial;
+    position: relative;
+}
+
+.attended {
+    border: 3px solid green;
+    border-radius: 10px;
+}
+
+.missed {
+    border: 3px solid red;
+    border-radius: 10px;
+}
+
+.attendance-label {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
