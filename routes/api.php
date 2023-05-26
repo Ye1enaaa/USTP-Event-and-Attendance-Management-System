@@ -9,6 +9,11 @@ use App\Http\Controllers\EventController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//------------------------------LOGIN & REGISTER MOBILE------------------------------------\\
+Route::post('/login' , [LoginController::class, 'loginMobile']);
+Route::post('/register' , [LoginController::class,'registerMobile']);
+
 //-------------------------ATTENDANCE MONITORING APIs-----------------------------\\
 Route::get('/student/{studentId}' , [UserController::class, 'getuser']);
 Route::post('/attendance/{event_id}' , [EventAttendeesController::class, 'addAttendees']);
