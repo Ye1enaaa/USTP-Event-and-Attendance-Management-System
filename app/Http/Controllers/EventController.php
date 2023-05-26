@@ -7,7 +7,9 @@ use App\Models\Event;
 use Illuminate\Support\Str;
 class EventController extends Controller
 {
-    //
+    //EVENT INDEX FUNCTION @ VIEWSCONTROLLER
+
+    //POST EVENT
     public function addEvent(Request $request){
         $validateFields = $request->validate([
             'eventName' => 'required|string',
@@ -33,5 +35,39 @@ class EventController extends Controller
             'eventPicture' => $imagePath
         ]);
         return redirect('/admin');
+    }
+    //DELETE EVENT
+
+    public function destroy($id){
+        $event = Event::findOrFail($id);
+        if(!$event){
+            return response()->json([
+                'error' => 'Event not Found'
+            ]);
+        }
+
+        $event->delete();
+
+        return response()->json([
+            'Success' => 'Deleted Successfully'
+        ]);
+
+        //return view('');
+    }
+
+
+    //UPDATE EVENT
+    public function update(Request $request){
+
+    }
+    //----------------------------------FOR MOBILE---------------------------------------\\
+
+    //Student
+    public function index(){
+        $events = Event::all();
+
+        return response([
+            'events' => $events
+        ]);
     }
 }

@@ -11,11 +11,12 @@ class ViewsController extends Controller
     }
 
     public function returnStudentDashboardView(){
-        return view('Users.student');
+        $events = Event::all();
+        return view('Users.student', compact('events'));
     }
 
     public function returnAdminDashboardView(){
-        $events = Event::all();
+        $events = Event::with('attendees')->get();
         return view('Users.admin', compact('events'));
     }
 
