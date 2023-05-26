@@ -643,14 +643,14 @@ input::placeholder {
 }
 .menu {
     flex: 0 0 auto;
-    margin-top: 35px; /* Set margin-top to 0 to align it at the top */
-    width: 300px; /* Adjust the width as needed */
+    margin-top: 35px;
+    width: 300px;
 }
 .form-container {
     display: flex;
     flex-direction: column;
-    gap: 0px; /* Reduce the gap between form fields */
-    align-items: flex-start; /* Align the form items to the left */
+    gap: 0px;
+    align-items: flex-start;
 }
 
 .form-buttons {

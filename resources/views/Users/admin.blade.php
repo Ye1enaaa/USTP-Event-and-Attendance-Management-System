@@ -34,9 +34,9 @@
 <div class="content-admin">
     <div class="menu">
     <h2 style="color: #201a50;"><i class="far fa-edit" style="color: #fdc718;"></i> CREATE EVENT</h2>
-        <!-- Form container -->
+
         <div class="form-container">
-            <!-- Form for adding an event -->
+          
             <form action="{{route('add.event')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 
