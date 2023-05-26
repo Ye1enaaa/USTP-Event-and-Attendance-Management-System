@@ -2,18 +2,23 @@
 @extends('Extras.side-navbar')
 @section('content')
 <body>
-    <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="" class="event-picture">
+<h1>EVENT ATTENDANCE</h1>
+<div class="details-container">
+    <div class="details-container @if($isAttending) attended @else missed @endif">
+        <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="" class="event-picture">
 
-    <h3 class="event-name">{{ $event->eventName }}</h3>
-    <p class="event-details">Place: {{ $event->eventPlace }}</p>
-    <p class="event-details">Time: {{ $event->eventTime }}</p>
-    <p class="event-details">Date: {{ $event->eventDate }}</p>
+        <h3 class="event-name">{{ $event->eventName }}</h3>
+        <p class="event-details"> <ion-icon name="location-outline"></ion-icon> Place: {{ $event->eventPlace }}</p>
+        <p class="event-details"> <ion-icon name="time-outline"></ion-icon> Time: {{ $event->eventTime }}</p>
+        <p class="event-details"> <ion-icon name="calendar-outline"></ion-icon> Date: {{ $event->eventDate }}</p>
 
-    @if($isAttending)
-    <p>Attended.</p>
-    @else
-    <p>Missed.</p>
-    @endif
+        @if($isAttending)
+        <p class="attendance-label"> — ATTENDED — </p>
+        @else
+        <p class="attendance-label"> — MISSED — </p>
+        @endif
+    </div>
+</div>
 </body>
 
 
