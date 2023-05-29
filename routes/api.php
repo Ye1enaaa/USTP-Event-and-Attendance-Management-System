@@ -6,8 +6,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\EventAttendeesController;
 use App\Http\Controllers\EventController;
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::group(['middleware' => ['auth:sanctum']], function(){
+    Route::get('/user', [UserController::class, 'userMobile']);
 });
 
 //------------------------------LOGIN & REGISTER MOBILE------------------------------------\\

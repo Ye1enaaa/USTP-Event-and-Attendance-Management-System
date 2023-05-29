@@ -39,4 +39,10 @@ class UserController extends Controller
             'attendee' => $attendees
         ],200);
     }
+
+    public function userMobile(){
+        return response()->json([
+            'user' => auth()->user()
+        ], 200);
+    }
 }
