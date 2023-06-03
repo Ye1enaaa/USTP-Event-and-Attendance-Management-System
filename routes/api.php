@@ -22,7 +22,8 @@ Route::get('/getattendance' , [EventAttendeesController::class,'getDatawithAtten
 Route::get('/eventname/{id}' , [EventAttendeesController::class,'fetchEventData']); //Fetch By ID
 
 //---------------------------FOR STUDENT------------------------------\\
-Route::get('/events' , [EventController::class, 'index']);
+Route::get('/events' , [EventController::class, 'index']); //all events
+Route::get('/eventtoday', [EventController::class, 'fetchEventToday']); //fetch event today
 Route::get('/event/{id}/attendee/{studentId}' , [UserController::class,'checkIfAttended']);
 
 //------------------------EXPERIMENTATION APIs-------------------------\\
