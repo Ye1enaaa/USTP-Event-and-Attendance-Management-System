@@ -3,6 +3,51 @@
 @section('content')
 <head>
     <link rel="stylesheet" href="{{ asset('css/student.css') }}">
+    <style>
+        
+        body {
+            padding: 10px;
+        }
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .child {
+            flex: 0 0 30%; 
+            background-color: #f0f0f0;
+            padding: 5px;
+        }
+        
+        .event-container {
+            text-align: center;
+        }
+        
+        .event-picture {
+            max-width: 50%;
+            height: auto;
+        }
+        
+        .event-name {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        
+        .event-details {
+            margin: 5px 0;
+        }
+        
+        .divider {
+            margin: 20px 0;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        h1 {
+            margin-top: 30px;
+        }
+    </style>
 </head>
 
 <body>
@@ -31,7 +76,7 @@
     
     <div class="divider"></div> 
 
-    <h1>TODAYS EVENTS</h1>
+    <h1>TODAY'S EVENTS</h1>
     <div class="container">
         @foreach($events as $event)
             @if(strtotime($event->eventDate) === strtotime(date('Y-m-d')))
@@ -72,4 +117,3 @@
     </div>
 </body>
 @endsection
-
