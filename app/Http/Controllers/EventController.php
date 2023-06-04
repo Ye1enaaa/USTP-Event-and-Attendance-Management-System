@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 class EventController extends Controller
 {
     //EVENT INDEX FUNCTION @ VIEWSCONTROLLER
@@ -62,12 +63,47 @@ class EventController extends Controller
     }
     //----------------------------------FOR MOBILE---------------------------------------\\
 
-    //Student
+    //Student 
     public function index(){
         $events = Event::all();
 
         return response([
             'events' => $events
+        ]);
+    }
+
+    public function fetchEventToday(){
+        $serverTime = config('app.timezone');
+        $today = Carbon::today();
+        $eventToday = Event::whereDate('eventDate', $today)->get();
+
+        return response()->json([
+            'events' => $eventToday,
+            'timezone' => $today
+        ]);
+    }
+
+    public function fetchUpcomingEvents(){
+        $today = Carbon::today()->toDateString();
+
+        $upcomingEvents = Event::whereDate('eventDate','>',$today)
+            ->orderBy('eventDate')
+            ->get();
+        return response()->json([
+            'events' => $upcomingEvents,
+            'time' => $today 
+        ]);
+    }
+
+    public function fetchEndedEvents(){
+        $today = Carbon::today()->toDateString();
+
+        $upcomingEvents = Event::whereDate('eventDate','<',$today)
+            ->orderBy('eventDate')
+            ->get();
+        return response()->json([
+            'events' => $upcomingEvents,
+            'time' => $today 
         ]);
     }
 }
