@@ -82,4 +82,28 @@ class EventController extends Controller
             'timezone' => $today
         ]);
     }
+
+    public function fetchUpcomingEvents(){
+        $today = Carbon::today()->toDateString();
+
+        $upcomingEvents = Event::whereDate('eventDate','>',$today)
+            ->orderBy('eventDate')
+            ->get();
+        return response()->json([
+            'upcomingEvents' => $upcomingEvents,
+            'time' => $today 
+        ]);
+    }
+
+    public function fetchEndedEvents(){
+        $today = Carbon::today()->toDateString();
+
+        $upcomingEvents = Event::whereDate('eventDate','<',$today)
+            ->orderBy('eventDate')
+            ->get();
+        return response()->json([
+            'upcomingEvents' => $upcomingEvents,
+            'time' => $today 
+        ]);
+    }
 }
