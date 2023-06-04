@@ -78,7 +78,7 @@ class EventController extends Controller
         $eventToday = Event::whereDate('eventDate', $today)->get();
 
         return response()->json([
-            'event_today' => $eventToday,
+            'events' => $eventToday,
             'timezone' => $today
         ]);
     }
@@ -90,7 +90,7 @@ class EventController extends Controller
             ->orderBy('eventDate')
             ->get();
         return response()->json([
-            'upcomingEvents' => $upcomingEvents,
+            'events' => $upcomingEvents,
             'time' => $today 
         ]);
     }
@@ -102,7 +102,7 @@ class EventController extends Controller
             ->orderBy('eventDate')
             ->get();
         return response()->json([
-            'upcomingEvents' => $upcomingEvents,
+            'events' => $upcomingEvents,
             'time' => $today 
         ]);
     }
