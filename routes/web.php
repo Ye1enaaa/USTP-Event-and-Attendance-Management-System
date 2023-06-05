@@ -5,6 +5,7 @@ use App\Http\Controllers\ViewsController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\EventDetailsController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,6 +34,4 @@ Route::controller(EventController::class)->group(function(){
 
 //EventDetailsController
 Route::get('users/event/details/{id}/attended/{studentId}', [EventDetailsController::class, 'show'])->name('event.details');
-
-
-
+Route::get('/profile', [ProfileController::class, 'showProfile']);
