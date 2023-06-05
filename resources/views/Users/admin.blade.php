@@ -157,20 +157,7 @@
       }
       </script>
 
-      <script>
-        document.getElementById("imageInput").addEventListener("change", function(event) {
-            var selectedFile = event.target.files[0];
-            
-            if (selectedFile) {
-                var reader = new FileReader();
-                reader.onload = function(event) {
-                    var profileImage = document.querySelector(".rounded-circle");
-                    profileImage.src = event.target.result;
-                };
-                reader.readAsDataURL(selectedFile);
-            }
-        });
-      </script>
+
       
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 
