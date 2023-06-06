@@ -24,40 +24,45 @@
           <span class="text-lg text-white">USTP-EVENT</span>
         </a>
       </li>
-      <!-- <li>
-  <a class="side-link" onclick="upcomingEvent()">
-    <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
-    <span class="text">EVENTS</span>
-  </a>
-</li> -->
 
 
-        <!-- <li>
-          <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "upcomingEvents") echo "active"; ?>" href="upcomingevents">
-            <span class="icon"><ion-icon name="checkmark-done-outline"></ion-icon></span>
-            <span class="text">EVENTS</span>
+        <!-- alliana part -->
+
+        <li>
+          <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "admin") echo "active"; ?>" href="admin">
+            <span class="icon"><ion-icon name="create-outline"></ion-icon></span>
+            <span class="text">CREATE EVENT</span>
           </a>
-        </li> -->
+        </li>
 
         <li class="tree-view">
-  <div class="tree-view-header side-link <?php if(basename($_SERVER['PHP_SELF']) == "upcomingEvents") echo "active"; ?>" onclick="toggleTreeView(event)">
-    <span class="icon"><ion-icon name="folder-outline"></ion-icon></span>
-    <span class="text text-white">EVENTS</span>
-  </div>
-  <ul class="tree-view-menu">
-    <li><a href="upcomingevents">Upcoming Events</a></li>
-    <li><a href="todaysevent">Todays Event</a></li>
-    <li><a href="endedevents">Past Events</a></li>
-  </ul>
-</li>
+          <div class="tree-view-header side-link <?php if(basename($_SERVER['PHP_SELF']) == "upcomingEvents") echo "active"; ?>" onclick="toggleTreeView(event)">
+            <span class="icon"><ion-icon name="folder-outline"></ion-icon></span>
+            <span class="text text-white">EVENTS</span>
+          </div>
+          <ul class="tree-view-menu">
 
-<li>
-  <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "admin") echo "active"; ?>" href="admin">
-    <span class="icon"><ion-icon name="create-outline"></ion-icon></span>
-    <span class="text">CREATE EVENT</span>
-  </a>
-</li>
+          <li>
+            <a href="#upcomingevents" onclick="showUpcomingEvents()">
+              <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
+              <span class="text">Upcoming Events</span>
+            </a>
+          </li>
 
+          <li>
+            <a href="#todaysevents" onclick="showTodaysEvents()">
+              <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
+              <span class="text">Todays Event</span>
+            </a>
+          </li>      
+          
+          
+          <li>
+            <a href="#pastevents" onclick="showPastEvents()">
+              <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
+              <span class="text">Past Events</span>
+            </a>
+          </li>          
 
 
 
@@ -67,7 +72,7 @@
 
   
   <div class="content">
-    <div class="top-navbar">
+    <div id="top-navbar" class="top-navbar">
       <div class="bx bx-menu" id="menu-icon"></div>
         <div class="search-bar">
           <input type="text" id="search-input" placeholder="Search..." oninput="performSearch()" 
@@ -81,7 +86,18 @@
             <span class="name" style="color: #FFFFFF;">{{ Auth::user()->name }}</span>&nbsp;<i class="caret"></i>
           </div>
           <ul class="dropdown-menu" style="padding: 10px; border: 2px solid #211a51; border-radius: 5px;">
-            <li style="margin-bottom: 2px;"><a href="#" id="profileButton"><i class="fas fa-user" style="color: #211a51;"></i> Profile</a></li>
+
+          <li>
+            <a href="#profile" onclick="showEditProfile()">
+              <span class="fas fa-user" style="color: #211a51;"></ion-icon></span>
+              <span class="text">Profile</span>
+            </a>
+          </li> 
+
+
+            <!-- <li style="margin-bottom: 2px;"><a href="#" id="profileButton"><i class="fas fa-user" style="color: #211a51;"></i> Profile</a></li> -->
+
+
             <li style="margin-bottom: 2px;"><a href="#" onclick="handleSettingsClick();"><i class="fas fa-cog" style="color: #211a51;"></i> Settings</a></li>
             <li><a href="#" onclick="handleLogoutClick();"><i class="fas fa-sign-out-alt" style="color: #211a51;"></i> Logout</a></li>
           </ul>
@@ -109,18 +125,6 @@
 
 
 
-  <script>
-
-function upcomingEvent(event) {
-    event.preventDefault(); // Prevent the default link behavior
-
-    // Navigate to the upcoming page
-    window.location.href = "/upcomingevents";
-}
-
-
-
-  </script>
 
 
 

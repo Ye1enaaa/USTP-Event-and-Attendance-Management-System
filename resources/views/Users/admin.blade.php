@@ -50,38 +50,7 @@
                     <input type="file" name="eventPicture" id="" placeholder="Event Picture" onchange="readURL(this)">
                     <img id="preview" src="#" alt="Chosen Picture" style="display: none; width: 200px; margin-left: 10px;">
                 </div>
-                <button type="submit">SUBMIT</button>
-                <button type="cancel">CANCEL</button>
-            </form>
-        <!-- </div>
-        <div class="container">
-          @foreach($events as $event)
-              {{-- @if(strtotime($event->eventDate) > strtotime(date('Y-m-d'))) --}}
-              <div class="child">
-                  <a href="#{{$event->id}}" class="clickable-container">
-                      <div class="event-container">
-                          <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="" class="event-picture">
-                          <h3 class="event-name">{{$event->eventName}}</h3>
-                          <p class="event-details">Place: {{$event->eventPlace}}</p>
-                          <p class="event-details">Time: {{$event->eventTime}}</p>
-                          <p class="event-details">Date: {{$event->eventDate}}</p>
-                      </div>
-                  </a>
-              </div>
-              
-          @endforeach
-      </div>  -->
-      <br>
 
-    </div>
-<br><br>
-
-
-
-
-
-
- 
 
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

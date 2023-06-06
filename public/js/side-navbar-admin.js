@@ -112,3 +112,71 @@ window.addEventListener("click", function (event) {
         dropdownMenu.classList.remove("show");
     }
 });
+
+function showUpcomingEvents() {
+    // Make an AJAX request to fetch the content of the upcoming events page
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Update the content on the current page with the fetched content
+            var response = xhr.responseText;
+            document.querySelector(".content").innerHTML = response;
+
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
+        }
+    };
+    xhr.open("GET", "/upcomingevents", true);
+    xhr.send();
+}
+
+function showTodaysEvents() {
+    // Make an AJAX request to fetch the content of the upcoming events page
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Update the content on the current page with the fetched content
+            var response = xhr.responseText;
+            document.querySelector(".content").innerHTML = response;
+
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
+        }
+    };
+    xhr.open("GET", "/todaysevent", true);
+    xhr.send();
+}
+
+function showPastEvents() {
+    // Make an AJAX request to fetch the content of the upcoming events page
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Update the content on the current page with the fetched content
+            var response = xhr.responseText;
+            document.querySelector(".content").innerHTML = response;
+
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
+        }
+    };
+    xhr.open("GET", "/endedevents", true);
+    xhr.send();
+}
+
+function showEditProfile() {
+    // Make an AJAX request to fetch the content of the upcoming events page
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Update the content on the current page with the fetched content
+            var response = xhr.responseText;
+            document.querySelector(".content").innerHTML = response;
+
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
+        }
+    };
+    xhr.open("GET", "/profile", true);
+    xhr.send();
+}
