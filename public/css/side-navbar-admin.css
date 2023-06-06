@@ -180,6 +180,21 @@
     list-style: none;
 }
 
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background-color: #fff;
+    padding: 5px;
+    border-top: none;
+    z-index: 1;
+}
+
+.tree-view-menu.collapsed {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .content {
         width: 100%;

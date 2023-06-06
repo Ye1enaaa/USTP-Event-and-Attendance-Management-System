@@ -79,6 +79,12 @@ function handleCreateEventClick() {
     createEventSection.style.display = "block";
 }
 
+// Functino to toggle
+function toggleTreeView(event) {
+    const menu = event.currentTarget.nextElementSibling;
+    menu.classList.toggle("collapsed");
+}
+
 // Attach event listeners to the dashboard and create event links
 document
     .getElementById("dashboardLink")
@@ -86,3 +92,23 @@ document
 document
     .getElementById("createEventLink")
     .addEventListener("click", handleCreateEventClick);
+
+// Dropdown menu script for EVENTS
+function toggleDropdown(event) {
+    event.stopPropagation(); // Prevent event propagation to parent elements
+    var dropdownMenu =
+        event.currentTarget.parentElement.querySelector(".dropdown-menu");
+    dropdownMenu.classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.addEventListener("click", function (event) {
+    var dropdownButton = document.querySelector(".dropdown .side-link");
+    var dropdownMenu = document.querySelector(".dropdown-menu");
+    if (
+        !event.target.matches(".dropdown .side-link") &&
+        !event.target.matches(".dropdown-menu")
+    ) {
+        dropdownMenu.classList.remove("show");
+    }
+});

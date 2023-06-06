@@ -30,6 +30,7 @@ Route::controller(EventController::class)->group(function(){
     Route::get('/createevent','returnCreateEventView');
     Route::post('/addevent', 'addEvent')->name('add.event');
     Route::delete('/delete/{id}', 'destroy')->name('delete.event');
+    
     //-------------FETCH EVENTS BY DATE-------------------\\
     Route::get('/todaysevent','fetchEventTodayWeb');
     Route::get('/upcomingevents','fetchUpcomingEventsWeb');

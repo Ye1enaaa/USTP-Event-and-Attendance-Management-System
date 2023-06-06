@@ -24,26 +24,43 @@
           <span class="text-lg text-white">USTP-EVENT</span>
         </a>
       </li>
-      <li>
-        <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "admin") echo "active"; ?>" href="admin">
-          <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
-          <span class="text">UPCOMING EVENTS</span>
-        </a>
-      </li>
+      <!-- <li>
+  <a class="side-link" onclick="upcomingEvent()">
+    <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
+    <span class="text">EVENTS</span>
+  </a>
+</li> -->
 
-        <li>
-          <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "admin") echo "active"; ?>" href="admin">
-            <span class="icon"><ion-icon name="checkmark-done-outline"></ion-icon></span>
-            <span class="text">Dashboard</span>
-          </a>
-        </li>
 
-        <li>
-          <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "admin") echo "active"; ?>" href="admin">
+        <!-- <li>
+          <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "upcomingEvents") echo "active"; ?>" href="upcomingevents">
             <span class="icon"><ion-icon name="checkmark-done-outline"></ion-icon></span>
-            <span class="text">Event</span>
+            <span class="text">EVENTS</span>
           </a>
-        </li>
+        </li> -->
+
+        <li class="tree-view">
+  <div class="tree-view-header side-link <?php if(basename($_SERVER['PHP_SELF']) == "upcomingEvents") echo "active"; ?>" onclick="toggleTreeView(event)">
+    <span class="icon"><ion-icon name="folder-outline"></ion-icon></span>
+    <span class="text text-white">EVENTS</span>
+  </div>
+  <ul class="tree-view-menu">
+    <li><a href="upcomingevents">Upcoming Events</a></li>
+    <li><a href="todaysevent">Todays Event</a></li>
+    <li><a href="endedevents">Past Events</a></li>
+  </ul>
+</li>
+
+<li>
+  <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "admin") echo "active"; ?>" href="admin">
+    <span class="icon"><ion-icon name="create-outline"></ion-icon></span>
+    <span class="text">CREATE EVENT</span>
+  </a>
+</li>
+
+
+
+
 
     </ul>
   </aside>
@@ -91,6 +108,19 @@
   <script src="{{ asset('js/side-navbar-admin.js') }}"></script>
 
 
+
+  <script>
+
+function upcomingEvent(event) {
+    event.preventDefault(); // Prevent the default link behavior
+
+    // Navigate to the upcoming page
+    window.location.href = "/upcomingevents";
+}
+
+
+
+  </script>
 
 
 
