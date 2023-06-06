@@ -5,117 +5,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Account</title>
-  <style>
-    /* Add your custom CSS styles here */
-    .img-circle {
-      border-radius: 50%;
-    }
-    .img-size-2 {
-      width: 100px;
-      height: 100px;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: white;
-    }
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      margin-right: -15px;
-      margin-left: -15px;
-    }
-    .col-md-6 {
-      flex: 0 0 50%;
-      max-width: 50%;
-      padding-right: 15px;
-      padding-left: 15px;
-    }
-    .panel {
-      margin-bottom: 20px;
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      box-shadow: 0 1px 1px rgba(0,0,0,.05);
-    }
-    .panel-heading {
-      padding: 10px 15px;
-      border-bottom: 1px solid #ddd;
-      background-color: #f5f5f5;
-    }
-    .panel-heading span {
-      margin-right: 5px;
-    }
-    .panel-body {
-      padding: 15px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-control {
-      display: block;
-      width: 100%;
-      height: 34px;
-      padding: 6px 12px;
-      font-size: 14px;
-      line-height: 1.42857143;
-      color: #555;
-      background-color: #fff;
-      background-image: none;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-      transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    }
-    .btn {
-      display: inline-block;
-      padding: 6px 12px;
-      margin-bottom: 0;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 1.42857143;
-      text-align: center;
-      white-space: nowrap;
-      vertical-align: middle;
-      -ms-touch-action: manipulation;
-      touch-action: manipulation;
-      cursor: pointer;
-      user-select: none;
-      background-image: none;
-      border: 1px solid transparent;
-      border-radius: 4px;
-      color: #fff;
-      background-color: #337ab7;
-      border-color: #2e6da4;
-    }
-    .btn-default {
-      color: #333;
-      background-color: #fff;
-      border-color: #ccc;
-    }
-    .btn-file {
-      position: relative;
-      overflow: hidden;
-    }
-    .btn-file input[type="file"] {
-      position: absolute;
-      top: 0;
-      right: 0;
-      min-width: 100%;
-      min-height: 100%;
-      font-size: 100px;
-      text-align: right;
-      opacity: 0;
-      outline: none;
-      background: white;
-      cursor: inherit;
-      display: block;
-    }
-  </style>
-</head>
 
+  <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+
+
+</head>
 <body>
+    <div id="top-navbar" class="top-navbar">
+      <div class="bx bx-menu" id="menu-icon"></div>
+        <div class="search-bar">
+          <input type="text" id="search-input" placeholder="Search..." oninput="performSearch()" 
+          {{ Request::is('users/event/details/*') ? 'disabled' : '' }}>
+          <button {{ Request::is('users/event/details/*') ? 'disabled' : '' }}><i class="bx bx-search"></i></button>
+        </div>
+
+        <div class="user-dropdown">
+          <div class="profile-container" style="padding: 5px;">
+            <img src="{{ asset('storage/' . Auth::user()->picture) }}" class="profile-picture">
+            <span class="name" style="color: #FFFFFF;">{{ Auth::user()->name }}</span>&nbsp;<i class="caret"></i>
+          </div>
+          <ul class="dropdown-menu" style="padding: 10px; border: 2px solid #211a51; border-radius: 5px;">
+
+          <li>
+            <a href="#profile" onclick="showEditProfile()">
+              <span class="fas fa-user" style="color: #211a51;"></ion-icon></span>
+              <span class="text">Profile</span>
+            </a>
+          </li> 
+
+
+            <!-- <li style="margin-bottom: 2px;"><a href="#" id="profileButton"><i class="fas fa-user" style="color: #211a51;"></i> Profile</a></li> -->
+
+
+            <li style="margin-bottom: 2px;"><a href="#" onclick="handleSettingsClick();"><i class="fas fa-cog" style="color: #211a51;"></i> Settings</a></li>
+            <li><a href="#" onclick="handleLogoutClick();"><i class="fas fa-sign-out-alt" style="color: #211a51;"></i> Logout</a></li>
+          </ul>
+        </div>
+      </div>
+
+<br><br><br>
 <div class="container">
     <div class="row">
         <div class="col-md-6">
@@ -189,6 +117,17 @@
       }
     });
   </script>
+
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+      
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+
+<script src="{{ asset('js/admin.js') }}"></script>
+
+
+ <script src="{{ asset('js/side-navbar-admin.js') }}"></script>
 </body>
 
 </html>
