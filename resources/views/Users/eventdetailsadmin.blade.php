@@ -1,5 +1,5 @@
 
-@extends('Extras.side-navbar-admin')
+@extends('Extras.side-navbaradmin')
 @section('content-admin')
 <body>
  <div class="flex ml-6">

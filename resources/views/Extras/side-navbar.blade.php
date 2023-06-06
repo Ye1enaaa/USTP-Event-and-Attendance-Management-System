@@ -60,8 +60,17 @@
             <span class="name" style="color: #FFFFFF;">{{ Auth::user()->name }}</span>&nbsp;<i class="caret"></i>
           </div>
             <ul class="dropdown-menu" style="padding: 10px; border: 2px solid #211a51; border-radius: 5px;">
-              <li style="margin-bottom: 2px;"><a href="#" onclick="handleProfileClick();"><i class="fas fa-user" style="color: #211a51;"></i> Profile</a></li>
-              <li style="margin-bottom: 2px;"><a href="#" onclick="handleSettingsClick();"><i class="fas fa-cog" style="color: #211a51;"></i> Settings</a></li>
+              
+            
+            <!-- gitandog ni calapiz -->
+            <!-- <li style="margin-bottom: 2px;"><a href="#" onclick="handleProfileClick();"><i class="fas fa-user" style="color: #211a51;"></i> Profile</a></li> -->
+              
+            <li style="margin-bottom: 2px;"><a href="#" id="profileButton"><i class="fas fa-user" style="color: #211a51;"></i> Profile</a></li>
+
+
+
+
+            <li style="margin-bottom: 2px;"><a href="#" id="profileButton"><i class="fas fa-user" style="color: #211a51;"></i> Settings</a></li>
               <li><a href="#" onclick="handleLogoutClick();"><i class="fas fa-sign-out-alt" style="color: #211a51;"></i> Logout</a></li>
             </ul>
         </div>
@@ -111,6 +120,27 @@
     });
     });
   </script>
+
+  
+  
+ <script>
+    // Function to handle the profile button click event
+function handleProfileClick(event) {
+  event.preventDefault(); // Prevent the default link behavior
+
+  // Navigate to the profile page
+  window.location.href = "/profile";
+}
+
+// Attach the event listener to the profile button
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("profileButton").addEventListener("click", handleProfileClick);
+});
+
+
+    // Attach the event listener to the profile button
+    
+</script>
 
 </body>
 </html>

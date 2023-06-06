@@ -1,3 +1,20 @@
+function performSearch() {
+    var searchInput = document.getElementById("search-input");
+    var searchText = searchInput.value.toLowerCase();
+
+    var eventNames = document.getElementsByClassName("event-name");
+
+    for (var i = 0; i < eventNames.length; i++) {
+        var eventName = eventNames[i].innerText.toLowerCase();
+
+        if (eventName.includes(searchText)) {
+            eventNames[i].parentNode.style.display = "block";
+        } else {
+            eventNames[i].parentNode.style.display = "none";
+        }
+    }
+}
+
 function toggleSidebar() {
     var sidebar = document.querySelector(".sidebar");
     sidebar.classList.toggle("show");
