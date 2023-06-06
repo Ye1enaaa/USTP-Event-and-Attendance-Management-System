@@ -18,21 +18,23 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-jqWO+TM9G3s6jSLM9vP8cMhiUm99DLlVAlxio51S9uYqEdOhxmMLjF18Ypvbqk8L9VfsN5kZKLJ0efoNu4gIhQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-Yq9K2oX/e1TrST5yJthLBmR2qzMNuy2OqPBBQzKCPNI1PbcRLacKQYUKa1vWJ8WhR+JiSjXvL8yvSTQ8R1yOWg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Add Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 
 </head>
 
-@extends('Extras.side-navbar')
+<!-- kaning extends og section kay mao ni ang sidebar og topbar -->
+@extends('Extras.side-navbaradmin')
 
-@section('content')
+@section('content-admin')
 
 
+<br><br> <br>
 
-<div class="content-admin">
+
+<div class="content-createevent-admin">
     <div class="menu">
+
     <h2 style="color: #201a50;"><i class="far fa-edit" style="color: #fdc718;"></i> CREATE EVENT</h2>
 
         <div class="form-container">
@@ -51,7 +53,7 @@
                 <button type="submit">SUBMIT</button>
                 <button type="cancel">CANCEL</button>
             </form>
-        </div>
+        <!-- </div>
         <div class="container">
           @foreach($events as $event)
               {{-- @if(strtotime($event->eventDate) > strtotime(date('Y-m-d'))) --}}
@@ -68,38 +70,29 @@
               </div>
               
           @endforeach
-      </div>
+      </div>  -->
+      <br>
+
     </div>
-    <script>
-      function performSearch() {
-        var searchInput = document.getElementById('search-input');
-        var searchText = searchInput.value.toLowerCase();
+<br><br>
+
+
+
+
+
+
+ 
+
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
       
-        var eventNames = document.getElementsByClassName('event-name');
-      
-        for (var i = 0; i < eventNames.length; i++) {
-          var eventName = eventNames[i].innerText.toLowerCase();
-      
-          if (eventName.includes(searchText)) {
-            eventNames[i].parentNode.style.display = 'block';
-          } else {
-            eventNames[i].parentNode.style.display = 'none';
-          }
-        }
-      }
-      </script>
-      
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 
 <script src="{{ asset('js/admin.js') }}"></script>
 
-  
 
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  
-  <script src="{{ asset('js/side-navbar.js') }}">
-  </script>
+ <script src="{{ asset('js/side-navbar-admin.js') }}"></script>
 
 
   @endsection

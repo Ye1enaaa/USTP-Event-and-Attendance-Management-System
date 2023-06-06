@@ -26,4 +26,18 @@ class EventDetailsController extends Controller
         return view('Users.evdetails', compact('event', 'isAttending'));
 
     }
+    //---------------MABANTA-----------------\\
+    public function showEventDetails($id){
+        $eventAdmin = Event::find($id);
+        $eventWithAttendee = Event::with('attendees')->find($id);
+        return response()->json([
+            'event' => $eventWithAttendee
+        ]);
+
+        if(!$eventWithAttendee){
+            return response()->json([
+                'error' => '404 Not Found'
+            ], 404);
+        }
+    }
 }
