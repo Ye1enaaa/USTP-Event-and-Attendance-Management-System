@@ -65,13 +65,13 @@
                 <div class="form-group">
                     <label for="eventPicture" style="color: #201a50;">Event Picture:</label>
                     <input type="file" name="eventPicture" id="eventPicture" placeholder="Event Picture" onchange="readURL(this)">
-                    <img id="preview" src="#" alt="Chosen Picture" style="display: none; width: 250px; margin-left: 10px;">
+                    <img id="preview" src="#" alt="Chosen Picture" style="display: none; width: 500px; margin-left: 50px;">
                 </div>
                 <div class="form-buttons">
                     <button type="submit" class="flex justify-center items-center bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-10 rounded-lg">Submit</button>
                     <button type="cancel" class="flex justify-center items-center danger-button font-bold py-2 px-10 rounded-lg">Cancel</button>
             </form>
-        </div>
+        <!-- </div>
         <div class="container">
           @foreach($events as $event)
               {{-- @if(strtotime($event->eventDate) > strtotime(date('Y-m-d'))) --}}
@@ -88,7 +88,8 @@
               </div>
               
           @endforeach
-      </div> <br>
+      </div>  -->
+      <br>
 
     </div>
 <br><br>
@@ -97,8 +98,8 @@
 
 
 
-
  
+
 
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
