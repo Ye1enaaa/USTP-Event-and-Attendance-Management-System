@@ -15,24 +15,24 @@
 </head>
 
 <body>
-
+<div class="dashboard-container">
   <aside class="side-navbar">
     <ul class="nav-list">
       <li>
-        <a class="flex items-center">
+        <a>
           <span class="icon"><ion-icon name="cube-outline"></ion-icon></span>
           <span class="text-lg text-white">USTP-EVENT</span>
         </a>
       </li>
       <li>
-        <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "student") echo "active"; ?>" href="student">
+        <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "admin") echo "active"; ?>" href="admin">
           <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
           <span class="text">UPCOMING EVENTS</span>
         </a>
       </li>
 
         <li>
-          <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "admin") echo "active"; ?>" href="#dashboard">
+          <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "admin") echo "active"; ?>" href="admin">
             <span class="icon"><ion-icon name="checkmark-done-outline"></ion-icon></span>
             <span class="text">Dashboard</span>
           </a>
