@@ -41,16 +41,58 @@
           
             <form action="{{route('add.event')}}" method="post" enctype="multipart/form-data">
                 @csrf
-                <input type="text" name="eventName" id="" placeholder="Event Name">
-                <input type="date" name="eventDate" id="" placeholder="Event Date">
-                <input type="time" name="eventTime" id="" placeholder="Event Time">
-                <input type="text" name="eventPlace" id="" placeholder="Event Place">
-                <input type="text" name="eventDesc" id="" placeholder="Event Description">
-                <div>
-                    <input type="file" name="eventPicture" id="" placeholder="Event Picture" onchange="readURL(this)">
-                    <img id="preview" src="#" alt="Chosen Picture" style="display: none; width: 200px; margin-left: 10px;">
+                
+                <div class="form-group">
+                    <label for="eventName" style="color: #201a50;">Event Name:</label>
+                    <input type="text" name="eventName" id="eventName" placeholder="Event Name">
                 </div>
+                <div class="form-group">
+                    <label for="eventDate" style="color: #201a50;">Event Date:</label>
+                    <input type="date" name="eventDate" id="eventDate" placeholder="Event Date">
+                </div>
+                <div class="form-group">
+                    <label for="eventTime" style="color: #201a50;">Event Time:</label>
+                    <input type="time" name="eventTime" id="eventTime" placeholder="Event Time">
+                </div>
+                <div class="form-group">
+                    <label for="eventPlace" style="color: #201a50;">Event Place:</label>
+                    <input type="text" name="eventPlace" id="eventPlace" placeholder="Event Place">
+                </div>
+                <div class="form-group">
+                    <label for="eventDesc" style="color: #201a50;">Event Description:</label>
+                    <input type="text" name="eventDesc" id="eventDesc" placeholder="Event Description">
+                </div>
+                <div class="form-group">
+                    <label for="eventPicture" style="color: #201a50;">Event Picture:</label>
+                    <input type="file" name="eventPicture" id="eventPicture" placeholder="Event Picture" onchange="readURL(this)">
+                    <img id="preview" src="#" alt="Chosen Picture" style="display: none; width: 500px; margin-left: 50px;">
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="flex justify-center items-center bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-10 rounded-lg">Submit</button>
+                    <button type="cancel" class="flex justify-center items-center danger-button font-bold py-2 px-10 rounded-lg">Cancel</button>
+            </form>
+        <!-- </div>
+        <div class="container">
+          @foreach($events as $event)
+              {{-- @if(strtotime($event->eventDate) > strtotime(date('Y-m-d'))) --}}
+              <div class="child">
+                  <a href="#{{$event->id}}" class="clickable-container">
+                      <div class="event-container">
+                          <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="" class="event-picture">
+                          <h3 class="event-name">{{$event->eventName}}</h3>
+                          <p class="event-details">Place: {{$event->eventPlace}}</p>
+                          <p class="event-details">Time: {{$event->eventTime}}</p>
+                          <p class="event-details">Date: {{$event->eventDate}}</p>
+                      </div>
+                  </a>
+              </div>
+              
+          @endforeach
+      </div>  -->
+      <br>
 
+    </div>
+<br><br>
 
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
