@@ -35,7 +35,7 @@
 <div class="content-createevent-admin">
     <div class="menu">
 
-    <h2 style="color: #201a50;"><i class="far fa-edit" style="color: #fdc718;"></i> CREATE EVENT</h2>
+    <!-- <h2 style="color: #201a50;"><i class="far fa-edit" style="color: #fdc718;"></i> CREATE EVENT</h2>
 
         <div class="form-container">
           
@@ -71,7 +71,7 @@
                     <button type="submit" class="flex justify-center items-center bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-10 rounded-lg">Submit</button>
                     <button type="cancel" class="flex justify-center items-center danger-button font-bold py-2 px-10 rounded-lg">Cancel</button>
             </form>
-        </div>
+        </div> -->
         <div class="container">
           @foreach($events as $event)
               {{-- @if(strtotime($event->eventDate) > strtotime(date('Y-m-d'))) --}}
