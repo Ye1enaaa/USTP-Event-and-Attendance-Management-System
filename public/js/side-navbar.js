@@ -31,18 +31,3 @@ function performSearch() {
         }
     }
 }
-
-// document.addEventListener("DOMContentLoaded", function () {
-//     var dropdown = document.querySelector(".user-dropdown");
-//     var dropdownMenu = document.querySelector(".dropdown-menu");
-
-//     dropdown.addEventListener("click", function () {
-//         dropdown.classList.toggle("show");
-//     });
-
-//     document.addEventListener("click", function (event) {
-//         if (!dropdown.contains(event.target)) {
-//             dropdown.classList.remove("show");
-//         }
-//     });
-// });
