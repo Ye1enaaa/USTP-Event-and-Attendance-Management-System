@@ -8,32 +8,39 @@
   <style>
     /* Add your custom CSS styles here */
     .img-circle {
+      padding: 0px 0px;
       border-radius: 50%;
+      right:50px;
+      left:50px;
+      top:10;
+      background: linear-gradient(to right, #DDDBDF 100%, #DFB0DA 80%);
+     
     }
     .img-size-2 {
-      width: 100px;
-      height: 100px;
+      width: 150px;
+      height: 150px;
+      object-fit:cover;
     }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: white;
-    }
+
     .row {
       display: flex;
-      flex-wrap: wrap;
-      margin-right: -15px;
-      margin-left: -15px;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: normal;
+      align-items: normal;
+      align-content: normal;
+      
+      
     }
     .col-md-6 {
-      flex: 0 0 50%;
+      flex: 0 0 45%;
       max-width: 50%;
       padding-right: 15px;
       padding-left: 15px;
+      
     }
     .panel {
-      margin-bottom: 20px;
+      margin-bottom: 50px;
       background-color: #fff;
       border: 1px solid #ddd;
       border-radius: 4px;
@@ -45,13 +52,20 @@
       background-color: #f5f5f5;
     }
     .panel-heading span {
-      margin-right: 5px;
+      margin-right: 100x;
+      font-family: helvetica;
+      font-weight: bold;
+      color: #14396A !important;
+      font-size: 14px;
+      
     }
     .panel-body {
-      padding: 15px;
+      padding: 50px;
+      background: #A7CFDF;
+      background: linear-gradient(to right, #A7CFDF 0%, #A7CFDF 0%);
     }
     .form-group {
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
     .form-control {
       display: block;
@@ -60,7 +74,7 @@
       padding: 6px 12px;
       font-size: 14px;
       line-height: 1.42857143;
-      color: #555;
+      color: #FFFFFF;
       background-color: #fff;
       background-image: none;
       border: 1px solid #ccc;
@@ -85,7 +99,7 @@
       background-image: none;
       border: 1px solid transparent;
       border-radius: 4px;
-      color: #fff;
+      color: #FFFFFF;
       background-color: #337ab7;
       border-color: #2e6da4;
     }
@@ -95,13 +109,13 @@
       border-color: #ccc;
     }
     .btn-file {
-      position: relative;
+      position: flex;
       overflow: hidden;
     }
     .btn-file input[type="file"] {
       position: absolute;
-      top: 0;
-      right: 0;
+      top: 10;
+      right: 10;
       min-width: 100%;
       min-height: 100%;
       font-size: 100px;
@@ -118,60 +132,59 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <div class="panel-heading clearfix">
-                        <span class="glyphicon glyphicon-camera"></span>
-                        <span>Change My photo</span>
-                    </div>
-                </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img class="img-circle img-size-2" src="" alt="" id="profileImage">
-                        </div>
-                        <div class="col-md-8">
-                            <form class="form" action="#" method="POST" enctype="multipart/form-data">
-                                <div class="form-group">
-                                    <input type="file" name="file_upload" multiple="multiple" class="btn btn-default btn-file" id="imageInput" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="hidden" name="user_id" value="">
-                                    <button type="submit" name="submit" class="btn btn-warning">Change</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="panel-heading clearfix">
+              <span class="glyphicon glyphicon-camera"></span>
+              <span>PROFILE</span>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading clearfix">
-                    <span class="glyphicon glyphicon-edit"></span>
-                    <span>Edit My Account</span>
-                </div>
-                <div class="panel-body">
-                    <form method="post" action="#" class="clearfix">
-                        <div class="form-group">
-                            <label for="name" class="control-label">Name</label>
-                            <input type="name" class="form-control" name="name" value="">
-                        </div>
-                        <div class="form-group">
-                            <label for="username" class="control-label">Username</label>
-                            <input type="text" class="form-control" name="username" value="">
-                        </div>
-                        <div class="form-group clearfix">
-                            <button type="submit" name="update" class="btn btn-info">Update</button>
-                        </div>
-                    </form>
-                </div>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-4">
+                <img class="img-circle img-size-2  " src="" alt="" id="profileImage">
+              </div>
+              <div class="col-md-8">
+                <form class="form" action="#" method="POST" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <input type="file" name="file_upload" multiple="multiple" class="btn btn-default btn-file" id="imageInput" />
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" name="submit" class="btn btn-warning">Change</button>
+                    
+                  </div>
+                </form>
+              </div>
             </div>
-            <div class="col-md-4">
+          </div>
         </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading clearfix">
+            <span class="glyphicon glyphicon-edit"></span>
+            <span>EDIT MY ACCOUNT</span>
+          </div>
+          <div class="panel-body">
+            <form method="post" action="#" class="clearfix">
+              <div class="form-group">
+                <label for="name" class="control-label">Name</label>
+                <input type="name" class="form-control" name="name" value="">
+              </div>
+              <div class="form-group">
+                <label for="username" class="control-label">Username</label>
+                <input type="text" class="form-control" name="username" value="">
+              </div>
+              <div class="form-group clearfix">
+                <button type="submit" name="update" class="btn btn-info">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
 
 
