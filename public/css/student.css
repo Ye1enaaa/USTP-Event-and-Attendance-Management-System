@@ -8,7 +8,7 @@ body {
 
 .container {
     display: flex;
-    overflow-x: auto;
+    overflow-x: hidden;
     white-space: nowrap;
 }
 
@@ -90,3 +90,4 @@ body {
     text-align: center;
     font-weight: bold;
 }
+
