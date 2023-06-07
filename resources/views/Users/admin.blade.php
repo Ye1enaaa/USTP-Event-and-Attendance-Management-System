@@ -71,7 +71,7 @@
                     <button type="submit" class="flex justify-center items-center bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-10 rounded-lg">Submit</button>
                     <button type="cancel" class="flex justify-center items-center danger-button font-bold py-2 px-10 rounded-lg">Cancel</button>
             </form>
-        </div>
+        <!-- </div>
         <div class="container">
           @foreach($events as $event)
               {{-- @if(strtotime($event->eventDate) > strtotime(date('Y-m-d'))) --}}
@@ -88,17 +88,11 @@
               </div>
               
           @endforeach
-      </div> <br>
+      </div>  -->
+      <br>
 
     </div>
 <br><br>
-
-
-
-
-
- 
-
 
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

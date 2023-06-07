@@ -9,7 +9,35 @@ use Carbon\Carbon;
 class EventController extends Controller
 {
     //EVENT INDEX FUNCTION @ VIEWSCONTROLLER
+    public function returnCreateEventView(){
+        return view('event-admin.createevent');
+    }
+    //return events by date
+    public function fetchEventTodayWeb(){
+        $serverTime = config('app.timezone');
+        $today = Carbon::today();
+        $eventToday = Event::whereDate('eventDate', $today)->get();
 
+        return view('event-admin.todays-event', compact('eventToday'));
+    }
+
+    public function fetchUpcomingEventsWeb(){
+        $today = Carbon::today()->toDateString();
+
+        $upcomingEvents = Event::whereDate('eventDate','>',$today)
+            ->orderBy('eventDate')
+            ->get();
+        return view('event-admin.upcoming-events', compact('upcomingEvents'));
+    }
+
+    public function fetchEndedEventsWeb(){
+        $today = Carbon::today()->toDateString();
+
+        $endedEvents = Event::whereDate('eventDate','<',$today)
+            ->orderBy('eventDate')
+            ->get();
+        return view('event-admin.ended-events', compact('endedEvents'));
+    }
     //POST EVENT
     public function addEvent(Request $request){
         $validateFields = $request->validate([

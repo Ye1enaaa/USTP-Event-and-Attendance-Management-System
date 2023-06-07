@@ -15,42 +15,64 @@
 </head>
 
 <body>
-
+<div class="dashboard-container">
   <aside class="side-navbar">
     <ul class="nav-list">
       <li>
-        <a class="flex items-center">
+        <a>
           <span class="icon"><ion-icon name="cube-outline"></ion-icon></span>
           <span class="text-lg text-white">USTP-EVENT</span>
         </a>
       </li>
+
+
+        <!-- alliana part -->
+
       <li>
-        <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "student") echo "active"; ?>" href="student">
-          <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
-          <span class="text">UPCOMING EVENTS</span>
+        <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "admin") echo "active"; ?>" href="admin">
+          <span class="icon"><ion-icon name="create-outline"></ion-icon></span>
+          <span class="text">CREATE EVENT</span>
         </a>
       </li>
 
-        <li>
-          <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "admin") echo "active"; ?>" href="#dashboard">
-            <span class="icon"><ion-icon name="checkmark-done-outline"></ion-icon></span>
-            <span class="text">Dashboard</span>
-          </a>
-        </li>
+      <li class="tree-view">
+        <button class="tree-view-header-button <?php if(basename($_SERVER['PHP_SELF']) == "upcomingEvents") echo "active"; ?> w-full" onclick="toggleTreeView(event)">
+    <span class="icon"><ion-icon name="folder-outline"></ion-icon></span>
+    <span class="text text-white">EVENTS</span>
+  </button>
 
-        <li>
-          <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "admin") echo "active"; ?>" href="admin">
-            <span class="icon"><ion-icon name="checkmark-done-outline"></ion-icon></span>
-            <span class="text">Event</span>
-          </a>
-        </li>
+        <ul class="tree-view-menu">
+          <li>
+            <a href="#upcomingevents" onclick="showUpcomingEvents()" class="tree-view-button">
+              <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
+              <span class="text">Upcoming Events</span>
+            </a>
+          </li>
+          <li>
+            <a href="#todaysevents" onclick="showTodaysEvents()" class="tree-view-button">
+              <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
+              <span class="text">Today's Event</span>
+            </a>
+          </li>
+          <li>
+            <a href="#pastevents" onclick="showPastEvents()" class="tree-view-button">
+              <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
+              <span class="text">Past Events</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+
+
+      
 
     </ul>
   </aside>
 
   
   <div class="content">
-    <div class="top-navbar">
+    <div id="top-navbar" class="top-navbar">
       <div class="bx bx-menu" id="menu-icon"></div>
         <div class="search-bar">
           <input type="text" id="search-input" placeholder="Search..." oninput="performSearch()" 
@@ -64,7 +86,18 @@
             <span class="name" style="color: #FFFFFF;">{{ Auth::user()->name }}</span>&nbsp;<i class="caret"></i>
           </div>
           <ul class="dropdown-menu" style="padding: 10px; border: 2px solid #211a51; border-radius: 5px;">
-            <li style="margin-bottom: 2px;"><a href="#" id="profileButton"><i class="fas fa-user" style="color: #211a51;"></i> Profile</a></li>
+
+          <li>
+            <a href="#profile" onclick="showEditProfile()">
+              <span class="fas fa-user" style="color: #211a51;"></ion-icon></span>
+              <span class="text">Profile</span>
+            </a>
+          </li> 
+
+
+            <!-- <li style="margin-bottom: 2px;"><a href="#" id="profileButton"><i class="fas fa-user" style="color: #211a51;"></i> Profile</a></li> -->
+
+
             <li style="margin-bottom: 2px;"><a href="#" onclick="handleSettingsClick();"><i class="fas fa-cog" style="color: #211a51;"></i> Settings</a></li>
             <li><a href="#" onclick="handleLogoutClick();"><i class="fas fa-sign-out-alt" style="color: #211a51;"></i> Logout</a></li>
           </ul>
@@ -89,6 +122,7 @@
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
   <script src="{{ asset('js/side-navbar-admin.js') }}"></script>
+
 
 
 
