@@ -5,6 +5,7 @@ use App\Http\Controllers\ViewsController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\EventDetailsController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,13 +27,17 @@ Route::get('/student' , [ViewsController::class, 'returnStudentDashboardView']);
 
 //EventController
 Route::controller(EventController::class)->group(function(){
+    Route::get('/createevent','returnCreateEventView');
     Route::post('/addevent', 'addEvent')->name('add.event');
     Route::delete('/delete/{id}', 'destroy')->name('delete.event');
+    
+    //-------------FETCH EVENTS BY DATE-------------------\\
+    Route::get('/todaysevent','fetchEventTodayWeb');
+    Route::get('/upcomingevents','fetchUpcomingEventsWeb');
+    Route::get('/endedevents','fetchEndedEventsWeb');
 });
 
 
 //EventDetailsController
 Route::get('users/event/details/{id}/attended/{studentId}', [EventDetailsController::class, 'show'])->name('event.details');
-
-
-
+Route::get('/profile', [ProfileController::class, 'showProfile']);
