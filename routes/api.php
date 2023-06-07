@@ -6,7 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\EventAttendeesController;
 use App\Http\Controllers\EventController;
-
+use App\Http\Controllers\EventDetailsController;
 Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('/user', [UserController::class, 'userMobile']);
 });
@@ -30,3 +30,4 @@ Route::get('/event/{id}/attendee/{studentId}' , [UserController::class,'checkIfA
 
 //------------------------EXPERIMENTATION APIs-------------------------\\
 Route::delete('/delete/{id}',[EventController::class,'destroy']);
+Route::get('/adminevent/{id}', [EventDetailsController::class, 'showEventDetails']);
