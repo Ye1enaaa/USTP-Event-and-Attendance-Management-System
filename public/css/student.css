@@ -44,6 +44,7 @@ body {
     height: 200px; 
     align-self: center;
     object-fit: cover; 
+    border-radius: 10px;
 }
 
 .event-info {
@@ -60,11 +61,12 @@ body {
 
 .event-details ion-icon {
     margin-right: 5px;
+    font-weight: bold;
 }
   
 
    /* On click event -->> evdetails.php */ 
-.details-container {
+/* .details-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -72,6 +74,54 @@ body {
     width: 300px; 
     white-space: initial;
     position: relative;
+}
+
+.description-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    width: 300px; 
+    white-space: initial;
+    position: relative;
+} */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-button {
+    margin-right: 20px;
+    color: black;
+    font-size: 30px;
+}
+.container {
+    display: flex;
+    max-width: 100%;
+    margin: 20px;
+    margin-top: 0;
+    }
+  
+.details-container {
+    flex: 1;
+    width: 300px;
+    padding-top: 10px;
+    padding: 20px;
+    white-space: initial;
+    background-color: peachpuff;
+    border-radius: 15px;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+
+.description-container {
+    flex: 4;
+    padding: 20px;
+    background-color: pink;
+    border-radius: 10px;
+    white-space: initial;
+    text-align: justify;
 }
 
 .attended {

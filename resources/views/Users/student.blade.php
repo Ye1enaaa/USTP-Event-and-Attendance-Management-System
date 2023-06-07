@@ -25,8 +25,8 @@
                             Time: {{ date('g:i A', strtotime($event->eventTime)) }}
                         </p>
                         <p class="event-details">
-                            <ion-icon name="time-outline"></ion-icon>
-                            Time: {{ date('F j, Y', strtotime($event->eventDate)) }}
+                            <ion-icon name="calendar-outline"></ion-icon>
+                            Date: {{ date('F j, Y', strtotime($event->eventDate)) }}
                         </p>                    
                     </div>
                 </a>
