@@ -28,44 +28,44 @@
 
         <!-- alliana part -->
 
-        <li>
-          <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "admin") echo "active"; ?>" href="admin">
-            <span class="icon"><ion-icon name="create-outline"></ion-icon></span>
-            <span class="text">CREATE EVENT</span>
-          </a>
-        </li>
+      <li>
+        <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "admin") echo "active"; ?>" href="admin">
+          <span class="icon"><ion-icon name="create-outline"></ion-icon></span>
+          <span class="text">CREATE EVENT</span>
+        </a>
+      </li>
 
-        <li class="tree-view">
-          <div class="tree-view-header side-link <?php if(basename($_SERVER['PHP_SELF']) == "upcomingEvents") echo "active"; ?>" onclick="toggleTreeView(event)">
-            <span class="icon"><ion-icon name="folder-outline"></ion-icon></span>
-            <span class="text text-white">EVENTS</span>
-          </div>
-          <ul class="tree-view-menu">
+      <li class="tree-view">
+        <button class="tree-view-header-button <?php if(basename($_SERVER['PHP_SELF']) == "upcomingEvents") echo "active"; ?> w-full" onclick="toggleTreeView(event)">
+    <span class="icon"><ion-icon name="folder-outline"></ion-icon></span>
+    <span class="text text-white">EVENTS</span>
+  </button>
 
+        <ul class="tree-view-menu">
           <li>
-            <a href="#upcomingevents" onclick="showUpcomingEvents()">
+            <a href="#upcomingevents" onclick="showUpcomingEvents()" class="tree-view-button">
               <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
               <span class="text">Upcoming Events</span>
             </a>
           </li>
-
           <li>
-            <a href="#todaysevents" onclick="showTodaysEvents()">
+            <a href="#todaysevents" onclick="showTodaysEvents()" class="tree-view-button">
               <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
-              <span class="text">Todays Event</span>
+              <span class="text">Today's Event</span>
             </a>
-          </li>      
-          
-          
+          </li>
           <li>
-            <a href="#pastevents" onclick="showPastEvents()">
+            <a href="#pastevents" onclick="showPastEvents()" class="tree-view-button">
               <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
               <span class="text">Past Events</span>
             </a>
-          </li>          
+          </li>
+        </ul>
+      </li>
 
 
 
+      
 
     </ul>
   </aside>

@@ -195,6 +195,81 @@
     display: none;
 }
 
+.tree-view-button {
+    display: block;
+    width: 100px;
+    padding: 10px;
+    text-decoration: none;
+    color: #000;
+    background: #ffd14f;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.tree-view-button:hover {
+    background: #ffd14f;
+}
+
+.tree-view-button .icon {
+    margin-right: 5px;
+}
+
+.tree-view-button .text {
+    font-weight: bold;
+}
+
+.tree-view-header-text {
+    font-weight: bold;
+    color: #fff;
+    margin-left: 5px;
+}
+
+.tree-view-header-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #11101d;
+    margin-bottom: 5px;
+    border-left: 3px solid #ffd14f;
+    border-bottom: 3px solid #ffd14f;
+}
+
+.tree-view-header-button:hover {
+    background: #ffd14f;
+}
+
+.tree-view-header-button .icon {
+    margin-right: 10px;
+    color: #ffffff;
+}
+
+.tree-view-header-button:hover {
+    background: #ffd14f;
+}
+
+.tree-view-header-button .icon {
+    margin-right: 15px;
+    color: #ffffff;
+}
+
+.tree-view-header-button:focus,
+.tree-view-header-button.active,
+.tree-view-header-button.active:hover {
+    border: none; /* Remove the border when the button is active */
+}
+
+.tree-view-menu {
+    width: 100%;
+    padding: 5px;
+}
+
+.tree-view-menu li {
+    margin-bottom: 2px; /* Adjust this value to reduce the spacing */
+}
+
 @media (max-width: 768px) {
     .content {
         width: 100%;
