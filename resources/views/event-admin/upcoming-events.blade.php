@@ -7,7 +7,9 @@
 
   <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
   <link rel="stylesheet" href="{{ asset('css/side-navbar-admin.css') }}">
-  
+  <!--upcoming events css-->
+  <link rel="stylesheet" href="events-admin.css">
+    
   <title> USTP-CDO-EVENT </title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -39,15 +41,30 @@
         </div>
 
         <br><br>
-    
-        <div class="ml-6">
-            @foreach($upcomingEvents as $event)
-            <h1>{{$event->eventName}}</h1>
-            @endforeach
 
+
+
+
+<div class="ml-6 pl-4 ">
+    @foreach($upcomingEvents as $event)
+    <button class="clickevent bg-white mb-100 mt-2 border border-yellow-300">
+        <div class="main-container hover:opacity-80">
+            <div class="image-container w-100">
+                <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="An Image Appeared Here" class="event-picture">
+            </div>
+            <div class="eventdetails-container">
+                <h3>{{$event->eventName}}</h3>
+                <p class="event-details"> <ion-icon name="location-outline"></ion-icon> Place: {{ $event->eventPlace }}</p>
+                <p class="event-details"> <ion-icon name="time-outline"></ion-icon> Time: {{ $event->eventTime }}</p>
+                <p class="event-details"> <ion-icon name="calendar-outline"></ion-icon> Date: {{ $event->eventDate }}</p>
+            </div>
         </div>
+    </button>
+    @endforeach
+</div>
 
-    </div>
+
+</div>
 
 
         

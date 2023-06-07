@@ -40,16 +40,28 @@
 
         <br><br>
     
-        <div class="ml-6">
-                @foreach($eventToday as $event)
-    <h1>{{$event->eventName}}</h1>
-    @endforeach
+        <div class="ml-6 pl-4">
+            @foreach($eventToday as $event)
+            <button class="clickevent bg-white mb-100 mt-4">
+        <div class="main-container hover:opacity-80">
+            <div class="image-container w-100">
+                <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="An Image Appeared Here" class="event-picture">
+            </div>
+            <div class="eventdetails-container">
+            <h3>{{$event->eventName}}</h3>
+            <p class="event-details"> <ion-icon name="location-outline"></ion-icon> Place: {{ $event->eventPlace }}</p>
+                <p class="event-details"> <ion-icon name="time-outline"></ion-icon> Time: {{ $event->eventTime }}</p>
+                <p class="event-details"> <ion-icon name="calendar-outline"></ion-icon> Date: {{ $event->eventDate }}</p>
+            </div>
+        </div>
+    </button>
+            @endforeach
         </div>
 
     </div>
 
 
-        
+  
 
 </body>
 </html>
