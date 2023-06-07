@@ -28,7 +28,7 @@
     </div>
 
     <div class="max-w-md mx-auto mt-8 p-6 bg-white rounded-2xl shadow-2xl ml-92">
-        <h1 class="flex items-center justify-center text-2xl font-serif text-black text-center">EVENT MANAGEMENT SYSTEM</h1> 
+        <h1 class="flex items-center justify-center text-2xl font-serif text-black text-center font-bold">EVENT MANAGEMENT SYSTEM</h1> 
         <br>
         <div class="flex justify-center items-center">
             <img src="{{ asset('assets/pictures/ustp-logo.png') }}" class="h-40 w-60 object-contain">  

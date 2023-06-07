@@ -181,6 +181,12 @@ function showEditProfile() {
     xhr.send();
 }
 
+function toggleTreeView(event) {
+    var treeViewMenu = document.getElementById("treeViewMenu");
+    treeViewMenu.style.display =
+        treeViewMenu.style.display === "none" ? "block" : "none";
+}
+
 // Insert the CSS code here
 var style = document.createElement("style");
 style.innerHTML = `
