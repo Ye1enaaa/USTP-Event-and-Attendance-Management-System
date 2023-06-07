@@ -107,8 +107,8 @@
 }
 .btn-file input[type="file"] {
   position: absolute;
-  top: 10;
-  right: 10;
+  top: 0;
+  right: 0;
   min-width: 100%;
   min-height: 100%;
   font-size: 100px;
