@@ -8,7 +8,7 @@
 </div>
 <div class="container">    
 <!-- <div class="details-container"> -->
-<div class="details-container @if($isAttending) attended @elseif(strtotime($event->eventDate) < strtotime('now')) missed @else upcoming @endif">
+<div class="details-container @if($isAttending) attended @elseif(strtotime($event->eventDate . ' ' . $event->eventTime) < strtotime('now')) missed @else upcoming @endif">
         <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="" class="event-picture">
 
         <p class="event-details"> 
@@ -25,10 +25,11 @@
         </p>    -->
 
         @if($isAttending) 
-        <p class="attendance-label"> — ATTENDED — </p>
-        @elseif(strtotime($event->eventDate) < strtotime('now'))
-        <p class="attendance-label"> — MISSED — </p>
-        @elseif(strtotime($event->eventDate) > strtotime('now'))
+            <p class="attendance-label"> — ATTENDED — </p>
+        @elseif(strtotime($event->eventDate . ' ' . $event->eventTime) < strtotime('now'))
+            <p class="attendance-label"> — MISSED — </p>
+        @elseif(strtotime($event->eventDate . ' ' . $event->eventTime) > strtotime('now'))
+            <p class="attendance-label"> — UPCOMING — </p>
         @endif
     </div>
     <div class="description-container">
