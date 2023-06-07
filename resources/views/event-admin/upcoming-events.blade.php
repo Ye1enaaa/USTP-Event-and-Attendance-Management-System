@@ -41,6 +41,7 @@
         </div>
 
         <br><br>
+<<<<<<< HEAD
 
 
 
@@ -58,6 +59,19 @@
                 <p class="event-details"> <ion-icon name="time-outline"></ion-icon> Time: {{ $event->eventTime }}</p>
                 <p class="event-details"> <ion-icon name="calendar-outline"></ion-icon> Date: {{ $event->eventDate }}</p>
             </div>
+=======
+    
+        <div class="ml-6">
+            @foreach($upcomingEvents as $event)
+            <h1>{{$event->eventName}}</h1>
+            <p class="event-details"> <ion-icon name="location-outline"></ion-icon> Place: {{ $event->eventPlace }}</p>
+        <p class="event-details"> <ion-icon name="time-outline"></ion-icon> Time: {{ $event->eventTime }}</p>
+        <p class="event-details"> <ion-icon name="calendar-outline"></ion-icon> Date: {{ $event->eventDate }}</p>
+            @endforeach
+
+                    
+
+>>>>>>> 9a0abee139c5f9ec5203138a549bbc418818973b
         </div>
     </button>
     @endforeach

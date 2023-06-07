@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Account</title>
+ 
+</head>
 
   <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
 
@@ -46,60 +48,59 @@
 <br><br><br>
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <div class="panel-heading clearfix">
-                        <span class="glyphicon glyphicon-camera"></span>
-                        <span>Change My photo</span>
-                    </div>
-                </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img class="img-circle img-size-2" src="" alt="" id="profileImage">
-                        </div>
-                        <div class="col-md-8">
-                            <form class="form" action="#" method="POST" enctype="multipart/form-data">
-                                <div class="form-group">
-                                    <input type="file" name="file_upload" multiple="multiple" class="btn btn-default btn-file" id="imageInput" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="hidden" name="user_id" value="">
-                                    <button type="submit" name="submit" class="btn btn-warning">Change</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="panel-heading clearfix">
+              <span class="glyphicon glyphicon-camera"></span>
+              <span>PROFILE</span>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading clearfix">
-                    <span class="glyphicon glyphicon-edit"></span>
-                    <span>Edit My Account</span>
-                </div>
-                <div class="panel-body">
-                    <form method="post" action="#" class="clearfix">
-                        <div class="form-group">
-                            <label for="name" class="control-label">Name</label>
-                            <input type="name" class="form-control" name="name" value="">
-                        </div>
-                        <div class="form-group">
-                            <label for="username" class="control-label">Username</label>
-                            <input type="text" class="form-control" name="username" value="">
-                        </div>
-                        <div class="form-group clearfix">
-                            <button type="submit" name="update" class="btn btn-info">Update</button>
-                        </div>
-                    </form>
-                </div>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-4">
+                <img class="img-circle img-size-2  " src="" alt="" id="profileImage">
+              </div>
+              <div class="col-md-8">
+                <form class="form" action="#" method="POST" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <input type="file" name="file_upload" multiple="multiple" class="btn btn-default btn-file" id="imageInput" />
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" name="submit" class="btn btn-warning">Change</button>
+                    
+                  </div>
+                </form>
+              </div>
             </div>
-            <div class="col-md-4">
+          </div>
         </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading clearfix">
+            <span class="glyphicon glyphicon-edit"></span>
+            <span>EDIT MY ACCOUNT</span>
+          </div>
+          <div class="panel-body">
+            <form method="post" action="#" class="clearfix">
+              <div class="form-group">
+                <label for="name" class="control-label">Name</label>
+                <input type="name" class="form-control" name="name" value="">
+              </div>
+              <div class="form-group">
+                <label for="username" class="control-label">Username</label>
+                <input type="text" class="form-control" name="username" value="">
+              </div>
+              <div class="form-group clearfix">
+                <button type="submit" name="update" class="btn btn-info">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
 
 

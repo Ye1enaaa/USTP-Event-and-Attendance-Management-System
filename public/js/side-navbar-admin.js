@@ -180,3 +180,15 @@ function showEditProfile() {
     xhr.open("GET", "/profile", true);
     xhr.send();
 }
+
+// Insert the CSS code here
+var style = document.createElement("style");
+style.innerHTML = `
+  .tree-view-header-button:focus,
+  .tree-view-header-button:active,
+  .tree-view-header-button.active {
+    outline: none;
+    border: none;
+  }
+`;
+document.head.appendChild(style);
