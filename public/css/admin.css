@@ -708,6 +708,7 @@ input::placeholder {
     height: 200px;
     align-self: center;
     object-fit: cover;
+    border: 1px solid black;
 }
 
 .event-info {
@@ -718,10 +719,21 @@ input::placeholder {
     margin-top: 10px;
 }
 
+h3{
+    text-align: center;
+    margin-top: 10px;
+}
+
 .event-details {
     margin-top: 5px;
+    text-align: center;
 }
 
 .event-details ion-icon {
     margin-right: 5px;
+}
+
+
+.eventcontainer{
+    cursor:pointer;
 }
