@@ -27,6 +27,7 @@ Route::get('/eventtoday', [EventController::class, 'fetchEventToday']); //fetch 
 Route::get('/upcomingevents', [EventController::class, 'fetchUpcomingEvents']); //fetch upcoming events
 Route::get('/endedevents', [EventController::class, 'fetchEndedEvents']); // fetch ended events
 Route::get('/event/{id}/attendee/{studentId}' , [UserController::class,'checkIfAttended']);
+Route::get('/event/attendance/{studentId}' , [EventAttendeesController::class,'fetchAllEventsWithAttendee']);
 
 //------------------------EXPERIMENTATION APIs-------------------------\\
 Route::delete('/delete/{id}',[EventController::class,'destroy']);
