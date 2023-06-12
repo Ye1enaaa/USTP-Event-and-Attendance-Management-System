@@ -52,6 +52,8 @@ class EventAttendeesController extends Controller
                     'eventName' => $event->eventName,
                     'eventDate' => $event->eventDate,
                     'eventPicture' => $event->eventPicture,
+                    'eventPlace' => $event->eventPlace,
+                    'eventTime' => $event->eventTime,
                     'status' => 'Attended'
                 ];
                 break;
