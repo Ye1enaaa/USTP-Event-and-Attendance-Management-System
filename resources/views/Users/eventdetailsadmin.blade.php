@@ -1,6 +1,6 @@
 
-@extends('Extras.side-navbar')
-@section('content')
+@extends('Extras.side-navbaradmin')
+@section('content-admin')
 <body>
  <div class="flex ml-6">
     <h1>EVENT ATTENDANCE</h1>
