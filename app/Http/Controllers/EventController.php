@@ -86,7 +86,40 @@ class EventController extends Controller
 
 
     //UPDATE EVENT
-    public function update(Request $request){
+
+    public function editEvent($id)
+    {
+        $event = Event::find($id);
+        return view('event-admin.edit-events', compact('event'));
+    }
+
+    public function updateEvent(Request $request, $id)
+    {
+        $event = Event::find($id);
+
+        
+
+        $event -> eventName = $request->input('eventName');
+        $event -> eventTime = $request->input('eventTime');
+        $event -> eventDate = $request->input('eventDate');
+        $event -> eventPlace = $request->input('eventPlace');
+        if($request->hasFile('eventPicture')){
+            $imagePath = $request->file('eventPicture')->store('events', 'public');
+            $event -> eventPicture = $imagePath;
+        }
+        $event -> eventDesc = $request->input('eventDesc');
+        $event->save();
+
+        return redirect('todays-event')->with('flash_message', 'Event Updated!');  
+    }
+
+    public function edit($id)
+    {
+
+    }
+
+    public function update()
+    {
 
     }
     //----------------------------------FOR MOBILE---------------------------------------\\
