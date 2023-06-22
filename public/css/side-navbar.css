@@ -407,3 +407,51 @@ h2 {
     margin: 0 20px;
     border-top: 3px solid #ffd14f;
 }
+
+
+/* Scroll Bar */
+.container-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.scroll-container {
+    display: flex;
+}
+
+.child {
+    flex: 0 0 auto;
+    margin-right: 16px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    right: 8px;
+    border-radius: 25px; 
+    overflow: hidden; 
+    transform: translateY(-50%); 
+}
+
+.previous,
+.next {
+    border-radius: 20px;
+    background-color: #ccc;
+    color: #fff;
+    cursor: grab;
+    transition: background-color 0.3s ease;
+    font-size: 24px;
+    padding: 10px 20px; 
+    border: none; 
+    transition: background-color 0.3s ease; 
+}
+
+.previous:hover,
+.next:hover {
+    background-color: #aaa;
+}
