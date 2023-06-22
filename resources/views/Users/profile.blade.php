@@ -8,7 +8,7 @@
  
 </head>
 
-  <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+  <!-- <link rel="stylesheet" href="{{ asset('css/profile.css') }}"> -->
 
 
 </head>
@@ -45,45 +45,31 @@
         </div>
       </div>
 
-<br><br><br>
-<div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <div class="panel-heading clearfix">
-              <span class="glyphicon glyphicon-camera"></span>
-              <span>PROFILE</span>
-            </div>
+
+<div class="rounded bg-gray mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+        <input type="file" id="imageInput" style="display: none;">
+        <label for="imageInput">
+          <div class="position-relative">
+            <img class="rounded-circle mt-5" width="150px" id="profileImage" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+            <i class="fas fa-camera position-absolute" style="right: -10px; bottom: -10px;"></i>
           </div>
-          <div class="panel-body">
-            <div class="row">
-              <div class="col-md-4">
-                <img class="img-circle img-size-2  " src="" alt="" id="profileImage">
-              </div>
-              <div class="col-md-8">
-                <form class="form" action="#" method="POST" enctype="multipart/form-data">
-                  <div class="form-group">
-                    <input type="file" name="file_upload" multiple="multiple" class="btn btn-default btn-file" id="imageInput" />
-                  </div>
-                  <div class="form-group">
-                    <button type="submit" name="submit" class="btn btn-warning">Change</button>
-                    
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+        </label>
+        <span class="font-weight-bold">ADMIN</span>
+        <span class="text-black-50">sample@mail.com.my</span>
       </div>
-      <div class="col-md-6">
-        <div class="panel panel-default">
-          <div class="panel-heading clearfix">
-            <span class="glyphicon glyphicon-edit"></span>
-            <span>EDIT MY ACCOUNT</span>
-          </div>
-          <div class="panel-body">
-            <form method="post" action="#" class="clearfix">
+    </div>
+
+
+        <div class="col-md-9">
+          <div class="p-3 py-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h4 class="text-left">Profile Settings</h4>
+            </div>
+                
+            <div class="row mt-2 ml-6">
               <div class="form-group">
                 <label for="name" class="control-label">Name</label>
                 <input type="name" class="form-control" name="name" value="">
@@ -92,32 +78,54 @@
                 <label for="username" class="control-label">Username</label>
                 <input type="text" class="form-control" name="username" value="">
               </div>
+            </div>
+
               <div class="form-group clearfix">
-                <button type="submit" name="update" class="btn btn-info">Update</button>
+                <button type="submit" name="update" class="btn btn-info">Update Profile</button>
               </div>
-            </form>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
+</div>
 
 
 
-  <script>
-    document.getElementById("imageInput").addEventListener("change", function(event) {
-      var selectedFile = event.target.files[0];
 
-      if (selectedFile) {
-        var reader = new FileReader();
-        reader.onload = function(event) {
-          var profileImage = document.querySelector("#profileImage");
-          profileImage.src = event.target.result;
-        };
-        reader.readAsDataURL(selectedFile);
+
+ <script>
+      function performSearch() {
+        var searchInput = document.getElementById('search-input');
+        var searchText = searchInput.value.toLowerCase();
+      
+        var eventNames = document.getElementsByClassName('event-name');
+      
+        for (var i = 0; i < eventNames.length; i++) {
+          var eventName = eventNames[i].innerText.toLowerCase();
+      
+          if (eventName.includes(searchText)) {
+            eventNames[i].parentNode.style.display = 'block';
+          } else {
+            eventNames[i].parentNode.style.display = 'none';
+          }
+        }
       }
-    });
-  </script>
+      </script>
+
+<script>
+  document.getElementById("imageInput").addEventListener("change", function(event) {
+    var selectedFile = event.target.files[0];
+
+    if (selectedFile) {
+      var reader = new FileReader();
+      reader.onload = function(event) {
+        var profileImage = document.getElementById("profileImage");
+        profileImage.src = event.target.result;
+      };
+      reader.readAsDataURL(selectedFile);
+    }
+  });
+</script>
+      
+
 
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
