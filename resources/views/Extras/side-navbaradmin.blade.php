@@ -83,7 +83,10 @@
               </a>
             </li>
             <li style="margin-bottom: 2px;"><a href="#" onclick="handleSettingsClick();"><i class="fas fa-cog" style="color: #211a51;"></i> Settings</a></li>
-            <li><a href="#" onclick="handleLogoutClick();"><i class="fas fa-sign-out-alt" style="color: #211a51;"></i> Logout</a></li>
+            <form action="{{ route('user.logout') }}" method="post" id="log-out-form">
+              @csrf
+              <li><a href="#" onclick="handleLogoutClick(event);"><i class="fas fa-sign-out-alt" style="color: #211a51;"></i> Logout</a></li>
+            </form>
           </ul>
         </div>
       </div>

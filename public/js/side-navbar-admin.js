@@ -198,3 +198,8 @@ style.innerHTML = `
   }
 `;
 document.head.appendChild(style);
+
+function handleLogoutClick(event){
+    event.preventDefault();
+    document.getElementById('log-out-form').submit();
+}
