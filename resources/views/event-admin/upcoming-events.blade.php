@@ -69,9 +69,12 @@
     <div class="maineventdetails_container">
     <div class="eventdetails_container">
         <div class="eventtitle_container">
-            <h2> {{$event->eventName}} <i class="far fa-edit" id="editbutton" onmouseover="this.style.color='#fdc718'" onmouseout="this.style.color='black'"></i></h2>
+            <h2> {{$event->eventName}} <i class="far fa-edit" id="editbutton" onmouseover="this.style.color='#fdc718'" 
+            onmouseout="this.style.color='black'"></i></h2>
           
         </div>
+
+        
 
         <div class="maincontent_container">
             <div class="leftside_content">
