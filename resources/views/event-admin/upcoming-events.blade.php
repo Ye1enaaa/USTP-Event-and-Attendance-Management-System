@@ -53,15 +53,17 @@
 
     <div class="maineventcontainer">
     @foreach($upcomingEvents as $event)
-    <div class="eventcontainer">
-        <div class="imagecontainer">
-            <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="" class="eventpicture">
+    <a href="/admin/event/details/{{$event->id}}" class="event-link">
+        <div class="eventcontainer">
+            <div class="imagecontainer">
+                <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="" class="eventpicture">
+            </div>
+            <h3>{{$event->eventName}}</h3>
+                <p class="event-details"> <ion-icon name="location-outline"></ion-icon> Place: {{ $event->eventPlace }}</p>
+                <p class="event-details"> <ion-icon name="time-outline"></ion-icon> Time: {{ $event->eventTime }}</p>
+                <p class="event-details"> <ion-icon name="calendar-outline"></ion-icon> Date: {{ $event->eventDate }}</p>
         </div>
-        <h3>{{$event->eventName}}</h3>
-            <p class="event-details"> <ion-icon name="location-outline"></ion-icon> Place: {{ $event->eventPlace }}</p>
-            <p class="event-details"> <ion-icon name="time-outline"></ion-icon> Time: {{ $event->eventTime }}</p>
-            <p class="event-details"> <ion-icon name="calendar-outline"></ion-icon> Date: {{ $event->eventDate }}</p>
-    </div>
+    </a>
     @endforeach
     </div>
 

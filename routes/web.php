@@ -45,4 +45,5 @@ Route::controller(EventController::class)->group(function(){
 
 //EventDetailsController
 Route::get('users/event/details/{id}/attended/{studentId}', [EventDetailsController::class, 'show'])->name('event.details');
+Route::get('admin/event/details/{id}', [EventDetailsController::class, 'showEventDetailsAdmin']);
 Route::get('/profile', [ProfileController::class, 'showProfile']);
