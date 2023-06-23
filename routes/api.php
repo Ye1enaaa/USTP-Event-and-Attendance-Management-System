@@ -31,4 +31,4 @@ Route::get('/event/attendance/{studentId}' , [EventAttendeesController::class,'f
 
 //------------------------EXPERIMENTATION APIs-------------------------\\
 Route::delete('/delete/{id}',[EventController::class,'destroy']);
-Route::get('/adminevent/{id}', [EventDetailsController::class, 'showEventDetails']);
+//Route::get('/adminevent/{id}', [EventDetailsController::class, 'showEventDetails']);

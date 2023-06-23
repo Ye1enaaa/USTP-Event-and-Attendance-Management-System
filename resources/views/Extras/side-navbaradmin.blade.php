@@ -7,7 +7,7 @@
 
   <!-- <link rel="stylesheet" href="{{ asset('css/admin.css') }}"> -->
   <link rel="stylesheet" href="{{ asset('css/side-navbar-admin.css') }}">
-  
+  <link rel="stylesheet" href="{{ asset('css/events-admin.css') }}">
   <title>USTP-CDO-EVENT</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">

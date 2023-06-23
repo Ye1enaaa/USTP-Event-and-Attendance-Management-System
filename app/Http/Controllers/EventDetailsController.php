@@ -26,6 +26,10 @@ class EventDetailsController extends Controller
         return view('Users.evdetails', compact('event', 'isAttending'));
 
     }
+    public function showEventDetailsAdmin($id){
+        $event = Event::with('attendees')->find($id);
+        return view('Users.eventdetailsadmin', compact('event'));
+    }
     //---------------MABANTA-----------------\\
     public function showEventDetails($id){
         $eventAdmin = Event::find($id);
