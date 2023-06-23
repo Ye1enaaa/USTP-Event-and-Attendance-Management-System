@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
   <link rel="stylesheet" href="{{ asset('css/side-navbar-admin.css') }}">
   <link rel="stylesheet" href="{{ asset('css/events-admin.css') }}">
+  
     
   <title> USTP-CDO-EVENT </title>
   <link rel="stylesheet" href="style.css">
@@ -22,6 +23,8 @@
     </style>
 
 </head>
+
+
 <body>
 
     <div class="top-navbar">
@@ -68,17 +71,17 @@
     </div>
 
     <br><br><br>
-    <div class="maineventdetails_container">
+    <!-- <div class="maineventdetails_container">
     <div class="eventdetails_container">
         <div class="eventtitle_container">
             <h2> {{$event->eventName}} <i class="far fa-edit" id="editbutton" onmouseover="this.style.color='#fdc718'" 
             onmouseout="this.style.color='black'"></i></h2>
           
-        </div>
+        </div> -->
 
         
 
-        <div class="maincontent_container">
+        <!-- <div class="maincontent_container">
             <div class="leftside_content">
                 <div class="image_container">
                     <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="" class="imagecontent">
@@ -110,7 +113,7 @@
                 </div>
             </div>
 
-        </div>
+        </div> -->
         
 
     </div>
