@@ -26,7 +26,7 @@
 
         <!-- Alliana part -->
         <li>
-          <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "admin") echo "active"; ?>" href="admin">
+          <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "admin") echo "active"; ?>" href="/admin">
             <span class="icon"><ion-icon name="create-outline"></ion-icon></span>
             <span class="text">CREATE EVENT</span>
           </a>
