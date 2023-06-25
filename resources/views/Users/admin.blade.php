@@ -43,27 +43,28 @@
                 @csrf
                 
                 <div class="form-group">
-                    <label for="eventName" style="color: #201a50;">Event Name:</label>
+                    <label for="eventName" style="color: #201a50;">Event Name</label>
                     <input type="text" name="eventName" id="eventName" placeholder="Event Name">
                 </div>
                 <div class="form-group">
-                    <label for="eventDate" style="color: #201a50;">Event Date:</label>
+                    <label for="eventDate" style="color: #201a50;">Event Date</label>
                     <input type="date" name="eventDate" id="eventDate" placeholder="Event Date">
                 </div>
                 <div class="form-group">
-                    <label for="eventTime" style="color: #201a50;">Event Time:</label>
+                    <label for="eventTime" style="color: #201a50;">Event Time</label>
                     <input type="time" name="eventTime" id="eventTime" placeholder="Event Time">
                 </div>
                 <div class="form-group">
-                    <label for="eventPlace" style="color: #201a50;">Event Place:</label>
+                    <label for="eventPlace" style="color: #201a50;">Event Place</label>
                     <input type="text" name="eventPlace" id="eventPlace" placeholder="Event Place">
                 </div>
                 <div class="form-group">
-                    <label for="eventDesc" style="color: #201a50;">Event Description:</label>
-                    <input type="text" name="eventDesc" id="eventDesc" placeholder="Event Description">
+                    <label for="eventDesc" style="color: #201a50;">Event Description</label>
+                    <div></div> 
+                    <textarea type="text" name="eventDesc" id="eventDesc" placeholder="Event Description" rows="10" cols="41"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="eventPicture" style="color: #201a50;">Event Picture:</label>
+                    <label for="eventPicture" style="color: #201a50;">Event Picture</label>
                     <input type="file" name="eventPicture" id="eventPicture" placeholder="Event Picture" onchange="readURL(this)">
                     <img id="preview" src="#" alt="Chosen Picture" style="display: none; width: 500px; margin-left: 50px;">
                 </div>
