@@ -147,7 +147,7 @@
   <div class="user_profiles" id="user1">user1</div>
   <div class="user_profiles" id="user2">user2</div>
   <div class="user_profiles" id="user3">user3</div>
-  <div class="numberofusers" onclick="openModal({{$event->id}})">+20 Going</div>
+  <div class="numberofusers" id="attendeeCount"onclick="openModal({{$event->id}})"></div>
 </div>
 
 <div class="modal" id="myModal">
@@ -179,10 +179,20 @@
                 </div>`;
       }).join('');
 
-      // Set the HTML content of the modal
       modalText.innerHTML = attendeesHTML;
     })
   }
+
+  fetch('/api/adminevent/{{ $event->id }}')
+  .then(response => response.json())
+  .then(data => {
+    var numberOfAttendees = data.numberofAttendees;
+    var attendeeCountElement = document.getElementById("attendeeCount");
+    attendeeCountElement.textContent = "+" + numberOfAttendees + " attended";
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
 
   function closeModal() {
     var modal = document.getElementById("myModal");

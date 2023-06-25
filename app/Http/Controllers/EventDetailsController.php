@@ -34,7 +34,9 @@ class EventDetailsController extends Controller
     public function showEventDetails($id){
         $eventAdmin = Event::find($id);
         $eventWithAttendee = Event::with('attendees')->find($id);
+        $numberOfAttendees = count($eventWithAttendee->attendees);
         return response()->json([
+            'numberofAttendees' => $numberOfAttendees,
             'event' => $eventWithAttendee,
             'attendees' => $eventWithAttendee->attendees
         ]);
