@@ -147,7 +147,7 @@
   <div class="user_profiles" id="user1">user1</div>
   <div class="user_profiles" id="user2">user2</div>
   <div class="user_profiles" id="user3">user3</div>
-  <div class="numberofusers" onclick="openModal()">+20 Going</div>
+  <div class="numberofusers" onclick="openModal({{$event->id}})">+20 Going</div>
 </div>
 
 <div class="modal" id="myModal">
@@ -161,11 +161,27 @@
 </div>
 
 <script>
-  function openModal() {
+  function openModal(eventId) {
     var modal = document.getElementById("myModal");
     var modalText = document.getElementById("modalText");
     modal.style.display = "block";
-    modalText.innerHTML = "<div class='user-profile'><span class='profile-frame'><img src='https://www.bellanaija.com/wp-content/uploads/2023/05/98A4822F-9F38-4C59-BC15-A894E71CDF11.jpeg' class='profile-image' alt=''></span>user4</div><div class='user-profile'><span class='profile-frame'><img src='https://www.lilwaynehq.com/images/blog/metro-boomin-confirms-lil-wayne-offset-swae-lee-collaboration-spider-man-soundtrack.jpg' class='profile-image' alt=''></span>user5</div><div class='user-profile'><span class='profile-frame'><img src='https://variety.com/wp-content/uploads/2023/06/Untitled1.jpg' class='profile-image' alt=''></span>user6</div>";
+    // modalText.innerHTML = "<div class='user-profile'><span class='profile-frame'><img src='https://www.bellanaija.com/wp-content/uploads/2023/05/98A4822F-9F38-4C59-BC15-A894E71CDF11.jpeg' class='profile-image' alt=''></span>user4</div><div class='user-profile'><span class='profile-frame'><img src='https://www.lilwaynehq.com/images/blog/metro-boomin-confirms-lil-wayne-offset-swae-lee-collaboration-spider-man-soundtrack.jpg' class='profile-image' alt=''></span>user5</div><div class='user-profile'><span class='profile-frame'><img src='https://variety.com/wp-content/uploads/2023/06/Untitled1.jpg' class='profile-image' alt=''></span>user6</div>";
+    fetch('/api/adminevent/' + eventId)
+    .then(response => response.json())
+    .then(data => {
+      var attendees = data.attendees;
+      var attendeesHTML = attendees.map(attendee => {
+        return `<div class='user-profile'>
+                  <span class='profile-frame'>
+                    <img src='${attendee.picture}' class='profile-image' alt=''>
+                  </span>
+                  ${attendee.name}
+                </div>`;
+      }).join('');
+
+      // Set the HTML content of the modal
+      modalText.innerHTML = attendeesHTML;
+    })
   }
 
   function closeModal() {

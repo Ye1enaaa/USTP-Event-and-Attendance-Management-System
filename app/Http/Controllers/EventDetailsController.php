@@ -35,7 +35,8 @@ class EventDetailsController extends Controller
         $eventAdmin = Event::find($id);
         $eventWithAttendee = Event::with('attendees')->find($id);
         return response()->json([
-            'event' => $eventWithAttendee
+            'event' => $eventWithAttendee,
+            'attendees' => $eventWithAttendee->attendees
         ]);
 
         if(!$eventWithAttendee){
