@@ -70,8 +70,12 @@
             <!-- gitandog ni calapiz -->
             <!-- <li style="margin-bottom: 2px;"><a href="#" onclick="handleProfileClick();"><i class="fas fa-user" style="color: #211a51;"></i> Profile</a></li> -->
               
-            <li style="margin-bottom: 2px;"><a href="#" id="profileButton"><i class="fas fa-user" style="color: #211a51;"></i> Profile</a></li>
-
+            <li>
+              <a href="{{ route('studentprofile') }}">
+                <span class="fas fa-user" style="color: #211a51;"></ion-icon></span>
+                <span class="text">Profile</span>
+              </a>
+            </li>
 
 
 
