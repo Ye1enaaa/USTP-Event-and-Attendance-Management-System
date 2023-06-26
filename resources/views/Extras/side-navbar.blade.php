@@ -27,9 +27,20 @@
           <li>
             <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "student.blade.php") echo "active"; ?>" href="/student">
               <span class="icon"> <ion-icon name="clipboard-outline"></ion-icon> </span>
-              <span class="text"> UPCOMING EVENTS </span>
+              <span class="text"> EVENTS </span>
             </a>
           </li>
+          <li>
+            <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "studentprofile.blade.php") echo "active"; ?>" href="{{ route('studentprofile') }}">
+              <span class="icon"> <ion-icon name="clipboard-outline"></ion-icon> </span>
+              <span class="text"> PROFILE </span>
+            </a>
+          </li>
+          
+          
+          
+          
+          
       </ul>
     </aside>
   </div>
