@@ -25,15 +25,9 @@
             <span class="text"><h2> USTP-EVENT </h2></span>
           </a>
           <li>
-          <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "student") echo "active"; ?>" href="student">
+            <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "student.blade.php") echo "active"; ?>" href="/student">
               <span class="icon"> <ion-icon name="clipboard-outline"></ion-icon> </span>
               <span class="text"> UPCOMING EVENTS </span>
-            </a>
-          </li>
-          <li>
-            <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "admin") echo "active"; ?>" href="admin">
-              <span class="icon"> <ion-icon name="checkmark-done-outline"></ion-icon> </span>
-              <span class="text"> EVENT DETAILS </span>
             </a>
           </li>
       </ul>
@@ -71,7 +65,10 @@
 
 
             <li style="margin-bottom: 2px;"><a href="#" id="profileButton"><i class="fas fa-user" style="color: #211a51;"></i> Settings</a></li>
-              <li><a href="#" onclick="handleLogoutClick();"><i class="fas fa-sign-out-alt" style="color: #211a51;"></i> Logout</a></li>
+            <form action="{{ route('user.logout') }}" method="post" id="log-out-form">
+              @csrf
+              <li><a href="#" onclick="handleLogoutClick(event);"><i class="fas fa-sign-out-alt" style="color: #211a51;"></i> Logout</a></li>
+            </form>
             </ul>
         </div>
       </div>
