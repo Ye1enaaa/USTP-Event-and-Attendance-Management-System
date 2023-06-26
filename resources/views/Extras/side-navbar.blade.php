@@ -32,7 +32,7 @@
           </li>
           <li>
             <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "studentprofile.blade.php") echo "active"; ?>" href="{{ route('studentprofile') }}">
-              <span class="icon"> <ion-icon name="clipboard-outline"></ion-icon> </span>
+              <span class="icon"> <ion-icon name='person-outline'></ion-icon> </span>
               <span class="text"> PROFILE </span>
             </a>
           </li>
