@@ -1,5 +1,4 @@
 @extends('Extras.side-navbar')
-
 @section('content')
 <head>
     <link rel="stylesheet" href="{{ asset('css/student.css') }}">

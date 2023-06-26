@@ -31,3 +31,7 @@ function performSearch() {
         }
     }
 }
+function handleLogoutClick(event){
+    event.preventDefault();
+    document.getElementById('log-out-form').submit();
+}
