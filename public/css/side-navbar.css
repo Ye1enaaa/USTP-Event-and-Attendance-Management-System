@@ -408,7 +408,6 @@ h2 {
     border-top: 3px solid #ffd14f;
 }
 
-
 /* Scroll Bar */
 .container-wrapper {
     position: relative;
@@ -433,9 +432,9 @@ h2 {
     top: 50%;
     left: 8px;
     right: 8px;
-    border-radius: 25px; 
-    overflow: hidden; 
-    transform: translateY(-50%); 
+    border-radius: 25px;
+    overflow: hidden;
+    transform: translateY(-50%);
 }
 
 .previous,
@@ -446,9 +445,9 @@ h2 {
     cursor: grab;
     transition: background-color 0.3s ease;
     font-size: 24px;
-    padding: 10px 20px; 
-    border: none; 
-    transition: background-color 0.3s ease; 
+    padding: 10px 20px;
+    border: none;
+    transition: background-color 0.3s ease;
 }
 
 .previous:hover,

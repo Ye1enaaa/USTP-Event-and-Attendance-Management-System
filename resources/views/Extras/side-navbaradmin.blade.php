@@ -5,9 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- <link rel="stylesheet" href="{{ asset('css/admin.css') }}"> -->
+  <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
   <link rel="stylesheet" href="{{ asset('css/side-navbar-admin.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/events-admin.css') }}">
+  
   <title>USTP-CDO-EVENT</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -19,40 +19,44 @@
       <ul class="nav-list">
         <li>
           <a>
-            <span class="icon"><ion-icon name="cube-outline"></ion-icon></span>
-            <span class="text-lg text-white">USTP-EVENT</span>
+            <span class="icon"><ion-icon name="cube-outline"></ion-icon></i></span>
+            <span class="text"><h2> USTP-EVENT </h2></span>
           </a>
         </li>
 
         <!-- Alliana part -->
         <li>
-          <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "admin") echo "active"; ?>" href="/admin">
+          <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "admin") echo "active"; ?>" href="admin">
             <span class="icon"><ion-icon name="create-outline"></ion-icon></span>
             <span class="text">CREATE EVENT</span>
           </a>
         </li>
 
-        <li class="tree-view">
-          <button class="tree-view-header-button <?php if(basename($_SERVER['PHP_SELF']) == "upcomingEvents") echo "active"; ?> w-full" onclick="toggleTreeView(event)">
+        <li>
+        <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "upcomingevents") echo "active"; ?>" onclick="toggleTreeView(event)">
+          <!-- <a class="side-link" onclick="toggleTreeView(event)"> -->
             <span class="icon"><ion-icon name="folder-outline"></ion-icon></span>
-            <span class="text text-white">EVENTS</span>
-          </button>
+            <span class="text">EVENTS</span>
+          </a>
 
           <ul class="tree-view-menu" id="treeViewMenu" style="display: none;">
             <li>
-              <a href="#upcomingevents" onclick="showUpcomingEvents()" class="tree-view-button">
+            <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "upcomingevents.php") echo "active"; ?>" href="/upcomingevents">
+              <!-- <a class="side-link active" href="#upcomingevents" onclick="showUpcomingEvents()"> -->
                 <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
                 <span class="text">Upcoming Events</span>
               </a>
             </li>
             <li>
-              <a href="#todaysevents" onclick="showTodaysEvents()" class="tree-view-button">
+            <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "todaysevents.php") echo "active"; ?>" href="/todaysevent">
+              <!-- <a class="side-link active" href="#todaysevents" onclick="showTodaysEvents()"> -->
                 <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
                 <span class="text">Today's Event</span>
               </a>
             </li>
             <li>
-              <a href="#pastevents" onclick="showPastEvents()" class="tree-view-button">
+            <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "pastevents.php") echo "active"; ?>" href="/endedevents">
+              <!-- <a class="side-link active" href="#pastevents" onclick="showPastEvents()"> -->
                 <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
                 <span class="text">Past Events</span>
               </a>
@@ -77,16 +81,13 @@
           </div>
           <ul class="dropdown-menu" style="padding: 10px; border: 2px solid #211a51; border-radius: 5px;">
             <li>
-              <a href="#profile" onclick="showEditProfile()">
+              <a href="/profile" >
                 <span class="fas fa-user" style="color: #211a51;"></ion-icon></span>
                 <span class="text">Profile</span>
               </a>
             </li>
-            <li style="margin-bottom: 2px;"><a href="#" onclick="handleSettingsClick();"><i class="fas fa-cog" style="color: #211a51;"></i> Settings</a></li>
-            <form action="{{ route('user.logout') }}" method="post" id="log-out-form">
-              @csrf
-              <li><a href="#" onclick="handleLogoutClick(event);"><i class="fas fa-sign-out-alt" style="color: #211a51;"></i> Logout</a></li>
-            </form>
+            <!-- <li style="margin-bottom: 2px;"><a href="#" onclick="handleSettingsClick();"><i class="fas fa-cog" style="color: #211a51;"></i> Settings</a></li> -->
+            <li><a href="#" onclick="handleLogoutClick();"><i class="fas fa-sign-out-alt" style="color: #211a51;"></i> Logout</a></li>
           </ul>
         </div>
       </div>
@@ -100,6 +101,18 @@
       </div>
     </div>
 
+    <script>
+    let menu = document.querySelector('#menu-icon');
+    let sidenavbar = document.querySelector('.side-navbar');
+    let treeview = document.querySelector('.tree-view-menu');
+    let content = document.querySelector('.content');
+
+    menu.onclick = () => {
+      sidenavbar.classList.toggle('active');
+      treeview.classList.toggle('active');
+      content.classList.toggle('active');
+    }
+  </script>
     <script src="{{ asset('js/side-navbar-admin.js') }}"></script>
 </body>
 </html>

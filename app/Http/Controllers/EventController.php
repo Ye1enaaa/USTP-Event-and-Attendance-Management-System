@@ -45,7 +45,7 @@ class EventController extends Controller
             'eventTime' => 'required|string',
             'eventDate' => 'required',
             'eventPlace' => 'required|string',
-            'eventDesc' => 'required',
+            'eventDesc' => 'required|string',
             'eventPicture' => 'nullable|image|mimes:jpeg,png,jpg'
         ]);
 
