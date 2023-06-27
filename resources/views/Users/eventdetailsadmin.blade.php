@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/events-admin.css') }}">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
 
     @extends('Extras.side-navbaradmin')
@@ -28,7 +28,7 @@
                 <span class="editable" id="eventName">{{$event->eventName}}</span>
                 <span class="edit_buttons">
                 <i class="far fa-edit" id="editbutton" onmouseover="this.style.color='#fdc718'" onmouseout="this.style.color='black'" onclick="enableEditMode()"></i>
-                <i class="far fa-save" id="savebutton" onmouseover="this.style.color='#fdc718'" onmouseout="this.style.color='black'" onclick="saveChanges()" disabled></i>
+                <i class="far fa-save" id="savebutton" onmouseover="this.style.color='#fdc718'" onmouseout="this.style.color='black'" onclick="saveChanges({{$event->id}})" disabled></i>
                 </span>
             </h2>
         </div>
@@ -54,11 +54,11 @@
                 </div>
                 <!-- End of NEW/WITH MODAL -->
                 <div class="locationandtime_container">
-                    <p class="event-details">
+                    <p class="event-details" id="eventPlace">
                         <ion-icon name="location-outline" style="font-weight: bold;"></ion-icon>
                         Place: {{ $event->eventPlace }}
                     </p>
-                    <p class="event-details">
+                    <p class="event-details" id="eventDate" name="eventDate">
                         <ion-icon name="calendar-outline"></ion-icon>
                         Date: {{ $event->eventDate }}
                     </p>
@@ -68,7 +68,7 @@
                 <div class="eventdiscription_container">
                     <div class="eventdiscription">
                         <h3>About the event</h3>
-                        <p>{{$event->eventDesc}}</p>
+                        <p id="eventDesc">{{$event->eventDesc}}</p>
                     </div>
                 </div>
                 <div class="abouthost_container">
@@ -79,6 +79,8 @@
                 </div>
             </div>
         </div>
+        <p id="eventTime" name="eventTime" style="display: none;">{{$event->eventTime}}</p>
+
     </div>
     <script>
         function openModal(eventId) {

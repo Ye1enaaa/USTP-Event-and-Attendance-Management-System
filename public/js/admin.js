@@ -51,7 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
 var originalEventName = "";
 var originalEventDesc = "";
 var originalEventPlace = "";
-var originalEventDate = "";
+// var originalEventDate = "";
+// var originalEventTime = "";
 
 function enableEditMode() {
     // Get the form elements you want to edit
@@ -62,50 +63,84 @@ function enableEditMode() {
     var eventPlaceElement = document.querySelector(
         ".locationandtime_container .event-details:nth-child(1)"
     );
-    var eventDateElement = document.querySelector(
-        ".locationandtime_container .event-details:nth-child(2)"
-    );
+    // var eventDateElement = document.querySelector(
+    //     ".locationandtime_container .event-details:nth-child(2)"
+    // );
+    // var eventTimeElement = document.querySelector("#eventTime");
 
     // Store the original values
     originalEventName = eventNameElement.textContent;
     originalEventDesc = eventDescriptionElement.textContent;
-    originalEventPlace = eventPlaceElement.textContent;
+    originalEventPlace = eventPlaceElement.textContent.trim().substring(7);
+    // originalEventTime = eventTimeElement.textContent;
     // originalEventDate = eventDateElement.textContent;
 
     // Replace the text content with input fields
-    eventNameElement.innerHTML = `<input type="text" id="eventNameInput" value="${originalEventName}" />`;
-    eventDescriptionElement.innerHTML = `<textarea id="eventDescInput">${originalEventDesc}</textarea>`;
+    eventNameElement.innerHTML = `<input type="text" id="eventNameInput" value="${originalEventName}" name="eventName"/>`;
+    eventDescriptionElement.innerHTML = `<textarea id="eventDescInput" name="eventDesc">${originalEventDesc}</textarea>`;
     eventPlaceElement.innerHTML = `<input type="text" id="eventPlaceInput" value="${originalEventPlace.substring(
         7
     )}" />`;
-    // eventDateElement.innerHTML = `<input type="date" id="eventDateInput" value="${originalEventDate.substring(
-    //     6
-    // )}" />`;
-
+    // eventDateElement.innerHTML = `<input type="date" id="eventDateInput" name="eventDate" value="${originalEventDate}" />`; // Updated to include the full originalEventDate
+    // eventTimeElement.innerHTML = `<input type="text" id="eventTimeInput" value="${originalEventTime}" name="eventTime"/>`;
     // Enable the save button
     var saveButton = document.getElementById("savebutton");
     saveButton.disabled = false;
 }
 
-function saveChanges() {
+function saveChanges(eventId) {
     // Get the edited values from the input fields
     var eventNameInput = document.getElementById("eventNameInput");
     var eventDescInput = document.getElementById("eventDescInput");
     var eventPlaceInput = document.getElementById("eventPlaceInput");
-    var eventDateInput = document.getElementById("eventDateInput");
-
+    var eventDateInput = document.getElementById("eventDate").textContent.trim().replace("Date: ","");
+    var eventTimeInput = document.getElementById("eventTime").textContent;
     // Update the text content with the new values
     eventNameInput.parentNode.innerHTML = eventNameInput.value;
     eventDescInput.parentNode.innerHTML = eventDescInput.value;
     eventPlaceInput.parentNode.innerHTML = `Place: ${eventPlaceInput.value}`;
-    eventDateInput.parentNode.innerHTML = `Date: ${eventDateInput.value}`;
+    // eventDateInput.parentNode.innerHTML = `Date: ${eventDateInput.value}`;
+
+    // // Disable the save button
+    // var saveButton = document.getElementById("savebutton");
+    // saveButton.disabled = true;
+
+    // // Display a confirmation message
+    // alert("Information updated");
+
+    var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    var eventData = {
+        eventName: eventNameInput.value,
+        eventDesc: eventDescInput.value,
+        eventPlace: eventPlaceInput.value,
+        eventTime: eventTimeInput,
+        eventDate: eventDateInput
+    };
+
+    // Send an AJAX request to update the data in the database
+    var xhr = new XMLHttpRequest();
+    console.log(eventDateInput)
+    var eventIds = 15
+    //var eventId = 123; // Replace with the actual event ID
+    xhr.open("PUT", "/update-event/" + eventId, true); // Include the event ID in the URL
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("X-CSRF-TOKEN", csrfToken);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                // Handle the success response
+                alert("Information updated");
+            } else {
+                // Handle the error response
+                window.location.href = 'http://127.0.0.1:8000/admin/event/details/' + eventId
+            }
+        }
+    };
+    xhr.send(JSON.stringify(eventData));
 
     // Disable the save button
     var saveButton = document.getElementById("savebutton");
     saveButton.disabled = true;
-
-    // Display a confirmation message
-    alert("Information updated");
 }
 
 // Add an event listener to enable the save button when changes are made

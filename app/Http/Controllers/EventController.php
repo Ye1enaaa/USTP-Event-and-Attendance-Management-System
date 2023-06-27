@@ -110,7 +110,7 @@ class EventController extends Controller
         $event -> eventDesc = $request->input('eventDesc');
         $event->save();
 
-        return redirect('todays-event')->with('flash_message', 'Event Updated!');  
+        return redirect()->back()->with('flash_message', 'Event Updated!');  
     }
 
     public function edit($id)

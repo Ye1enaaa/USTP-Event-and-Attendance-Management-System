@@ -75,10 +75,17 @@
         </div>
 
         <div class="user-dropdown">
+          @if(Auth::user()->picture)
           <div class="profile-container" style="padding: 5px;">
-            <img src="{{ asset('storage/' . Auth::user()->picture) }}" class="profile-picture">
+            <img src="http://127.0.0.1:8000/storage/{{Auth::user()->picture}}" class="profile-picture">
             <span class="name" style="color: #FFFFFF;">{{ Auth::user()->name }}</span>&nbsp;<i class="caret"></i>
           </div>
+          @elseif(Auth::user()->picture == null)
+          <div class="profile-container" style="padding: 5px;">
+            <img src="{{asset('logo-logo.png')}}" class="profile-picture">
+            <span class="name" style="color: #FFFFFF;">{{ Auth::user()->name }}</span>&nbsp;<i class="caret"></i>
+          </div>
+          @endif
           <ul class="dropdown-menu" style="padding: 10px; border: 2px solid #211a51; border-radius: 5px;">
             <li>
               <a href="/profile" >
