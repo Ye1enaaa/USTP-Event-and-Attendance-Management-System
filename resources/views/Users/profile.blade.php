@@ -17,6 +17,7 @@
    </head>
    @extends('Extras.side-navbaradmin')
    @section('content-admin')
+
    <div style="padding-left: 20px;">
       <h1>PROFILE INFORMATION</h1>
    </div>
@@ -32,11 +33,14 @@
                </div>
             </label>
             <span class="font-weight-bold">ADMIN</span>
-            <span class="text-black-50">sample@mail.com.my</span>
+            <span class="text-black-50">{{Auth::user()->name}}</span>
          </div>
       </div>
       <div class="col-md-9">
-         <div class="p-3 py-5">
+         <form action="/edit-profile/{{Auth::user()->id}}" method="post">
+            @csrf
+            @method('PATCH')
+            <div class="p-3 py-5">
             <div class="d-flex justify-content-between align-items-center mb-3">
                <h4 class="text-left">Profile Settings</h4>
             </div>
@@ -46,14 +50,15 @@
                   <input type="name" class="form-control" name="name" value="">
                </div>
                <div class="form-group">
-                  <label for="username" class="control-label">Username</label>
-                  <input type="text" class="form-control" name="username" value="">
+                  <label for="username" class="control-label">Password</label>
+                  <input type="password" class="form-control" name="password" value="">
                </div>
             </div>
             <div class="form-group clearfix">
                <button type="submit" name="update" class="btn btn-info">Update Profile</button>
             </div>
          </div>
+         </form>
       </div>
    </div>
    <script src="{{ asset('js/admin.js') }}"></script>
