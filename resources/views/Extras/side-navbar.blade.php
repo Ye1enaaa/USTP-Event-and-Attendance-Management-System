@@ -25,13 +25,13 @@
             <span class="text"><h2> USTP-EVENT </h2></span>
           </a>
           <li>
-            <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "student.blade.php") echo "active"; ?>" href="/student">
+            <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "student") echo "active"; ?>" href="/student">
               <span class="icon"> <ion-icon name="clipboard-outline"></ion-icon> </span>
               <span class="text"> EVENTS </span>
             </a>
           </li>
           <li>
-            <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "studentprofile.blade.php") echo "active"; ?>" href="{{ route('studentprofile') }}">
+            <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "studentprofile") echo "active"; ?>" href="{{ route('studentprofile') }}">
               <span class="icon"> <ion-icon name='person-outline'></ion-icon> </span>
               <span class="text"> PROFILE </span>
             </a>

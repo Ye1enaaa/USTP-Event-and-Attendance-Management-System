@@ -393,7 +393,6 @@ h2 {
 .profile-container {
     display: flex;
     align-items: center;
-    cursor: pointer;
 }
 .profile-picture {
     width: 50px;
@@ -455,3 +454,83 @@ h2 {
 .next:hover {
     background-color: #aaa;
 }
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .profile-picture-container {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 20%;
+    margin-top: 20px;
+  }
+  
+  .student-profile-picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .profile-name {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .profile-details {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    padding: 20px;
+    background-image: linear-gradient(315deg, #f6ecc4 0%, #f7d4d4 74%);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-details table {
+    width: 100%;
+    border-collapse: collapse;
+    /* margin-bottom: 20px; */
+  }
+  
+  .profile-details th,
+  .profile-details td {
+    padding: 8px;
+    border: 2px solid black;
+    text-align: start;
+    word-wrap: break-word;
+  }
+  
+  .profile-details th {
+    text-align: left;
+  }
+
+  .profile-details tr:hover {
+    background-color: #f6ecc4;
+  }
+  
+  .profile-details h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Responsive Styling */
+  @media screen and (min-width: 768px) {
+    .profile-container {
+      flex-direction: row;
+      justify-content: center;
+    }
+  
+    .profile-details {
+      margin-left: 40px;
+      padding: 40px 50px;
+    }
+  }
+  
