@@ -4,7 +4,7 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Upcoming events</title>
+      <title>Profile</title>
       <!-- Add your CSS and other script links here -->
       <link rel="stylesheet" href="admin.css">
       <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">

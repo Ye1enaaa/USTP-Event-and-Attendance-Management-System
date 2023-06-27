@@ -29,13 +29,13 @@
 @section('content-admin')
 
 
-<br><br> <br>
+<br>
 
 
 <div class="content-createevent-admin">
     <div class="menu">
 
-    <h2 style="color: #201a50;"><i class="far fa-edit" style="color: #fdc718;"></i> CREATE EVENT</h2>
+    <h1 style="color: #201a50;"><i class="far fa-edit" style="color: #fdc718;"></i> CREATE EVENT</h1>
 
         <div class="form-container">
           
@@ -59,37 +59,25 @@
                     <input type="text" name="eventPlace" id="eventPlace" placeholder="Event Place">
                 </div>
                 <div class="form-group">
-                    <label for="eventDesc" style="color: #201a50;">Event Description</label>
-                    <div></div> 
-                    <textarea type="text" name="eventDesc" id="eventDesc" placeholder="Event Description" rows="10" cols="41"></textarea>
+                    <label for="eventFacilitator" style="color: #201a50;">Event Facilitator</label>
+                    <input type="text" name="eventFacilitator" id="eventFacilitator" placeholder="Event Facilitator">
                 </div>
                 <div class="form-group">
                     <label for="eventPicture" style="color: #201a50;">Event Picture</label>
                     <input type="file" name="eventPicture" id="eventPicture" placeholder="Event Picture" onchange="readURL(this)">
                     <img id="preview" src="#" alt="Chosen Picture" style="display: none; width: 500px; margin-left: 50px;">
                 </div>
+                <div class="form-group">
+                    <label for="eventDesc" style="color: #201a50;">Event Description</label>
+                    <div></div> 
+                    <textarea type="text" name="eventDesc" id="eventDesc" placeholder="Event Description" rows="20" cols="100"></textarea>
+                </div>
+                
                 <div class="form-buttons">
                     <button type="submit" class="flex justify-center items-center bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-10 rounded-lg">Submit</button>
                     <button type="cancel" class="flex justify-center items-center danger-button font-bold py-2 px-10 rounded-lg">Cancel</button>
             </form>
-        <!-- </div>
-        <div class="container">
-          @foreach($events as $event)
-              {{-- @if(strtotime($event->eventDate) > strtotime(date('Y-m-d'))) --}}
-              <div class="child">
-                  <a href="#{{$event->id}}" class="clickable-container">
-                      <div class="event-container">
-                          <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="" class="event-picture">
-                          <h3 class="event-name">{{$event->eventName}}</h3>
-                          <p class="event-details">Place: {{$event->eventPlace}}</p>
-                          <p class="event-details">Time: {{$event->eventTime}}</p>
-                          <p class="event-details">Date: {{$event->eventDate}}</p>
-                      </div>
-                  </a>
-              </div>
-              
-          @endforeach
-      </div>  -->
+
       <br>
 
     </div>

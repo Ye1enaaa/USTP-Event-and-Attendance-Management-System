@@ -46,6 +46,7 @@ class EventController extends Controller
             'eventDate' => 'required',
             'eventPlace' => 'required|string',
             'eventDesc' => 'required|string',
+            'eventFacilitator' =>'required|string',
             'eventPicture' => 'nullable|image|mimes:jpeg,png,jpg'
         ]);
 
@@ -61,6 +62,7 @@ class EventController extends Controller
             'eventDate' => $validateFields['eventDate'],
             'eventPlace' => $validateFields['eventPlace'],
             'eventDesc' => $validateFields['eventDesc'],
+            'eventFacilitator' => $validateFields['eventFacilitator'],
             'eventPicture' => $imagePath
         ]);
         return redirect('/admin');

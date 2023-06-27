@@ -48,11 +48,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+//edit profile
+
 var originalEventName = "";
 var originalEventDesc = "";
 var originalEventPlace = "";
-// var originalEventDate = "";
-// var originalEventTime = "";
 
 function enableEditMode() {
     // Get the form elements you want to edit
@@ -93,7 +93,10 @@ function saveChanges(eventId) {
     var eventNameInput = document.getElementById("eventNameInput");
     var eventDescInput = document.getElementById("eventDescInput");
     var eventPlaceInput = document.getElementById("eventPlaceInput");
-    var eventDateInput = document.getElementById("eventDate").textContent.trim().replace("Date: ","");
+    var eventDateInput = document
+        .getElementById("eventDate")
+        .textContent.trim()
+        .replace("Date: ", "");
     var eventTimeInput = document.getElementById("eventTime").textContent;
     // Update the text content with the new values
     eventNameInput.parentNode.innerHTML = eventNameInput.value;
@@ -108,19 +111,21 @@ function saveChanges(eventId) {
     // // Display a confirmation message
     // alert("Information updated");
 
-    var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    var csrfToken = document
+        .querySelector('meta[name="csrf-token"]')
+        .getAttribute("content");
     var eventData = {
         eventName: eventNameInput.value,
         eventDesc: eventDescInput.value,
         eventPlace: eventPlaceInput.value,
         eventTime: eventTimeInput,
-        eventDate: eventDateInput
+        eventDate: eventDateInput,
     };
 
     // Send an AJAX request to update the data in the database
     var xhr = new XMLHttpRequest();
-    console.log(eventDateInput)
-    var eventIds = 15
+    console.log(eventDateInput);
+    var eventIds = 15;
     //var eventId = 123; // Replace with the actual event ID
     xhr.open("PUT", "/update-event/" + eventId, true); // Include the event ID in the URL
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -132,7 +137,8 @@ function saveChanges(eventId) {
                 alert("Information updated");
             } else {
                 // Handle the error response
-                window.location.href = 'http://127.0.0.1:8000/admin/event/details/' + eventId
+                window.location.href =
+                    "http://127.0.0.1:8000/admin/event/details/" + eventId;
             }
         }
     };

@@ -41,9 +41,9 @@
                     <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="picture" class="imagecontent">
                 </div>
                 <div class="userprofilescontainer">
-                    <div class="user_profiles" id="user1">user1</div>
+                    <!-- <div class="user_profiles" id="user1">user1</div>
                     <div class="user_profiles" id="user2">user2</div>
-                    <div class="user_profiles" id="user3">user3</div>
+                    <div class="user_profiles" id="user3">user3</div> -->
                     <div class="numberofusers" id="attendeeCount"onclick="openModal({{$event->id}})"></div>
                 </div>
                 <div class="modal" id="myModal">
@@ -74,10 +74,11 @@
                         <p id="eventDesc">{{$event->eventDesc}}</p>
                     </div>
                 </div>
+
                 <div class="abouthost_container">
                     <div class="abouthost">
-                        <h4>Teacher Facilitator</h4>
-                        <p>Senora Josephine Taban-ud</p>
+                        <h4>Facilitator</h4>
+                        <p id="eventFacilitator">{{$event->eventFacilitator}}</p>
                     </div>
                 </div>
             </div>
