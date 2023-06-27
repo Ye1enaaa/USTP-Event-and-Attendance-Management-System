@@ -172,3 +172,14 @@ eventDescInput.addEventListener("input", function (event) {
     this.style.height = "auto";
     this.style.height = this.scrollHeight + "px";
 });
+
+//profile admin edit
+document
+    .getElementById("imageInput")
+    .addEventListener("change", function (event) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById("profileImage").src = e.target.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    });

@@ -11,56 +11,76 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-      <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+      <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
       <link rel="stylesheet" href="{{ asset('css/side-navbar-admin.css') }}">
-      <link rel="stylesheet" href="{{ asset('css/events-admin.css') }}">
+
    </head>
    @extends('Extras.side-navbaradmin')
    @section('content-admin')
-
    <div style="padding-left: 20px;">
       <h1>PROFILE INFORMATION</h1>
    </div>
-   <div class="rounded bg-gray mt-5 mb-5">
-   <div class="row">
-      <div class="col-md-3">
-         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-            <input type="file" id="imageInput" style="display: none;">
-            <label for="imageInput">
-               <div class="position-relative">
-                  <img class="rounded-circle mt-5" width="150px" id="profileImage" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-                  <i class="fas fa-camera position-absolute" style="right: -10px; bottom: -10px;"></i>
-               </div>
-            </label>
-            <span class="font-weight-bold">ADMIN</span>
-            <span class="text-black-50">{{Auth::user()->name}}</span>
-         </div>
-      </div>
-      <div class="col-md-9">
+
+   <div class="container">
+      <div class="profile-settings-box">
          <form action="/edit-profile/{{Auth::user()->id}}" method="post">
             @csrf
             @method('PATCH')
-            <div class="p-3 py-5">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-               <h4 class="text-left">Profile Settings</h4>
+            <div class="d-flex justify-content-between align-items-center">
+               <h4 class="text-left ml-10">Profile Settings</h4>
             </div>
-            <div class="row mt-2 ml-6">
-               <div class="form-group">
+            
+            <div class="profile-picture-container flex-column align-items-center text-center">
+               <input type="file" id="imageInput" style="display: none;">
+               <label for="imageInput">
+                  @if(Auth::user()->picture)
+                  <div class="relative p-4">
+                     <img id="profileImage" src="http://127.0.0.1:8000/storage/{{Auth::user()->picture}}" class="w-2 h-2 rounded-circle text-center" style="width: 10rem !important; height: 10rem !important;">
+                     <span class="text-white">{{ Auth::user()->name }}</span>&nbsp;<i class="caret"></i>
+                  </div>
+                  @elseif(Auth::user()->picture == null)
+                  <div class="profile-container p-2">
+                     <img id="profileImage" src="{{asset('logo-logo.png')}}" class="w-8 h-8 rounded-circle" style="width: 8rem !important; height: 8rem !important;">
+                     <span class="text-white">{{ Auth::user()->name }}</span>&nbsp;<i class="caret"></i>
+                  </div>
+                  @endif
+                  <span class="font-weight-bold">ADMIN</span> <br>
+                  <span class="text-black-50">{{Auth::user()->name}}</span>
+               </label>
+            </div>
+            <br>
+            <div class="row mt-2 ml-10 d-flex justify-content-center">
+               <div class="form-group mb-3" style="margin-bottom: 1rem;">
                   <label for="name" class="control-label">Name</label>
                   <input type="name" class="form-control" name="name" value="">
                </div>
-               <div class="form-group">
+               <br>
+               <div class="form-group mb-3" style="margin-bottom: 1rem;">
                   <label for="username" class="control-label">Password</label>
                   <input type="password" class="form-control" name="password" value="">
                </div>
-            </div>
-            <div class="form-group clearfix">
+            </div> 
+            <div class="form-group text-center">
                <button type="submit" name="update" class="btn btn-info">Update Profile</button>
             </div>
-         </div>
          </form>
+         <br>
       </div>
    </div>
+
    <script src="{{ asset('js/admin.js') }}"></script>
    <script src="{{ asset('js/side-navbar-admin.js') }}"></script>
+
+
+   <script>
+      document
+    .getElementById("imageInput")
+    .addEventListener("change", function (event) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById("profileImage").src = e.target.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    });
+   </script>
    @endsection
