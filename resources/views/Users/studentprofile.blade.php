@@ -48,17 +48,19 @@
   </div>
   <div class="container">
       <div class="profile-settings-box">
-          <form action="/edit-profile/{{Auth::user()->id}}" method="post">
+          <form action="/edit-profile/{{Auth::user()->id}}" method="post" enctype="multipart/form-data">
               @csrf
               @method('PATCH') <br>
               <h4>Profile Settings</h4>
               <div class="profile-picture-container">
-                  <input type="file" id="imageInput">
+                  <input type="file" id="imageInput" name="profile_picture">
                   <label for="imageInput">
                       @if(Auth::user()->picture)
                       <div class="relative p-4">
                           <img id="profileImage" src="http://127.0.0.1:8000/storage/{{Auth::user()->picture}}" class="w-2 h-2 rounded-circle text-center" style="width: 10rem !important; height: 10rem !important;">
                           <span class="text-white">{{ Auth::user()->name }}</span>&nbsp;<i class="caret"></i>
+                          
+
                       </div>
                       @elseif(Auth::user()->picture == null)
                       <div class="profile_container">

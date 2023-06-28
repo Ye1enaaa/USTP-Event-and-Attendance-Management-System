@@ -20,6 +20,11 @@ class ProfileController extends Controller
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $user->password = $hashedPassword;
 
+        if ($request->hasFile('profile_picture')) {
+            $imagePath = $request->file('profile_picture')->store('user_profile', 'public');
+            $user->picture = $imagePath;
+        }
+
         $user->save();
 
         return redirect()->back()->with('flash_message', 'Event Updated!');  
