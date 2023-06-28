@@ -55,7 +55,8 @@
 #editbutton {
     color: black;
     position: absolute;
-    left: 37.5%;
+    left: 42%;
+    top: 20.60%;
     cursor: pointer;
     transition: color 0.5s;
 }
@@ -203,4 +204,8 @@ form textarea.form-input {
 
 .event-link:hover {
     text-decoration: none;
+}
+
+.text-area{
+    resize:none;
 }
