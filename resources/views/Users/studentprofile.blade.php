@@ -2,17 +2,23 @@
 
 @section('content')
 <body>
-  <div class="profile-container">
-    <div class="profile-picture-container">
-      <img src="{{ asset('storage/' . Auth::user()->picture) }}" class="student-profile-picture">
+  <div class="card">
+    <div class="student-profile-container">
+    <div class="card-profile">
+      <div class="profile-picture-container">
+        <img src="{{ asset('storage/' . Auth::user()->picture) }}" class="student-profile-picture">
+      </div>
       <h1>{{ $user->name }}</h1>
     </div>
+    </div>
     <div class="profile-details">
+    <h1>Student Information</h1>
+    <br>
       <table>
-        <tr>
+        <!-- <tr>
           <th>Name</th>
           <td>{{ $user->name }}</td>
-        </tr>
+        </tr> -->
         <tr>
           <th>Email</th>
           <td>{{ $user->email }}</td>
@@ -26,7 +32,7 @@
           <td>{{ $user->department }}</td>
         </tr>
         <tr>
-          <th>Year/Section</th>
+          <th>Year & Section</th>
           <td>{{ $user->year_section }}</td>
         </tr>
       </table>
