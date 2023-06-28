@@ -27,6 +27,7 @@ Route::get('/student' , [ViewsController::class, 'returnStudentDashboardView']);
 Route::get('/studentprofile', [ViewsController::class, 'viewStudentProfile'])->name('studentprofile');
 
 
+
 //EventController
 Route::controller(EventController::class)->group(function(){
     Route::get('/createevent','returnCreateEventView');
