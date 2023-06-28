@@ -199,7 +199,17 @@ style.innerHTML = `
 `;
 document.head.appendChild(style);
 
-function handleLogoutClick(event){
+function handleLogoutClick(event) {
     event.preventDefault();
-    document.getElementById('log-out-form').submit();
+    document.getElementById("logout-form").submit();
+}
+
+function confirmLogout(event) {
+    event.preventDefault();
+
+    var confirmation = confirm("Are you sure you want to logout?");
+
+    if (confirmation) {
+        document.getElementById("logout-form").submit();
+    }
 }

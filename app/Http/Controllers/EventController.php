@@ -45,7 +45,8 @@ class EventController extends Controller
             'eventTime' => 'required|string',
             'eventDate' => 'required',
             'eventPlace' => 'required|string',
-            'eventDesc' => 'required',
+            'eventDesc' => 'required|string',
+            'eventFacilitator' =>'required|string',
             'eventPicture' => 'nullable|image|mimes:jpeg,png,jpg'
         ]);
 
@@ -61,28 +62,45 @@ class EventController extends Controller
             'eventDate' => $validateFields['eventDate'],
             'eventPlace' => $validateFields['eventPlace'],
             'eventDesc' => $validateFields['eventDesc'],
+            'eventFacilitator' => $validateFields['eventFacilitator'],
             'eventPicture' => $imagePath
         ]);
         return redirect('/admin');
     }
     //DELETE EVENT
 
-    public function destroy($id){
-        $event = Event::findOrFail($id);
-        if(!$event){
-            return response()->json([
-                'error' => 'Event not Found'
-            ]);
-        }
+    // public function destroy($id){
+    //     $event = Event::findOrFail($id);
+    //     if(!$event){
+    //         return response()->json([
+    //             'error' => 'Event not Found'
+    //         ]);
+    //     }
 
-        $event->delete();
+    //     $event->delete();
 
+    //     return response()->json([
+    //         'Success' => 'Deleted Successfully'
+    //     ]);
+
+    //     //return view('');
+    // }
+
+    //edit ni jopin
+public function destroy($id)
+{
+    $event = Event::findOrFail($id);
+    if (!$event) {
         return response()->json([
-            'Success' => 'Deleted Successfully'
+            'error' => 'Event not Found'
         ]);
-
-        //return view('');
     }
+
+    $event->delete();
+
+    return redirect()->back();
+}
+
 
 
     //UPDATE EVENT
@@ -110,7 +128,7 @@ class EventController extends Controller
         $event -> eventDesc = $request->input('eventDesc');
         $event->save();
 
-        return redirect('todays-event')->with('flash_message', 'Event Updated!');  
+        return redirect()->back()->with('flash_message', 'Event Updated!');  
     }
 
     public function edit($id)

@@ -31,7 +31,11 @@ Route::get('/studentprofile', [ViewsController::class, 'viewStudentProfile'])->n
 Route::controller(EventController::class)->group(function(){
     Route::get('/createevent','returnCreateEventView');
     Route::post('/addevent', 'addEvent')->name('add.event');
+    // Route::delete('/delete/{id}', 'destroy')->name('delete.event');
+
+    //edit ni jopin
     Route::delete('/delete/{id}', 'destroy')->name('delete.event');
+
 
 
     Route::get('/edit-event/{id}','editEvent')->name('edit-event');
@@ -49,3 +53,4 @@ Route::controller(EventController::class)->group(function(){
 Route::get('users/event/details/{id}/attended/{studentId}', [EventDetailsController::class, 'show'])->name('event.details');
 Route::get('admin/event/details/{id}', [EventDetailsController::class, 'showEventDetailsAdmin']);
 Route::get('/profile', [ProfileController::class, 'showProfile']);
+Route::patch('/edit-profile/{id}',[ProfileController::class, 'editProfile']);

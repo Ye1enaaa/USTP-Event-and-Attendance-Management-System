@@ -19,7 +19,8 @@ return new class extends Migration
             $table->date('eventDate');
             $table->string('eventPlace');
             $table->string('eventPicture')->nullable();
-            $table->string('eventDesc'); 
+            $table->string('eventFacilitator')->nullable();
+            $table->string('eventDesc', 1500); 
             $table->timestamps();
         });
     }

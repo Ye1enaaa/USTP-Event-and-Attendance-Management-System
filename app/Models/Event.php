@@ -16,7 +16,9 @@ class Event extends Model
         'eventDate', //when
         'eventPlace', //where
         'eventPicture',
-        'eventDesc'
+        'eventDesc',
+        'eventFacilitator',
+        
     ];
 
     //protected $primaryKey = 'event_id';
