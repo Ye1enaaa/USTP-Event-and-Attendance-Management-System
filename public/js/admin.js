@@ -77,7 +77,7 @@ function enableEditMode() {
 
     // Replace the text content with input fields
     eventNameElement.innerHTML = `<input type="text" id="eventNameInput" value="${originalEventName}" name="eventName"/>`;
-    eventDescriptionElement.innerHTML = `<textarea id="eventDescInput" name="eventDesc" cols=65 rows=15 style="resize:none;">${originalEventDesc}</textarea>`;
+    eventDescriptionElement.innerHTML = `<textarea id="eventDescInput" name="eventDesc" cols=85 rows=20 style="resize:none;">${originalEventDesc}</textarea>`;
     eventPlaceElement.innerHTML = `<input type="text" id="eventPlaceInput" value="${originalEventPlace.substring(
         7
     )}" />`;

@@ -23,8 +23,8 @@
    <div class="event-name">
       <div class="maineventcontainer">
          @foreach($upcomingEvents as $event)
-         <a href="/admin/event/details/{{$event->id}}" class="event-link">
-            <div class="eventcontainer">
+         <div class="eventcontainer">
+            <a href="/admin/event/details/{{$event->id}}" class="event-link">
                <div class="imagecontainer">
                   <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="" class="eventpicture">
                </div>
@@ -41,8 +41,17 @@
                   <ion-icon name="calendar-outline"></ion-icon>
                   Date: {{ $event->eventDate }}
                </p>
+            </a>
+            <div class="delete-event">
+               <form action="/admin/event/delete/{{$event->id}}" method="POST">
+                  @csrf
+                  @method('DELETE')
+               </form>
+               <button type="button" class="delete-button btn btn-danger btn-md" onclick="deleteEvent({{$event->id}})">
+               <i class="fas fa-trash"></i>
+               </button>
             </div>
-         </a>
+         </div>
          @endforeach
       </div>
       <br><br><br>
@@ -51,4 +60,33 @@
    </div>
    <script src="{{ asset('js/side-navbar-admin.js') }}"></script>
    <script src="{{ asset('js/admin.js') }}"></script>
+
+
+   <script>
+      function deleteEvent(eventId) {
+         if (confirm("Are you sure you want to delete this event?")) {
+            // Send a DELETE request to the server using AJAX
+            fetch(`/delete/${eventId}`, {
+               method: 'DELETE',
+               headers: {
+                  'X-CSRF-TOKEN': '{{ csrf_token() }}'
+               }
+            })
+            .then(response => response.json())
+            .then(data => {
+               if (data.success) {
+                  // Handle successful deletion, e.g., remove the event container from the DOM
+                  const eventContainer = document.getElementById(`event-${eventId}`);
+                  eventContainer.remove();
+                  console.log(data.success);
+               } else {
+                  console.error(data.error);
+               }
+            })
+            .catch(error => {
+               console.error(error);
+            });
+         }
+      }
+   </script>
    @endsection

@@ -28,6 +28,15 @@
                <div class="imagecontainer">
                   <img src="http://127.0.0.1:8000/storage/{{$event->eventPicture}}" alt="" class="eventpicture">
                </div>
+               <div class="delete-event">
+                  <form action="/admin/event/delete/{{$event->id}}" method="POST">
+                     @csrf
+                     @method('DELETE')
+                     <button type="submit" class="delete-button btn btn-danger btn-md">
+                     <i class="fas fa-trash"></i>
+                     </button>
+                  </form>
+               </div>
                <h3>{{$event->eventName}}</h3>
                <p class="event-details">
                   <ion-icon name="location-outline"></ion-icon>

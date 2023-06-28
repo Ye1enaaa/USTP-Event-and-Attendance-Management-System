@@ -69,22 +69,38 @@ class EventController extends Controller
     }
     //DELETE EVENT
 
-    public function destroy($id){
-        $event = Event::findOrFail($id);
-        if(!$event){
-            return response()->json([
-                'error' => 'Event not Found'
-            ]);
-        }
+    // public function destroy($id){
+    //     $event = Event::findOrFail($id);
+    //     if(!$event){
+    //         return response()->json([
+    //             'error' => 'Event not Found'
+    //         ]);
+    //     }
 
-        $event->delete();
+    //     $event->delete();
 
+    //     return response()->json([
+    //         'Success' => 'Deleted Successfully'
+    //     ]);
+
+    //     //return view('');
+    // }
+
+    //edit ni jopin
+public function destroy($id)
+{
+    $event = Event::findOrFail($id);
+    if (!$event) {
         return response()->json([
-            'Success' => 'Deleted Successfully'
+            'error' => 'Event not Found'
         ]);
-
-        //return view('');
     }
+
+    $event->delete();
+
+    return redirect()->back();
+}
+
 
 
     //UPDATE EVENT

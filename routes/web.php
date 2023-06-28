@@ -29,7 +29,11 @@ Route::get('/student' , [ViewsController::class, 'returnStudentDashboardView']);
 Route::controller(EventController::class)->group(function(){
     Route::get('/createevent','returnCreateEventView');
     Route::post('/addevent', 'addEvent')->name('add.event');
+    // Route::delete('/delete/{id}', 'destroy')->name('delete.event');
+
+    //edit ni jopin
     Route::delete('/delete/{id}', 'destroy')->name('delete.event');
+
 
 
     Route::get('/edit-event/{id}','editEvent')->name('edit-event');
