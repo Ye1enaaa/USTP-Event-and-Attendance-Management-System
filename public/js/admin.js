@@ -183,3 +183,31 @@ document
         };
         reader.readAsDataURL(event.target.files[0]);
     });
+
+function deleteEvent(eventId) {
+    if (confirm("Are you sure you want to delete this event?")) {
+        // Send a DELETE request to the server using AJAX
+        fetch(`/delete/${eventId}`, {
+            method: "DELETE",
+            headers: {
+                "X-CSRF-TOKEN": "{{ csrf_token() }}",
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.success) {
+                    // Handle successful deletion, e.g., remove the event container from the DOM
+                    const eventContainer = document.getElementById(
+                        `event-${eventId}`
+                    );
+                    eventContainer.remove();
+                    console.log(data.success);
+                } else {
+                    console.error(data.error);
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+}

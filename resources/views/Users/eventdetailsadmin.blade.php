@@ -12,15 +12,10 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
         <link rel="stylesheet" href="{{ asset('css/events-admin.css') }}">
-
-
         <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
-
     @extends('Extras.side-navbaradmin')
     @section('content-admin')
-
-    
     <div style="padding-left: 20px;">
         <h1>EVENT ATTENDANCE</h1>
     </div>
@@ -41,8 +36,8 @@
                 </div>
                 <div class="userprofilescontainer">
                     <!-- <div class="user_profiles" id="user1">user1</div>
-                    <div class="user_profiles" id="user2">user2</div>
-                    <div class="user_profiles" id="user3">user3</div> -->
+                        <div class="user_profiles" id="user2">user2</div>
+                        <div class="user_profiles" id="user3">user3</div> -->
                     <div class="numberofusers" id="attendeeCount"onclick="openModal({{$event->id}})"></div>
                 </div>
                 <div class="modal" id="myModal">
@@ -74,7 +69,6 @@
                         <!-- <textarea class="text-area" cols=20 rows=10>{{$event->eventDesc}}</textarea> -->
                     </div>
                 </div>
-
                 <div class="abouthost_container">
                     <div class="abouthost">
                         <h4>Facilitator</h4>
@@ -84,7 +78,6 @@
             </div>
         </div>
         <p id="eventTime" name="eventTime" style="display: none;">{{$event->eventTime}}</p>
-
     </div>
     <script>
         function openModal(eventId) {
@@ -126,6 +119,5 @@
         }
     </script>
     <script src="{{ asset('js/admin.js') }}"></script>
-        <script src="{{ asset('js/side-navbar-admin.js') }}"></script>
-
+    <script src="{{ asset('js/side-navbar-admin.js') }}"></script>
     @endsection
