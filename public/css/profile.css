@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 480px;
-
+    height: 600px;
+    overflow-y: hidden;
 }
 
 .profile-settings-box {
@@ -11,7 +11,7 @@
     flex-direction: column;
     align-items: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    width: 80%;
+    width: 500px;
     max-width: 400px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -24,22 +24,21 @@
     text-align: center;
 }
 
-.profile-pic-name_container{
+.profile-pic-name_container {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 /**************************************CENTER THE PROFILE IMAGE**********************************************/
-.profile_container{
+.profile_container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 /*******************************************PROFILE IMAGE*****************************************************************/
-#profileImage{
+#profileImage {
     margin-top: 10px;
     border: 3px solid rgba(30, 116, 173, 0.979);
     display: flex;
@@ -48,7 +47,7 @@
 
 /**************************************NAME AND PASSWORD FORM**********************************************/
 
-.edit-profile_form{
+.edit-profile_form {
     margin-top: 2px;
     margin-left: 10px;
     display: flex;
@@ -57,10 +56,10 @@
     justify-content: center;
 }
 
-h4{
+h4 {
     text-align: center;
 }
 
-#imageInput{
+#imageInput {
     display: none;
 }

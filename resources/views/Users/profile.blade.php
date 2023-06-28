@@ -26,7 +26,7 @@
       <div class="profile-settings-box">
          <form action="/edit-profile/{{Auth::user()->id}}" method="post">
             @csrf
-            @method('PATCH')
+            @method('PATCH') <br>
 
                <h4>Profile Settings</h4>
                <div class="profile-picture-container">
