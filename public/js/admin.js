@@ -57,7 +57,7 @@ var originalEventPlace = "";
 function enableEditMode() {
     // Get the form elements you want to edit
     var eventNameElement = document.querySelector(
-        ".eventtitle_container h2 #eventName"
+        ".eventtitle_container h3 #eventName"
     );
     var eventDescriptionElement = document.querySelector(".eventdiscription p");
     var eventPlaceElement = document.querySelector(
@@ -77,7 +77,7 @@ function enableEditMode() {
 
     // Replace the text content with input fields
     eventNameElement.innerHTML = `<input type="text" id="eventNameInput" value="${originalEventName}" name="eventName"/>`;
-    eventDescriptionElement.innerHTML = `<textarea id="eventDescInput" name="eventDesc">${originalEventDesc}</textarea>`;
+    eventDescriptionElement.innerHTML = `<textarea id="eventDescInput" name="eventDesc" cols=65 rows=15 style="resize:none;">${originalEventDesc}</textarea>`;
     eventPlaceElement.innerHTML = `<input type="text" id="eventPlaceInput" value="${originalEventPlace.substring(
         7
     )}" />`;

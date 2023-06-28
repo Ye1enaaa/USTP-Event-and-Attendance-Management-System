@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ADMIN</title>
         <!-- Add your CSS and other script links here -->
-        <link rel="stylesheet" href="admin.css">
         <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -27,13 +26,13 @@
     </div>
     <div class="eventdetails_container">
         <div class="eventtitle_container">
-            <h2>
+            <h3>
                 <span class="editable" id="eventName">{{$event->eventName}}</span>
                 <span class="edit_buttons">
-                <i class="far fa-edit" id="editbutton" onmouseover="this.style.color='#fdc718'" onmouseout="this.style.color='black'" onclick="enableEditMode()"></i>
-                <i class="far fa-save" id="savebutton" onmouseover="this.style.color='#fdc718'" onmouseout="this.style.color='black'" onclick="saveChanges({{$event->id}})" disabled></i>
+                <i title="edit" class="far fa-edit" id="editbutton" onmouseover="this.style.color='#fdc718'" onmouseout="this.style.color='black'" onclick="enableEditMode()"></i>
+                <i title="save" class="far fa-save" id="savebutton" onmouseover="this.style.color='#fdc718'" onmouseout="this.style.color='black'" onclick="saveChanges({{$event->id}})" disabled></i>
                 </span>
-            </h2>
+            </h3>
         </div>
         <div class="maincontent_container">
             <div class="leftside_content">
@@ -72,6 +71,7 @@
                     <div class="eventdiscription">
                         <h3>About the event</h3>
                         <p id="eventDesc">{{$event->eventDesc}}</p>
+                        <!-- <textarea class="text-area" cols=20 rows=10>{{$event->eventDesc}}</textarea> -->
                     </div>
                 </div>
 
