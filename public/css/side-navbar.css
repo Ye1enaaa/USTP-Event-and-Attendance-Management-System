@@ -393,7 +393,6 @@ h2 {
 .profile-container {
     display: flex;
     align-items: center;
-    cursor: pointer;
 }
 .profile-picture {
     width: 50px;
@@ -454,3 +453,105 @@ h2 {
 .next:hover {
     background-color: #aaa;
 }
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    /* max-width: 600px; */
+    max-height: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    /* background-color: palegoldenrod; */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    /* max-width: 600px; */
+    max-height: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-image: linear-gradient(315deg, #f6ecc4 0%, #f7d4d4 74%);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* .student-profile-container {
+    padding: 20px;
+  } */
+  
+  .profile-picture-container {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 30%;
+    margin: 0 auto;
+  }
+  
+  .student-profile-picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  
+  .profile-details {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    background-image: linear-gradient(315deg, #f6ecc4 0%, #f7d4d4 74%);
+  }
+  
+  .profile-details table {
+    width: 100%;
+    border-collapse: collapse;
+    
+  }
+  
+  .profile-details th,
+  .profile-details td {
+    padding: 8px;
+    border: 1px solid gray;
+    text-align: left;
+  }
+  
+  .profile-details tr:hover {
+    background-image: linear-gradient(315deg,  #f7d4d4 45%, #f6ecc4 75%);
+  }
+  
+  @media screen and (min-width: 768px) {
+    .card {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  
+    .student-profile-container {
+      margin-bottom: 0;
+      margin-right: 20px;
+    }
+  
+    .profile-details {
+      flex-grow: 1;
+    }
+  }

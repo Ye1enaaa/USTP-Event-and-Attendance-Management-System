@@ -24,6 +24,9 @@ Route::controller(LoginController::class)->group(function(){
 //Views for student or Admin Dashboard
 Route::get('/admin' , [ViewsController::class, 'returnAdminDashboardView']);
 Route::get('/student' , [ViewsController::class, 'returnStudentDashboardView']);
+Route::get('/studentprofile', [ViewsController::class, 'viewStudentProfile'])->name('studentprofile');
+
+
 
 //EventController
 Route::controller(EventController::class)->group(function(){

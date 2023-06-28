@@ -25,17 +25,22 @@
             <span class="text"><h2> USTP-EVENT </h2></span>
           </a>
           <li>
-          <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "student") echo "active"; ?>" href="student">
+            <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "student") echo "active"; ?>" href="/student">
               <span class="icon"> <ion-icon name="clipboard-outline"></ion-icon> </span>
-              <span class="text"> UPCOMING EVENTS </span>
+              <span class="text"> EVENTS </span>
             </a>
           </li>
           <li>
-            <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "admin") echo "active"; ?>" href="admin">
-              <span class="icon"> <ion-icon name="checkmark-done-outline"></ion-icon> </span>
-              <span class="text"> EVENT DETAILS </span>
+            <a class="side-link <?php if(basename($_SERVER['PHP_SELF']) == "studentprofile") echo "active"; ?>" href="{{ route('studentprofile') }}">
+              <span class="icon"> <ion-icon name='person-outline'></ion-icon> </span>
+              <span class="text"> PROFILE </span>
             </a>
           </li>
+          
+          
+          
+          
+          
       </ul>
     </aside>
   </div>
@@ -65,13 +70,20 @@
             <!-- gitandog ni calapiz -->
             <!-- <li style="margin-bottom: 2px;"><a href="#" onclick="handleProfileClick();"><i class="fas fa-user" style="color: #211a51;"></i> Profile</a></li> -->
               
-            <li style="margin-bottom: 2px;"><a href="#" id="profileButton"><i class="fas fa-user" style="color: #211a51;"></i> Profile</a></li>
-
+            <li>
+              <a href="{{ route('studentprofile') }}">
+                <span class="fas fa-user" style="color: #211a51;"></ion-icon></span>
+                <span class="text">Profile</span>
+              </a>
+            </li>
 
 
 
             <li style="margin-bottom: 2px;"><a href="#" id="profileButton"><i class="fas fa-user" style="color: #211a51;"></i> Settings</a></li>
-              <li><a href="#" onclick="handleLogoutClick();"><i class="fas fa-sign-out-alt" style="color: #211a51;"></i> Logout</a></li>
+            <form action="{{ route('user.logout') }}" method="post" id="log-out-form">
+              @csrf
+              <li><a href="#" onclick="handleLogoutClick(event);"><i class="fas fa-sign-out-alt" style="color: #211a51;"></i> Logout</a></li>
+            </form>
             </ul>
         </div>
       </div>
