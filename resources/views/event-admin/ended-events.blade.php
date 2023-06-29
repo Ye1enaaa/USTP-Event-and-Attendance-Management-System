@@ -50,7 +50,7 @@
                         @csrf
                         @method('DELETE')
                     </form>
-                    <button type="button" class="delete-button btn btn-danger btn-md flex items-center pl-4 pr-4">
+                    <button type="button" class="delete-button btn btn-danger btn-md flex items-center pl-4 pr-4" onclick="deleteEvent({{$event->id}})">
                     <i class="fas fa-trash text-white pr-32"></i>
                     </button>
                 </div>

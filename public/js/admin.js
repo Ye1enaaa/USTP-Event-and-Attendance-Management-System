@@ -104,13 +104,6 @@ function saveChanges(eventId) {
     eventPlaceInput.parentNode.innerHTML = `Place: ${eventPlaceInput.value}`;
     // eventDateInput.parentNode.innerHTML = `Date: ${eventDateInput.value}`;
 
-    // // Disable the save button
-    // var saveButton = document.getElementById("savebutton");
-    // saveButton.disabled = true;
-
-    // // Display a confirmation message
-    // alert("Information updated");
-
     var csrfToken = document
         .querySelector('meta[name="csrf-token"]')
         .getAttribute("content");
