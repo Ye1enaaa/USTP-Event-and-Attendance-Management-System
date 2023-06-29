@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ended events</title>
+        <title>Upcoming events</title>
         <!-- Add your CSS and other script links here -->
         <link rel="stylesheet" href="admin.css">
         <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -14,9 +14,12 @@
         <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
         <link rel="stylesheet" href="{{ asset('css/side-navbar-admin.css') }}">
         <link rel="stylesheet" href="{{ asset('css/events-admin.css') }}">
+
     </head>
+
     @extends('Extras.side-navbaradmin')
     @section('content-admin')
+
     <div style="padding-left: 20px;">
         <h1>ENDED EVENTS</h1>
     </div>
@@ -42,13 +45,13 @@
                         Date: {{ $event->eventDate }}
                     </p>
                 </a>
-                <div class="delete-event">
+                <div class="delete-event flex justify-end">
                     <form action="/admin/event/delete/{{$event->id}}" method="POST">
                         @csrf
                         @method('DELETE')
                     </form>
-                    <button type="button" class="delete-button btn btn-danger btn-md" onclick="deleteEvent({{$event->id}})">
-                    <i class="fas fa-trash"></i>
+                    <button type="button" class="delete-button btn btn-danger btn-md flex items-center pl-4 pr-4">
+                    <i class="fas fa-trash text-white pr-32"></i>
                     </button>
                 </div>
             </div>
