@@ -36,11 +36,6 @@
               <span class="text"> PROFILE </span>
             </a>
           </li>
-          
-          
-          
-          
-          
       </ul>
     </aside>
   </div>
@@ -54,32 +49,18 @@
           <button {{ Request::is('users/event/details/*') ? 'disabled' : '' }}><i class="bx bx-search"></i></button>
         </div>
 
-        <!-- <div class="profile">
-          <img src="{{ asset('storage/' . Auth::user()->picture) }}" class="profile-picture">
-          <span class="name">{{ Auth::user()->name }}</span>
-        </div> -->
-
         <div class="user-dropdown">
           <div class="profile-container" style="padding: 5px;">
             <img src="{{ asset('storage/' . Auth::user()->picture) }}" class="profile-picture">
             <span class="name" style="color: #FFFFFF;">{{ Auth::user()->name }}</span>&nbsp;<i class="caret"></i>
           </div>
             <ul class="dropdown-menu" style="padding: 10px; border: 2px solid #211a51; border-radius: 5px;">
-              
-            
-            <!-- gitandog ni calapiz -->
-            <!-- <li style="margin-bottom: 2px;"><a href="#" onclick="handleProfileClick();"><i class="fas fa-user" style="color: #211a51;"></i> Profile</a></li> -->
-              
             <li>
               <a href="{{ route('studentprofile') }}">
                 <span class="fas fa-user" style="color: #211a51;"></ion-icon></span>
                 <span class="text">Profile</span>
               </a>
             </li>
-
-
-
-            <li style="margin-bottom: 2px;"><a href="#" id="profileButton"><i class="fas fa-user" style="color: #211a51;"></i> Settings</a></li>
             <form action="{{ route('user.logout') }}" method="post" id="log-out-form">
               @csrf
               <li><a href="#" onclick="handleLogoutClick(event);"><i class="fas fa-sign-out-alt" style="color: #211a51;"></i> Logout</a></li>
