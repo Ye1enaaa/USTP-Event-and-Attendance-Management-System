@@ -42,15 +42,18 @@
                   Date: {{ $event->eventDate }}
                </p>
             </a>
-            <div class="delete-event">
-               <form action="/admin/event/delete/{{$event->id}}" method="POST">
-                  @csrf
-                  @method('DELETE')
-               </form>
-               <button type="button" class="delete-button btn btn-danger btn-md" onclick="deleteEvent({{$event->id}})">
-               <i class="fas fa-trash"></i>
-               </button>
-            </div>
+<div class="delete-event flex justify-end">
+   <form action="/admin/event/delete/{{$event->id}}" method="POST">
+      @csrf
+      @method('DELETE')
+   </form>
+   <button type="button" class="delete-button btn btn-danger btn-md flex items-center pl-4 pr-4">
+      <i class="fas fa-trash text-white pr-32"></i>
+   </button>
+</div>
+
+
+
          </div>
          @endforeach
       </div>
@@ -60,4 +63,10 @@
    </div>
    <script src="{{ asset('js/side-navbar-admin.js') }}"></script>
    <script src="{{ asset('js/admin.js') }}"></script>
+   <style>
+   .delete-button {
+      flex-grow: 1;
+   }
+</style>
+
    @endsection

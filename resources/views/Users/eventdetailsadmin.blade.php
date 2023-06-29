@@ -16,13 +16,17 @@
    </head>
    @extends('Extras.side-navbaradmin')
    @section('content-admin')
-   <div style="padding-left: 20px;">
-      <h1>EVENT ATTENDANCE</h1>
-      <span class="edit_buttons">
-      <i title="edit" class="far fa-edit" id="editbutton" onmouseover="this.style.color='#fdc718'" onmouseout="this.style.color='black'" onclick="enableEditMode()"></i>
-      <i title="save" class="far fa-save" id="savebutton" onmouseover="this.style.color='#fdc718'" onmouseout="this.style.color='black'" onclick="saveChanges({{$event->id}})" disabled></i>
+<div style="padding-left: 20px;">
+   <h1 style="display: flex; align-items: center;">
+      EVENT ATTENDANCE
+      <i title="save" class="far fa-save" id="savebutton" style="margin-left: 150px; margin-top: 55px" onmouseover="this.style.color='#fdc718'" onmouseout="this.style.color='black'" onclick="saveChanges({{$event->id}})" disabled></i>
+      <span class="edit_buttons" style="margin-left: auto;">
+         <i title="edit" class="far fa-edit" id="editbutton" onmouseover="this.style.color='#fdc718'" onmouseout="this.style.color='black'" onclick="enableEditMode()"></i>
       </span>
-   </div>
+   </h1>
+</div>
+
+
    <div class="eventdetails_container">
       <div class="eventtitle_container">
          <h3>
