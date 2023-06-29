@@ -26,4 +26,25 @@ class EventDetailsController extends Controller
         return view('Users.evdetails', compact('event', 'isAttending'));
 
     }
+    public function showEventDetailsAdmin($id){
+        $event = Event::with('attendees')->find($id);
+        return view('Users.eventdetailsadmin', compact('event'));
+    }
+    //---------------MABANTA-----------------\\
+    public function showEventDetails($id){
+        $eventAdmin = Event::find($id);
+        $eventWithAttendee = Event::with('attendees')->find($id);
+        $numberOfAttendees = count($eventWithAttendee->attendees);
+        return response()->json([
+            'numberofAttendees' => $numberOfAttendees,
+            'event' => $eventWithAttendee,
+            'attendees' => $eventWithAttendee->attendees
+        ]);
+
+        if(!$eventWithAttendee){
+            return response()->json([
+                'error' => '404 Not Found'
+            ], 404);
+        }
+    }
 }

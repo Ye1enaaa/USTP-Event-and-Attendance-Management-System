@@ -9,7 +9,35 @@ use Carbon\Carbon;
 class EventController extends Controller
 {
     //EVENT INDEX FUNCTION @ VIEWSCONTROLLER
+    public function returnCreateEventView(){
+        return view('event-admin.createevent');
+    }
+    //return events by date
+    public function fetchEventTodayWeb(){
+        $serverTime = config('app.timezone');
+        $today = Carbon::today();
+        $eventToday = Event::whereDate('eventDate', $today)->get();
 
+        return view('event-admin.todays-event', compact('eventToday'));
+    }
+
+    public function fetchUpcomingEventsWeb(){
+        $today = Carbon::today()->toDateString();
+
+        $upcomingEvents = Event::whereDate('eventDate','>',$today)
+            ->orderBy('eventDate')
+            ->get();
+        return view('event-admin.upcoming-events', compact('upcomingEvents'));
+    }
+
+    public function fetchEndedEventsWeb(){
+        $today = Carbon::today()->toDateString();
+
+        $endedEvents = Event::whereDate('eventDate','<',$today)
+            ->orderBy('eventDate')
+            ->get();
+        return view('event-admin.ended-events', compact('endedEvents'));
+    }
     //POST EVENT
     public function addEvent(Request $request){
         $validateFields = $request->validate([
@@ -17,7 +45,8 @@ class EventController extends Controller
             'eventTime' => 'required|string',
             'eventDate' => 'required',
             'eventPlace' => 'required|string',
-            'eventDesc' => 'required',
+            'eventDesc' => 'required|string',
+            'eventFacilitator' =>'required|string',
             'eventPicture' => 'nullable|image|mimes:jpeg,png,jpg'
         ]);
 
@@ -33,32 +62,82 @@ class EventController extends Controller
             'eventDate' => $validateFields['eventDate'],
             'eventPlace' => $validateFields['eventPlace'],
             'eventDesc' => $validateFields['eventDesc'],
+            'eventFacilitator' => $validateFields['eventFacilitator'],
             'eventPicture' => $imagePath
         ]);
         return redirect('/admin');
     }
     //DELETE EVENT
 
-    public function destroy($id){
-        $event = Event::findOrFail($id);
-        if(!$event){
-            return response()->json([
-                'error' => 'Event not Found'
-            ]);
-        }
+    // public function destroy($id){
+    //     $event = Event::findOrFail($id);
+    //     if(!$event){
+    //         return response()->json([
+    //             'error' => 'Event not Found'
+    //         ]);
+    //     }
 
-        $event->delete();
+    //     $event->delete();
 
+    //     return response()->json([
+    //         'Success' => 'Deleted Successfully'
+    //     ]);
+
+    //     //return view('');
+    // }
+
+    //edit ni jopin
+public function destroy($id)
+{
+    $event = Event::findOrFail($id);
+    if (!$event) {
         return response()->json([
-            'Success' => 'Deleted Successfully'
+            'error' => 'Event not Found'
         ]);
-
-        //return view('');
     }
+
+    $event->delete();
+
+    return redirect()->back();
+}
+
 
 
     //UPDATE EVENT
-    public function update(Request $request){
+
+    public function editEvent($id)
+    {
+        $event = Event::find($id);
+        return view('event-admin.edit-events', compact('event'));
+    }
+
+    public function updateEvent(Request $request, $id)
+    {
+        $event = Event::find($id);
+
+        
+
+        $event -> eventName = $request->input('eventName');
+        $event -> eventTime = $request->input('eventTime');
+        $event -> eventDate = $request->input('eventDate');
+        $event -> eventPlace = $request->input('eventPlace');
+        if($request->hasFile('eventPicture')){
+            $imagePath = $request->file('eventPicture')->store('events', 'public');
+            $event -> eventPicture = $imagePath;
+        }
+        $event -> eventDesc = $request->input('eventDesc');
+        $event->save();
+
+        return redirect()->back()->with('flash_message', 'Event Updated!');  
+    }
+
+    public function edit($id)
+    {
+
+    }
+
+    public function update()
+    {
 
     }
     //----------------------------------FOR MOBILE---------------------------------------\\

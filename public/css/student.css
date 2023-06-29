@@ -22,9 +22,10 @@ body {
     display: block;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 5%;
     text-decoration: none;
     color: #333;
+    background-image: linear-gradient(315deg, #f6ecc4 0%, #f7d4d4 74%);
 }
 
 .event-container {
@@ -35,7 +36,8 @@ body {
     border: 1px solid #ccc;
     width: 300px; 
     white-space: initial;
-    border-radius: 5px;
+    border-radius: 5%;
+    background-color: whitesmoke;
 }
 
 .event-picture {
@@ -99,7 +101,7 @@ body {
 .description-container {
     flex: 4;
     padding: 20px;
-    background-color: pink;
+    background-image: linear-gradient(315deg, #f6ecc4 0%, #f7d4d4 74%);
     border-radius: 10px;
     white-space: initial;
     text-align: justify;

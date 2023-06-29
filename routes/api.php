@@ -6,7 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\EventAttendeesController;
 use App\Http\Controllers\EventController;
-
+use App\Http\Controllers\EventDetailsController;
 Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('/user', [UserController::class, 'userMobile']);
 });
@@ -27,6 +27,8 @@ Route::get('/eventtoday', [EventController::class, 'fetchEventToday']); //fetch 
 Route::get('/upcomingevents', [EventController::class, 'fetchUpcomingEvents']); //fetch upcoming events
 Route::get('/endedevents', [EventController::class, 'fetchEndedEvents']); // fetch ended events
 Route::get('/event/{id}/attendee/{studentId}' , [UserController::class,'checkIfAttended']);
+Route::get('/event/attendance/{studentId}' , [EventAttendeesController::class,'fetchAllEventsWithAttendee']);
 
 //------------------------EXPERIMENTATION APIs-------------------------\\
 Route::delete('/delete/{id}',[EventController::class,'destroy']);
+Route::get('/adminevent/{id}', [EventDetailsController::class, 'showEventDetails']);

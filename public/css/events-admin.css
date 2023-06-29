@@ -1,0 +1,208 @@
+.maineventcontainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.eventcontainer {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 400px;
+    margin-left: 50px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.808);
+    margin-bottom: 50px;
+    border-radius: 5px;
+}
+
+.eventcontainer:hover {
+    opacity: 0.8;
+}
+
+.imagecontainer {
+    width: 300px;
+    height: 200px;
+}
+
+.eventpicture {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+/*CSS FOR EVENT DETAILS IS HERE!*/
+
+.maineventdetails_container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.eventdetails_container {
+    width: 91%;
+    height: 600px;
+    margin-left: 50px;
+    /* border: 1px solid black; */
+}
+
+.eventtitle_container h3 {
+    text-align: left;
+    color: black;
+}
+
+#editbutton {
+    color: black;
+    position: absolute;
+    left: 42%;
+    top: 20.6%;
+    cursor: pointer;
+    transition: color 0.5s;
+}
+
+.maincontent_container {
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: row;
+    flex: 2;
+}
+
+.leftside_content {
+    /* border: 1px solid black; */
+    margin-right: 20px;
+}
+
+.image_container {
+    height: 400px;
+    width: 400px;
+}
+
+.imagecontent {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.userprofilescontainer {
+    /* border: 1px solid black; */
+    height: 50px;
+    margin-top: 10px;
+}
+
+.user_profiles {
+    /* border: 1px solid black; */
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+}
+
+#user1 {
+    background-color: lightblue;
+    position: absolute;
+    left: 70px;
+    z-index: 3;
+    border-color: lightblue;
+}
+
+#user2 {
+    background-color: lightpink;
+    position: absolute;
+    left: 110px;
+    z-index: 2;
+    border-color: lightpink;
+}
+
+#user3 {
+    background-color: lightblue;
+    position: absolute;
+    left: 150px;
+    border-color: lightblue;
+}
+
+.numberofusers {
+    position: absolute;
+    left: 205px;
+    padding-top: 25px;
+    color: blue;
+}
+
+.locationandtime_container {
+    /* border: 1px solid black; */
+    display: block;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.locationandtime_container p {
+    text-align: left;
+}
+
+.rightside_content {
+    /* border: 1px solid black; */
+    width: 595px;
+    flex: 1;
+}
+
+.eventdiscription_container {
+    /* border: 1px solid black; */
+    /* background-color: #1d1b31;
+    background-image: linear-gradient(315deg, #ffffff 0%, #274060 74%); */
+    background-color: #f6ecc4;
+    background-image: linear-gradient(315deg, #f6ecc4 0%, #f7d4d4 74%);
+    border-radius: 5px;
+}
+
+.eventdiscription {
+    /* border: 1px solid black; */
+    margin-left: 20px;
+    margin-right: 30px;
+    height: 450px;
+    padding-top: 10px;
+    /* overflow-y: scroll; */
+}
+
+.eventdiscription h3 {
+    /* border: 1px solid black; */
+    /* position: sticky;
+    top: 0; */
+    margin-top: 0;
+    padding-top: 0;
+    text-align: left;
+}
+
+.form-input {
+    width: 100%;
+}
+
+form input[type="text"].form-input,
+form textarea.form-input {
+    height: 40px;
+}
+
+.abouthost_container {
+    /* border: 1px solid black; */
+    /* background-color: #1d1b31;
+    background-image: linear-gradient(315deg, #ffffff 0%, #274060 74%); */
+    background-color: #f6ecc4;
+    background-image: linear-gradient(315deg, #f6ecc4 0%, #f7d4d4 74%);
+    margin-top: 30px;
+    border-radius: 5px;
+}
+
+.abouthost {
+    /* border: 1px solid black; */
+    margin-left: 20px;
+    margin-right: 10px;
+    padding-top: 10px;
+}
+
+.event-link {
+    text-decoration: none;
+}
+
+.event-link:hover {
+    text-decoration: none;
+}
+
+.text-area {
+    resize: none;
+}

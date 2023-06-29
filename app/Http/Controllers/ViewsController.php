@@ -23,4 +23,10 @@ class ViewsController extends Controller
     public function returnRegisterView(){
         return view('register');
     }
+    public function viewStudentProfile()
+    {
+        $user = auth()->user();
+    
+        return view('Users.studentprofile', compact('user'));
+    }
 }
