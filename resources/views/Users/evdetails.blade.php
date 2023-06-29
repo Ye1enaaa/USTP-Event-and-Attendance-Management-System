@@ -33,7 +33,7 @@
         @endif
     </div>
     <div class="description-container">
-    <h3> Abount the Event </h3>
+    <h3> About the Event </h3>
     <p>{{ $event->eventDesc }}</p>
   </div>
 </div>
