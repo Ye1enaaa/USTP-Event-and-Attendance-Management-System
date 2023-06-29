@@ -35,7 +35,7 @@
                         </div>
                         @elseif(Auth::user()->picture == null)
                         <div class="profile_container">
-                            <img id="profileImage" src="{{asset('logo-logo.png')}}" class="rounded-circle" style="width: 8rem !important; height: 8rem !important;">
+                            <img id="profileImage" src="{{ asset('assets/pictures/ustp-logo.png')}}" class="rounded-circle" style="width: 8rem !important; height: 8rem !important;">
                             <!-- <span class="text-white">{{ Auth::user()->name }}</span>&nbsp;<i class="caret"></i> -->
                         </div>
                         @endif

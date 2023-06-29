@@ -44,10 +44,7 @@
     /* border: 1px solid black; */
 }
 
-/* .eventtitle_container{
-    /* border: 1px solid black; */
-
-.eventtitle_container h2 {
+.eventtitle_container h3 {
     text-align: left;
     color: black;
 }
@@ -56,7 +53,7 @@
     color: black;
     position: absolute;
     left: 42%;
-    top: 20.60%;
+    top: 20.6%;
     cursor: pointer;
     transition: color 0.5s;
 }
@@ -206,6 +203,6 @@ form textarea.form-input {
     text-decoration: none;
 }
 
-.text-area{
-    resize:none;
+.text-area {
+    resize: none;
 }

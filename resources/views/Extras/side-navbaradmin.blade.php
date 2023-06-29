@@ -84,7 +84,7 @@
                     </div>
                     @elseif(Auth::user()->picture == null)
                     <div class="profile-container" style="padding: 5px;">
-                        <img src="{{asset('logo-logo.png')}}" class="profile-picture">
+                        <img src="{{ asset('assets/pictures/ustp-logo.png') }}" class="profile-picture">
                         <span class="name" style="color: #FFFFFF;">{{ Auth::user()->name }}</span>&nbsp;<i class="caret"></i>
                     </div>
                     @endif
