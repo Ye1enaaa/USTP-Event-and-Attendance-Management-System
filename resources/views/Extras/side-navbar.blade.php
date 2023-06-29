@@ -18,7 +18,7 @@
                     <li>
                         <a>
                             <span class="icon">
-                                <ion-icon name="cube-outline"></ion-icon>
+                                <ion-icon name='school'></ion-icon>
                                 </i>
                             </span>
                             <span class="text">
