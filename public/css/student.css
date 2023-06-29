@@ -1,0 +1,126 @@
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
+.child {
+    flex: 0 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.clickable-container {
+    display: block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5%;
+    text-decoration: none;
+    color: #333;
+    background-image: linear-gradient(315deg, #f6ecc4 0%, #f7d4d4 74%);
+}
+
+.event-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 300px; 
+    white-space: initial;
+    border-radius: 5%;
+    background-color: whitesmoke;
+}
+
+.event-picture {
+    flex: 0 0 200px;
+    width: 250px; 
+    height: 200px; 
+    align-self: center;
+    object-fit: cover; 
+    border-radius: 10px;
+}
+
+.event-info {
+    flex: 1;
+}
+
+.event-name {
+    margin-top: 10px;
+}
+
+.event-details {
+    margin-top: 5px;
+}
+
+.event-details ion-icon {
+    margin-right: 5px;
+    font-weight: bold;
+}
+  
+
+ 
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-button {
+    margin-right: 20px;
+    color: black;
+    font-size: 30px;
+}
+.container {
+    display: flex;
+    max-width: 100%;
+    margin: 20px;
+    margin-top: 0;
+    }
+  
+.details-container {
+    flex: 1;
+    width: 300px;
+    padding-top: 10px;
+    padding: 20px;
+    white-space: initial;
+    background-color: peachpuff;
+    border-radius: 15px;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+
+.description-container {
+    flex: 4;
+    padding: 20px;
+    background-image: linear-gradient(315deg, #f6ecc4 0%, #f7d4d4 74%);
+    border-radius: 10px;
+    white-space: initial;
+    text-align: justify;
+}
+
+.attended {
+    border: 3px solid green;
+    border-radius: 10px;
+}
+
+.missed {
+    border: 3px solid red;
+    border-radius: 10px;
+}
+
+.attendance-label {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
