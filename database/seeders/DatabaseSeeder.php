@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
              'department' => 'CITC',
              'year_section' => '3-3R2',
              'email' => 'test@example.com',
-             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi' //password
+             'password' => bcrypt('password') //password
          ]);
     }
 }
